@@ -2,16 +2,12 @@
 
 # Copyright: (C) 2020 iCub Tech Facility - Istituto Italiano di Tecnologia
 # Authors: Ugo Pattacini <ugo.pattacini@iit.it>
-# CopyPolicy: Released under the terms of the GNU GPL v3.0.
-#
-# The env variable GITHUB_TOKEN_VVV_SCHOOL shall contain a valid GitHub token
-# (refer to instructions to find out more)
 
 require 'octokit'
 
-org = ENV['GITHUB_ORG_OUTSIDE_COLLABORATORS']
-token = ENV['GITHUB_TOKEN_OUTSIDE_COLLABORATORS']
-metadata_file = '.outside-collaborators.yaml'
+$org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
+$metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
+$token = ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
 
 Signal.trap("INT") {
   exit 2
@@ -23,16 +19,16 @@ Signal.trap("TERM") {
 
 def process(client, repo)
   begin
-    metadata = client.contents(repo.full_name, :path => metadata_file)
+    metadata = client.contents(repo.full_name, :path => $metadata_filename)
   rescue
   else
     puts "#{repo.name}"
   end
 end
 
-client = Octokit::Client.new :access_token => token
+client = Octokit::Client.new :access_token => $token
 loop do
-  client.org_repos(org, {:type => 'all'})
+  client.org_repos($org, {:type => 'all'})
   rate_limit = client.rate_limit
   if rate_limit.remaining > 0 then
     break
