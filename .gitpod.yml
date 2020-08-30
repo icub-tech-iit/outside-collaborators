@@ -2,5 +2,7 @@ image:
   file: .gitpod.Dockerfile
 tasks:
 - init: |
-    echo "export OUTSIDE_COLLABORATORS_GITHUB_ORG=icub-tech-iit" >> ~/.bashrc
-    echo "export OUTSIDE_COLLABORATORS_METADATA_FILENAME=.outside-collaborators.yaml" >> ~/.bashrc
+    echo "export OUTSIDE_COLLABORATORS_GITHUB_ORG=icub-tech-iit" >> ~/.bashrc-custom
+    echo "export OUTSIDE_COLLABORATORS_METADATA_FILENAME=.outside-collaborators.yaml" >> ~/.bashrc-custom
+    echo "source ~/.bashrc-custom" >> ~/.bashrc
+    source ~/.bashrc-custom
