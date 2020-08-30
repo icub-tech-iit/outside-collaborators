@@ -7,6 +7,8 @@ require 'octokit'
 
 $org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
 $token = ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
+$repo = ARGV[0]
+$repofull = $org + '/' + $repo
 
 Signal.trap("INT") {
   exit 2
@@ -18,7 +20,7 @@ Signal.trap("TERM") {
 
 client = Octokit::Client.new :access_token => $token
 loop do
-  client.outside_collaborators($org)
+  client.collaborators($repofull)
   rate_limit = client.rate_limit
   if rate_limit.remaining > 0 then
     break

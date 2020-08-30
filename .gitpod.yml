@@ -3,6 +3,6 @@ image:
 tasks:
 - init: |
     echo "export OUTSIDE_COLLABORATORS_GITHUB_ORG=icub-tech-iit" >> ~/.bashrc-custom
-    echo "export OUTSIDE_COLLABORATORS_METADATA_FILENAME=.outside-collaborators/recipe.yml" >> ~/.bashrc-custom
+    echo "export OUTSIDE_COLLABORATORS_METADATA_FILENAME=.outside-collaborators/override.yml" >> ~/.bashrc-custom
     echo "source ~/.bashrc-custom" >> ~/.bashrc
     source ~/.bashrc-custom
