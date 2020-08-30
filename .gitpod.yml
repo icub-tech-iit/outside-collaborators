@@ -1,2 +1,6 @@
 image:
   file: .gitpod.Dockerfile
+tasks:
+- init: |
+    echo "export OUTSIDE_COLLABORATORS_GITHUB_ORG=icub-tech-iit" >> ~/.bashrc
+    echo "export OUTSIDE_COLLABORATORS_METADATA_FILENAME=.outside-collaborators.yaml" >> ~/.bashrc
