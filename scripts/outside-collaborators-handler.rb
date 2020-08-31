@@ -1,0 +1,188 @@
+#!/usr/bin/env ruby
+
+# Copyright: (C) 2020 iCub Tech Facility - Istituto Italiano di Tecnologia
+# Authors: Ugo Pattacini <ugo.pattacini@iit.it>
+
+
+#########################################################################################
+# deps
+require 'octokit'
+require 'yaml'
+
+
+#########################################################################################
+# global vars
+$org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
+$metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
+$client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
+$wait = 60
+$repos = []
+$yaml_repo_metadata = []
+
+
+#########################################################################################
+# traps
+Signal.trap("INT") {
+  exit 2
+}
+
+Signal.trap("TERM") {
+  exit 2
+}
+
+
+#########################################################################################
+def get_repo_metadata(repo)
+    begin
+        metadata = $client.contents(repo.full_name, :path => $metadata_filename)
+    rescue
+    else
+        $repos << repo.full_name
+        $yaml_repo_metadata << YAML.load(Base64.decode64(metadata.content))
+    end
+end
+
+
+#########################################################################################
+def get_repos()
+    loop do
+        $client.org_repos($org, {:type => 'all'})
+        rate_limit = $client.rate_limit
+        if rate_limit.remaining > 0 then
+            break
+        end
+        sleep($wait)
+    end
+
+    last_response = $client.last_response
+    data = last_response.data
+    data.each { |repo|
+        get_repo_metadata(repo)
+    }
+
+    until last_response.rels[:next].nil?
+        last_response = last_response.rels[:next].get
+        data = last_response.data
+        data.each { |repo|
+            get_repo_metadata(repo)
+        }
+    end
+end
+
+
+#########################################################################################
+def delete_repo_invitations(repo)
+    loop do
+        $client.repository_invitations(repo)
+        rate_limit = $client.rate_limit
+        if rate_limit.remaining > 0 then
+            break
+        end
+        sleep($wait)
+    end
+
+    last_response = $client.last_response
+    data = last_response.data
+    data.each { |invitation|
+        puts "Deleting invitation to \"#{invitation.invitee.login}\""
+        $client.delete_repository_invitation(repo, invitation.id)
+    }
+
+    until last_response.rels[:next].nil?
+        last_response = last_response.rels[:next].get
+        data = last_response.data
+        data.each { |invitation|
+            puts "Deleting invitation to \"#{invitation.invitee.login}\""
+            $client.delete_repository_invitation(repo, invitation.id)
+        }
+    end
+end
+
+
+#########################################################################################
+def add_repo_collaborator(repo, user, auth)
+    if !auth.casecmp?("read") && !auth.casecmp?("triage") &&
+       !auth.casecmp?("write") && !auth.casecmp?("maintain") &&
+       !auth.casecmp?("admin") then
+        auth = "read"
+    end
+    puts "Inviting/updating \"#{user}\" with permission \"#{auth}\""
+    
+    # remap permissions
+    if auth.casecmp?("read") then
+        auth = "pull"
+    elsif auth.casecmp?("write") then
+        auth = "push"
+    end
+
+    $client.add_collaborator(repo, user, permission: auth)
+end
+
+
+#########################################################################################
+def get_repo_collaborators(repo)
+    loop do
+        $client.collaborators(repo)
+        rate_limit = $client.rate_limit
+        if rate_limit.remaining > 0 then
+            break
+        end
+        sleep($wait)
+    end
+
+    collaborators = []
+    last_response = $client.last_response
+    data = last_response.data
+    data.each { |c| collaborators << "#{c.login}" }
+
+    until last_response.rels[:next].nil?
+        last_response = last_response.rels[:next].get
+        data = last_response.data
+        data.each { |c| collaborators << "#{c.login}" }
+    end
+
+    return collaborators
+end
+
+
+#########################################################################################
+# main
+get_repos()
+i = 0
+$repos.each { |repo|
+    puts "Processing \"#{repo}\"..."
+
+    # adding a collaborator again will tigger a new invitation
+    # so that stale invitations get revived, plus we clean up
+    # invitations that are no longer requested
+    delete_repo_invitations(repo)
+
+    # add collaborators
+    $yaml_repo_metadata[i].each { |user, props|
+        # cycle over users, not groups
+        if (props[:type].casecmp?("user")) then
+            begin
+                # check that the user is actually existing
+                $client.user(user)
+            rescue
+            else
+                if !$client.org_member?($org, user) then
+                    add_repo_collaborator(repo, user, props[:permission])
+                end
+            end
+        end
+    }
+
+    # remove collaborators no longer requested
+    get_repo_collaborators(repo).each { |user|
+        if !$client.org_member?($org, user) then
+            if !$yaml_repo_metadata[i].key?(user) then
+                puts "Removing collaborator \"#{user}\""
+                $client.remove_collaborator(repo, user)
+            end
+        end
+    }
+
+    puts "...done with \"#{repo}\" ✔"
+    i = i + 1
+}
