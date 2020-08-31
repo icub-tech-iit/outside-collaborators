@@ -1,6 +1,13 @@
 name: Update Outside Collaborators
 
-on: 
+on:
+  push:
+    branches:
+    - 'master'
+    paths:
+    - "scripts/*.rb"
+    - "groups/*.yml"
+    - "groups/*.yaml"
   workflow_dispatch:
 
 jobs:
