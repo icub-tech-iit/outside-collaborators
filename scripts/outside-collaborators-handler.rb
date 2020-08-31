@@ -104,24 +104,29 @@ def add_repo_collaborator(repo, user, auth)
     # "write" is the highest permission we can handle here
     # to be safe against malicious collaborators w/ "write"
     # permission who can elevate themselves otherwise
-    if auth.casecmp?("maintain") || auth.casecmp?("admin")
-        auth = "write"
+    auth_ = auth
+    if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
+        auth_ = "write"
     end
-    if !auth.casecmp?("read") && !auth.casecmp?("triage") &&
-       !auth.casecmp?("write") && !auth.casecmp?("maintain") &&
-       !auth.casecmp?("admin") then
-        auth = "read"
+    if !auth_.casecmp?("read") && !auth_.casecmp?("triage") &&
+       !auth_.casecmp?("write") && !auth_.casecmp?("maintain") &&
+       !auth_.casecmp?("admin") then
+        auth_ = "read"
     end
-    puts "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth}\""
+    print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
+    if auth_ <=> auth then
+        print " (\"#{auth}\" is not available/allowed)"
+    end
+    print "\n"
     
     # remap permissions
-    if auth.casecmp?("read") then
-        auth = "pull"
-    elsif auth.casecmp?("write") then
-        auth = "push"
+    if auth_.casecmp?("read") then
+        auth_ = "pull"
+    elsif auth_.casecmp?("write") then
+        auth_ = "push"
     end
 
-    $client.add_collaborator(repo, user, permission: auth)
+    $client.add_collaborator(repo, user, permission: auth_)
 end
 
 
