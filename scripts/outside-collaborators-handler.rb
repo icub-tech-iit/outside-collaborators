@@ -33,8 +33,8 @@ Signal.trap("TERM") {
 def get_repo_metadata(repo)
     begin
         metadata = $client.contents(repo.full_name, :path => $metadata_filename)
-        return nil, nil
     rescue
+        return nil, nil
     else
         return repo.full_name, YAML.load(Base64.decode64(metadata.content))
     end
@@ -146,14 +146,11 @@ def add_repo_collaborator(repo, user, auth)
             auth_ = auth
             if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
                 auth_ = "write"
-            end
-            if !auth_.casecmp?("read") && !auth_.casecmp?("triage") &&
-            !auth_.casecmp?("write") && !auth_.casecmp?("maintain") &&
-            !auth_.casecmp?("admin") then
+            elsif !auth_.casecmp?("read") && !auth_.casecmp?("triage") && !auth_.casecmp?("write") then
                 auth_ = "read"
             end
             print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
-            if auth_ <=> auth then
+            if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
                 print " (⚠ \"#{auth}\" is not available/allowed)"
             end
             print "\n"
@@ -179,10 +176,16 @@ end
 
 #########################################################################################
 # main
+
+# retrieve groups information
+groupsfiles = Dir["../groups/*.yml"]
+groupsfiles << Dir["../groups/*.yaml"]
+
 groups = {}
-groupsfiles = Dir.entries("../groups/*.yml")
 groupsfiles.each { |file|
-    groups.merge!(YAML.load(file))
+    if !file.empty? then
+        groups.merge!(YAML.load_file(file))
+    end
 }
 
 i = 0
@@ -205,7 +208,7 @@ repos.each { |repo|
             add_repo_collaborator(repo, user, permission)
         elsif (type.casecmp?("group")) then
             if groups.key?(user) then
-                puts "- Handling group \"#{user}\""
+                puts "- Handling group \"#{user}\" 👥"
                 groups[user].each { |subuser|
                     add_repo_collaborator(repo, subuser, permission)
                 }
