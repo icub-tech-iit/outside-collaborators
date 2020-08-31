@@ -32,11 +32,11 @@ Signal.trap("TERM") {
 #########################################################################################
 def get_repo_metadata(repo)
     begin
-        metadata = $client.contents(repo.full_name, :path => $metadata_filename)
+        repo_metadata = $client.contents(repo.full_name, :path => $metadata_filename)
     rescue
-        return nil, nil
+        return {}
     else
-        return repo.full_name, YAML.load(Base64.decode64(metadata.content))
+        return {repo.full_name => YAML.load(Base64.decode64(repo_metadata.content))}
     end
 end
 
@@ -53,15 +53,13 @@ def get_repos()
     end
 
     repos = []
-    repos_metadata = []
 
     last_response = $client.last_response
     data = last_response.data
     data.each { |repo|
-        repo, repo_metadata = get_repo_metadata(repo)
-        if !repo.nil? && !repo_metadata.nil? then
+        repo = get_repo_metadata(repo)
+        if !repo.empty? then
             repos << repo
-            repos_metadata << repo_metadata
         end
     }
 
@@ -69,15 +67,14 @@ def get_repos()
         last_response = last_response.rels[:next].get
         data = last_response.data
         data.each { |repo|
-            repo, repo_metadata = get_repo_metadata(repo)
-            if !repo.nil? && !repo_metadata.nil? then
+            repo = get_repo_metadata(repo)
+            if !repo.empty? then
                 repos << repo
-                repos_metadata << repo_metadata
             end
         }
     end
 
-    return repos, repos_metadata
+    return repos
 end
 
 
@@ -151,7 +148,7 @@ def add_repo_collaborator(repo, user, auth)
             end
             print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
             if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
-                print " (⚠ \"#{auth}\" is not available/allowed)"
+                print " (⚠ \"#{auth}\" is not allowed/available)"
             end
             print "\n"
 
@@ -188,29 +185,31 @@ groupsfiles.each { |file|
     end
 }
 
-i = 0
-repos, repos_metadata = get_repos()
-repos.each { |repo|
-    puts "Processing \"#{repo}\"..."
+# cycle over repos
+get_repos().each { |repo|
+    repo_name = repo.keys[0]
+    repo_metadata = repo.values[0]
+    
+    puts "Processing \"#{repo_name}\"..."
 
     # clean up all pending invitations
     # so that we can revive those stale
-    get_repo_invitations(repo).each { |invitation|
+    get_repo_invitations(repo_name).each { |invitation|
         puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
-        $client.delete_repository_invitation(repo, invitation.id)
+        $client.delete_repository_invitation(repo_name, invitation.id)
     }
 
     # add collaborators
-    repos_metadata[i].each { |user, props|
+    repo_metadata.each { |user, props|
         type = props["type"]
         permission = props["permission"]
         if (type.casecmp?("user")) then
-            add_repo_collaborator(repo, user, permission)
+            add_repo_collaborator(repo_name, user, permission)
         elsif (type.casecmp?("group")) then
             if groups.key?(user) then
                 puts "- Handling group \"#{user}\" 👥"
                 groups[user].each { |subuser|
-                    add_repo_collaborator(repo, subuser, permission)
+                    add_repo_collaborator(repo_name, subuser, permission)
                 }
             else
                 puts "- Unrecognized group \"#{user}\" ❌"
@@ -221,15 +220,14 @@ repos.each { |repo|
     }
 
     # remove collaborators no longer requested
-    get_repo_collaborators(repo).each { |user|
+    get_repo_collaborators(repo_name).each { |user|
         if !$client.org_member?($org, user) then
-            if !repos_metadata[i].key?(user) && !groups.has_value?(user) then
+            if !repo_metadata.key?(user) && !groups.has_value?(user) then
                 puts "- Removing collaborator \"#{user}\""
-                $client.remove_collaborator(repo, user)
+                $client.remove_collaborator(repo_name, user)
             end
         end
     }
 
-    puts "...done with \"#{repo}\" ✔"
-    i = i + 1
+    puts "...done with \"#{repo_name}\" ✔"
 }
