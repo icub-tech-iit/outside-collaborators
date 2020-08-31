@@ -115,7 +115,7 @@ def add_repo_collaborator(repo, user, auth)
     end
     print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
     if auth_ <=> auth then
-        print " (\"#{auth}\" is not available/allowed)"
+        print " (⚠ \"#{auth}\" is not available/allowed)"
     end
     print "\n"
     
@@ -170,17 +170,24 @@ $repos.each { |repo|
 
     # add collaborators
     $yaml_repo_metadata[i].each { |user, props|
-        # cycle over users, not groups
-        if (props["type"].casecmp?("user")) then
+        type = props["type"]
+        if (type.casecmp?("user")) then
             begin
                 # check that the user is actually existing
                 $client.user(user)
             rescue
+                puts "Requesting action for not existing user \"#{user}\" ❌"
             else
-                if !$client.org_member?($org, user) then
+                if $client.org_member?($org, user) then
+                    puts "Requesting action for organization member \"#{user}\" ❌"
+                else
                     add_repo_collaborator(repo, user, props["permission"])
                 end
             end
+        elsif (type.casecmp?("group")) then
+            # ...
+        else
+            puts "Unrecognized type \"#{type}\" ❌"
         end
     }
 
