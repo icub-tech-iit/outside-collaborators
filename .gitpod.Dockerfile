@@ -13,12 +13,6 @@ ENV INVALIDATE_DOCKER_CACHE=0
 # Install essentials
 RUN apt install -y apt-utils software-properties-common apt-transport-https sudo psmisc \
     lsb-release wget git ruby
-    
-# Install yq
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CC86BB64 && \
-    add-apt-repository ppa:rmescandon/yq && \
-    apt update && \
-    apt install -y yq
 
 # Install gems
 RUN gem install octokit yaml
