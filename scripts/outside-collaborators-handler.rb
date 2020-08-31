@@ -17,7 +17,8 @@ $metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
 $wait = 60
 $repos = []
-$yaml_repo_metadata = []
+$repo_metadata = []
+$groups = {}
 
 
 #########################################################################################
@@ -38,7 +39,7 @@ def get_repo_metadata(repo)
     rescue
     else
         $repos << repo.full_name
-        $yaml_repo_metadata << YAML.load(Base64.decode64(metadata.content))
+        $repo_metadata << YAML.load(Base64.decode64(metadata.content))
     end
 end
 
@@ -71,7 +72,7 @@ end
 
 
 #########################################################################################
-def delete_repo_invitations(repo)
+def get_repo_invitations(repo)
     loop do
         $client.repository_invitations(repo)
         rate_limit = $client.rate_limit
@@ -82,51 +83,14 @@ def delete_repo_invitations(repo)
     end
 
     last_response = $client.last_response
-    data = last_response.data
-    data.each { |invitation|
-        puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
-        $client.delete_repository_invitation(repo, invitation.id)
-    }
+    invitations = last_response.data
 
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
-        data = last_response.data
-        data.each { |invitation|
-            puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
-            $client.delete_repository_invitation(repo, invitation.id)
-        }
-    end
-end
-
-
-#########################################################################################
-def add_repo_collaborator(repo, user, auth)
-    # "write" is the highest permission we can handle here
-    # to be safe against malicious collaborators w/ "write"
-    # permission who can elevate themselves otherwise
-    auth_ = auth
-    if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
-        auth_ = "write"
-    end
-    if !auth_.casecmp?("read") && !auth_.casecmp?("triage") &&
-       !auth_.casecmp?("write") && !auth_.casecmp?("maintain") &&
-       !auth_.casecmp?("admin") then
-        auth_ = "read"
-    end
-    print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
-    if auth_ <=> auth then
-        print " (⚠ \"#{auth}\" is not available/allowed)"
-    end
-    print "\n"
-    
-    # remap permissions
-    if auth_.casecmp?("read") then
-        auth_ = "pull"
-    elsif auth_.casecmp?("write") then
-        auth_ = "push"
+        invitations << last_response.data
     end
 
-    $client.add_collaborator(repo, user, permission: auth_)
+    return invitations
 end
 
 
@@ -157,44 +121,95 @@ end
 
 
 #########################################################################################
+def add_repo_collaborator(repo, user, auth)
+    begin
+        $client.user(user)
+    rescue
+        puts "- Requested action for not existing user \"#{user}\" ❌"
+    else
+        if $client.org_member?($org, user) then
+            puts "- Requested action for organization member \"#{user}\" ❌"
+        else
+            # "write" is the highest permission we can handle here
+            # to make sure that malicious collaborators w/ "write"
+            # access won't be able to elevate themselves
+            auth_ = auth
+            if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
+                auth_ = "write"
+            end
+            if !auth_.casecmp?("read") && !auth_.casecmp?("triage") &&
+            !auth_.casecmp?("write") && !auth_.casecmp?("maintain") &&
+            !auth_.casecmp?("admin") then
+                auth_ = "read"
+            end
+            print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
+            if auth_ <=> auth then
+                print " (⚠ \"#{auth}\" is not available/allowed)"
+            end
+            print "\n"
+
+            get_repo_invitations(repo).each { |invitation|
+                if invitation.invitee.login.casecmp?(user) then
+                    $client.update_repository_invitation(repo, invitation.id, permission: auth_)
+                    return
+                end
+            }
+
+            # remap permissions
+            if auth_.casecmp?("read") then
+                auth_ = "pull"
+            elsif auth_.casecmp?("write") then
+                auth_ = "push"
+            end
+            $client.add_collaborator(repo, user, permission: auth_)
+        end
+    end
+end
+
+
+#########################################################################################
 # main
-get_repos()
+groupsfiles = Dir.entries("../groups/*.yml")
+groupsfiles.each { |file|
+    $groups.merge!(YAML.load(file))
+}
+
 i = 0
+get_repos()
 $repos.each { |repo|
     puts "Processing \"#{repo}\"..."
 
-    # adding a collaborator again will trigger a new invitation
-    # so that stale invitations get revived, plus we clean up
-    # invitations that are no longer requested
-    delete_repo_invitations(repo)
+    # clean up all pending invitations
+    # so that we can revive those stale
+    get_repo_invitations(repo).each { |invitation|
+        puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
+        $client.delete_repository_invitation(repo, invitation.id)
+    }
 
     # add collaborators
-    $yaml_repo_metadata[i].each { |user, props|
+    $repo_metadata[i].each { |user, props|
         type = props["type"]
+        permission = props["permission"]
         if (type.casecmp?("user")) then
-            begin
-                # check that the user is actually existing
-                $client.user(user)
-            rescue
-                puts "Requesting action for not existing user \"#{user}\" ❌"
-            else
-                if $client.org_member?($org, user) then
-                    puts "Requesting action for organization member \"#{user}\" ❌"
-                else
-                    add_repo_collaborator(repo, user, props["permission"])
-                end
-            end
+            add_repo_collaborator(repo, user, permission)
         elsif (type.casecmp?("group")) then
-            # ...
+            if $groups.key?(user) then
+                puts "- Handling group \"#{user}\""
+                $groups[user].each { |subuser|
+                    add_repo_collaborator(repo, subuser, permission)
+                }
+            else
+                puts "- Unrecognized group \"#{user}\" ❌"
+            end
         else
-            puts "Unrecognized type \"#{type}\" ❌"
+            puts "- Unrecognized type \"#{type}\" ❌"
         end
     }
 
     # remove collaborators no longer requested
     get_repo_collaborators(repo).each { |user|
         if !$client.org_member?($org, user) then
-            if !$yaml_repo_metadata[i].key?(user) then
+            if !$repo_metadata[i].key?(user) && !$groups.has_value?(user) then
                 puts "- Removing collaborator \"#{user}\""
                 $client.remove_collaborator(repo, user)
             end
