@@ -84,7 +84,7 @@ def delete_repo_invitations(repo)
     last_response = $client.last_response
     data = last_response.data
     data.each { |invitation|
-        puts "Deleting invitation to \"#{invitation.invitee.login}\""
+        puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
         $client.delete_repository_invitation(repo, invitation.id)
     }
 
@@ -92,7 +92,7 @@ def delete_repo_invitations(repo)
         last_response = last_response.rels[:next].get
         data = last_response.data
         data.each { |invitation|
-            puts "Deleting invitation to \"#{invitation.invitee.login}\""
+            puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
             $client.delete_repository_invitation(repo, invitation.id)
         }
     end
@@ -101,12 +101,18 @@ end
 
 #########################################################################################
 def add_repo_collaborator(repo, user, auth)
+    # "write" is the highest permission we can handle here
+    # to be safe against malicious collaborators w/ "write"
+    # permission who can elevate themselves otherwise
+    if auth.casecmp?("maintain") || auth.casecmp?("admin")
+        auth = "write"
+    end
     if !auth.casecmp?("read") && !auth.casecmp?("triage") &&
        !auth.casecmp?("write") && !auth.casecmp?("maintain") &&
        !auth.casecmp?("admin") then
         auth = "read"
     end
-    puts "Inviting/updating \"#{user}\" with permission \"#{auth}\""
+    puts "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth}\""
     
     # remap permissions
     if auth.casecmp?("read") then
@@ -152,7 +158,7 @@ i = 0
 $repos.each { |repo|
     puts "Processing \"#{repo}\"..."
 
-    # adding a collaborator again will tigger a new invitation
+    # adding a collaborator again will trigger a new invitation
     # so that stale invitations get revived, plus we clean up
     # invitations that are no longer requested
     delete_repo_invitations(repo)
@@ -160,14 +166,14 @@ $repos.each { |repo|
     # add collaborators
     $yaml_repo_metadata[i].each { |user, props|
         # cycle over users, not groups
-        if (props[:type].casecmp?("user")) then
+        if (props["type"].casecmp?("user")) then
             begin
                 # check that the user is actually existing
                 $client.user(user)
             rescue
             else
                 if !$client.org_member?($org, user) then
-                    add_repo_collaborator(repo, user, props[:permission])
+                    add_repo_collaborator(repo, user, props["permission"])
                 end
             end
         end
@@ -177,7 +183,7 @@ $repos.each { |repo|
     get_repo_collaborators(repo).each { |user|
         if !$client.org_member?($org, user) then
             if !$yaml_repo_metadata[i].key?(user) then
-                puts "Removing collaborator \"#{user}\""
+                puts "- Removing collaborator \"#{user}\""
                 $client.remove_collaborator(repo, user)
             end
         end
