@@ -137,9 +137,9 @@ def add_repo_collaborator(repo, user, auth)
         if $client.org_member?($org, user) then
             puts "- Requested action for organization member \"#{user}\" ❌"
         else
-            # "write" is the highest permission we can handle here
-            # to make sure that malicious collaborators w/ "write"
-            # access won't be able to elevate themselves
+            # "write" is the highest allowed permission we can handle
+            # in order to make sure that malicious collaborators
+            # won't be able to elevate themselves
             auth_ = auth
             if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
                 auth_ = "write"
@@ -195,7 +195,7 @@ get_repos().each { |repo|
     # clean up all pending invitations
     # so that we can revive those stale
     get_repo_invitations(repo_name).each { |invitation|
-        puts "- Deleting invitation to collaborator \"#{invitation.invitee.login}\""
+        puts "- Deleting invitee \"#{invitation.invitee.login}\""
         $client.delete_repository_invitation(repo_name, invitation.id)
     }
 

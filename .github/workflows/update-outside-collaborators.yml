@@ -5,7 +5,6 @@ on:
     branches:
     - 'master'
     paths:
-    - "scripts/*.rb"
     - "groups/*.yml"
     - "groups/*.yaml"
   workflow_dispatch:
