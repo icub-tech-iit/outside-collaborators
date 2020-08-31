@@ -1,0 +1,25 @@
+name: Update Outside Collaborators
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  Update:
+    name: "Update"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dependencies
+        run: |
+          sudo gem install octokit yaml
+      - name: Set Env Variables
+        run: |
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ORG::${{ github.repository_owner }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_METADATA_FILENAME::.outside-collaborators/override.yml"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}"
+      - uses: actions/checkout@master
+      - name: Run Handler
+        run: |
+          cd scripts
+          ./outside-collaborators-handler.rb
+      
