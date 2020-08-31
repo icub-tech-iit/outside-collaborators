@@ -16,9 +16,6 @@ $org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
 $metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
 $wait = 60
-$repos = []
-$repo_metadata = []
-$groups = {}
 
 
 #########################################################################################
@@ -36,10 +33,10 @@ Signal.trap("TERM") {
 def get_repo_metadata(repo)
     begin
         metadata = $client.contents(repo.full_name, :path => $metadata_filename)
+        return nil, nil
     rescue
     else
-        $repos << repo.full_name
-        $repo_metadata << YAML.load(Base64.decode64(metadata.content))
+        return repo.full_name, YAML.load(Base64.decode64(metadata.content))
     end
 end
 
@@ -55,19 +52,32 @@ def get_repos()
         sleep($wait)
     end
 
+    repos = []
+    repos_metadata = []
+
     last_response = $client.last_response
     data = last_response.data
     data.each { |repo|
-        get_repo_metadata(repo)
+        repo, repo_metadata = get_repo_metadata(repo)
+        if !repo.nil? && !repo_metadata.nil? then
+            repos << repo
+            repos_metadata << repo_metadata
+        end
     }
 
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
         data = last_response.data
         data.each { |repo|
-            get_repo_metadata(repo)
+            repo, repo_metadata = get_repo_metadata(repo)
+            if !repo.nil? && !repo_metadata.nil? then
+                repos << repo
+                repos_metadata << repo_metadata
+            end
         }
     end
+
+    return repos, repos_metadata
 end
 
 
@@ -169,14 +179,15 @@ end
 
 #########################################################################################
 # main
+groups = {}
 groupsfiles = Dir.entries("../groups/*.yml")
 groupsfiles.each { |file|
-    $groups.merge!(YAML.load(file))
+    groups.merge!(YAML.load(file))
 }
 
 i = 0
-get_repos()
-$repos.each { |repo|
+repos, repos_metadata = get_repos()
+repos.each { |repo|
     puts "Processing \"#{repo}\"..."
 
     # clean up all pending invitations
@@ -187,15 +198,15 @@ $repos.each { |repo|
     }
 
     # add collaborators
-    $repo_metadata[i].each { |user, props|
+    repos_metadata[i].each { |user, props|
         type = props["type"]
         permission = props["permission"]
         if (type.casecmp?("user")) then
             add_repo_collaborator(repo, user, permission)
         elsif (type.casecmp?("group")) then
-            if $groups.key?(user) then
+            if groups.key?(user) then
                 puts "- Handling group \"#{user}\""
-                $groups[user].each { |subuser|
+                groups[user].each { |subuser|
                     add_repo_collaborator(repo, subuser, permission)
                 }
             else
@@ -209,7 +220,7 @@ $repos.each { |repo|
     # remove collaborators no longer requested
     get_repo_collaborators(repo).each { |user|
         if !$client.org_member?($org, user) then
-            if !$repo_metadata[i].key?(user) && !$groups.has_value?(user) then
+            if !repos_metadata[i].key?(user) && !groups.has_value?(user) then
                 puts "- Removing collaborator \"#{user}\""
                 $client.remove_collaborator(repo, user)
             end
