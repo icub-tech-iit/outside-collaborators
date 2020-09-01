@@ -165,10 +165,11 @@ def add_repo_collaborator(repo, user, auth)
             }
 
             # remap permissions to comply w/ REST API
-            if auth_.casecmp?("read") then
-                auth_ = "pull"
-            elsif auth_.casecmp?("write") then
-                auth_ = "push"
+            auth__ = auth_
+            if auth__.casecmp?("read") then
+                auth__ = "pull"
+            elsif auth__.casecmp?("write") then
+                auth__ = "push"
             end
 
             # handle: invitation, update, skip due to unspecified permission
@@ -183,11 +184,30 @@ def add_repo_collaborator(repo, user, auth)
                     print " (\"#{auth}\" is not allowed/available ⚠)"
                 end
                 print "\n"
-                $client.add_collaborator(repo, user, permission: auth_)
+                $client.add_collaborator(repo, user, permission: auth__)
             else
                 puts "Skipping collaborator \"#{user}\" whose permission is handled manually ⚠"
             end
         end
+    end
+end
+
+
+#########################################################################################
+def repo_member(repo_metadata, groups, user)
+    if repo_metadata.key?(user) then
+        return true
+    else
+        repo_metadata.each { |item, props|
+            if (props["type"].casecmp?("group")) then
+                if groups.key?(item) then
+                    if groups[item].include?(user)
+                        return true
+                    end
+                end
+            end
+        }
+        return false
     end
 end
 
@@ -211,7 +231,7 @@ get_repos().each { |repo|
     repo_name = repo.keys[0]
     repo_metadata = repo.values[0]
     
-    puts "Processing \"#{repo_name}\"..."
+    puts "Processing repository \"#{repo_name}\"..."
 
     # clean up all pending invitations
     # so that we can revive those stale
@@ -243,7 +263,7 @@ get_repos().each { |repo|
     # remove collaborators no longer requested
     get_repo_collaborators(repo_name).each { |user|
         if !$client.org_member?($org, user) then
-            if !repo_metadata.key?(user) && !groups.has_value?(user) then
+            if !repo_member(repo_metadata, groups, user) then
                 puts "- Removing collaborator \"#{user}\""
                 $client.remove_collaborator(repo_name, user)
             end
