@@ -137,38 +137,56 @@ def add_repo_collaborator(repo, user, auth)
         if $client.org_member?($org, user) then
             puts "- Requested action for organization member \"#{user}\" ❌"
         else
-            # "write" is the highest allowed permission we can handle
-            # in order to make sure that malicious collaborators
-            # won't be able to elevate themselves
             if auth.nil? then
                 auth = ""
             end
+
+            # "write" is the highest allowed permission we can handle
+            # in order to make sure that malicious collaborators
+            # won't be able to elevate themselves
             auth_ = auth
             if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
                 auth_ = "write"
             elsif !auth_.casecmp?("read") && !auth_.casecmp?("triage") && !auth_.casecmp?("write") then
                 auth_ = "read"
             end
-            print "- Inviting/updating collaborator \"#{user}\" with permission \"#{auth_}\""
-            if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
-                print " (⚠ \"#{auth}\" is not allowed/available)"
-            end
-            print "\n"
 
+            # update pending invitation
             get_repo_invitations(repo).each { |invitation|
                 if invitation.invitee.login.casecmp?(user) then
+                    print "- Updating invitation to collaborator \"#{user}\" with permission \"#{auth_}\""
+                    if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
+                        print " (\"#{auth}\" is not allowed/available ⚠)"
+                    end
+                    print "\n"
                     $client.update_repository_invitation(repo, invitation.id, permission: auth_)
                     return
                 end
             }
 
-            # remap permissions
+            # remap permissions to comply w/ REST API
             if auth_.casecmp?("read") then
                 auth_ = "pull"
             elsif auth_.casecmp?("write") then
                 auth_ = "push"
             end
-            $client.add_collaborator(repo, user, permission: auth_)
+
+            # handle: invitation, update, skip due to unspecified permission
+            is_collaborator = $client.collaborator?(repo, user)
+            if !auth.empty? || !is_collaborator then
+                if is_collaborator then
+                    print "- Updating collaborator \"#{user}\" with permission \"#{auth_}\""
+                else
+                    print "- Inviting collaborator \"#{user}\" with permission \"#{auth_}\""
+                end
+                if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
+                    print " (\"#{auth}\" is not allowed/available ⚠)"
+                end
+                print "\n"
+                $client.add_collaborator(repo, user, permission: auth_)
+            else
+                puts "Skipping collaborator \"#{user}\" whose permission is handled manually ⚠"
+            end
         end
     end
 end
