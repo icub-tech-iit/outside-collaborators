@@ -140,6 +140,9 @@ def add_repo_collaborator(repo, user, auth)
             # "write" is the highest allowed permission we can handle
             # in order to make sure that malicious collaborators
             # won't be able to elevate themselves
+            if auth.nil? then
+                auth = ""
+            end
             auth_ = auth
             if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
                 auth_ = "write"
