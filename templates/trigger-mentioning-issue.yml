@@ -1,0 +1,30 @@
+name: Trigger Mentioning Issue
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  trigger:
+    name: "Trigger"
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1.1.1
+      with:
+        token: ${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}
+        repository: icub-tech-iit/outside-collaborators
+        event-type: create_mentioning_issue
+        client-payload: '{
+                           "repo": "${{ github.repository }}",
+                           "event_name": "${{ github.event_name }}",
+                           "issue_id": "${{ github.event.issue.id }}",
+                           "issue_body": "${{ github.event.issue.body }}",
+                           "issue_author": "${{ github.event.issue.user.login }}",
+                           "comment_body": "${{ github.event.comment.body }}",
+                           "commenter": "${{ github.event.comment.user.login }}"
+                         }'
+        
