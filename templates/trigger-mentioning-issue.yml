@@ -12,13 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Make Body JSONable
-      run: |
-        # remove double quotes
-        issue_body=$(echo "${{ github.event.issue.body }}")
-        comment_body=$(echo "${{ github.event.comment.body }}")
-        echo "::set-env name=ISSUE_BODY::\"${issue_body}\""
-        echo "::set-env name=COMMENT_BODY::\"${comment_body}\""
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1.1.1
       with:
@@ -29,9 +22,6 @@ jobs:
                            "repo": "${{ github.repository }}",
                            "event_name": "${{ github.event_name }}",
                            "issue_number": "${{ github.event.issue.number }}",
-                           "issue_body": "${ISSUE_BODY}",
-                           "issue_author": "${{ github.event.issue.user.login }}",
-                           "comment_body": "${COMMENT_BODY}",
-                           "commenter": "${{ github.event.comment.user.login }}"
+                           "comment_id": "${{ github.event.comment.id }}"
                          }'
         

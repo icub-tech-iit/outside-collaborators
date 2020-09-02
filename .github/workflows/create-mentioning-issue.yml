@@ -18,10 +18,7 @@ jobs:
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_REPO::${{ github.event.client_payload.repo }}"
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME::${{ github.event.client_payload.event_name }}"
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_NUMBER::${{ github.event.client_payload.issue_number }}"
-          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_BODY::\"${{ github.event.client_payload.issue_body }}\""
-          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_AUTHOR::${{ github.event.client_payload.issue_author }}"
-          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_COMMNENT_BODY::\"${{ github.event.client_payload.comment_body }}\""
-          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_COMMENTER::${{ github.event.client_payload.commenter }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_COMMENT_ID::${{ github.event.client_payload.comment_id }}"
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}"
       - uses: actions/checkout@master
       - name: Run Handler
@@ -29,7 +26,4 @@ jobs:
           echo "source repo = ${OUTSIDE_COLLABORATORS_GITHUB_REPO}"
           echo "event_name = ${OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME}"
           echo "issue_number = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_NUMBER}"
-          echo "issue_body = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_BODY}"
-          echo "issue_author = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_AUTHOR}"
-          echo "comment_body = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_COMMNENT_BODY}"
-          echo "commenter = ${OUTSIDE_COLLABORATORS_GITHUB_COMMENTER}"
+          echo "comment_id = ${OUTSIDE_COLLABORATORS_GITHUB_COMMENT_ID}"
