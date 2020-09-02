@@ -1,0 +1,35 @@
+name: Create Mentioning Issue
+
+on:
+  repository_dispatch:
+    types: [create_mentioning_issue]
+
+jobs:
+  create:
+    name: "Create"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Dependencies
+        run: |
+          sudo gem install octokit json
+      - name: Set Env Variables
+        run: |
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_REPO::${{ github.event.client_payload.repo }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME::${{ github.event.client_payload.event_name }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_ID::${{ github.event.client_payload.issue_id }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_BODY::${{ github.event.client_payload.issue_body }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_AUTHOR::${{ github.event.client_payload.issue_author }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ISSUE_COMMNENT_BODY::${{ github.event.client_payload.comment_body }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_COMMENTER::${{ github.event.client_payload.commenter }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}"
+      - uses: actions/checkout@master
+      - name: Run Handler
+        run: |
+          echo "source repo = ${OUTSIDE_COLLABORATORS_GITHUB_REPO}"
+          echo "event_name = ${OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME}"
+          echo "issue_id = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_ID}"
+          echo "issue_body = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_BODY}"
+          echo "issue_author = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_AUTHOR}"
+          echo "comment_body = ${OUTSIDE_COLLABORATORS_GITHUB_ISSUE_COMMNENT_BODY}"
+          echo "commenter = ${OUTSIDE_COLLABORATORS_GITHUB_COMMENTER}"
