@@ -22,7 +22,7 @@ jobs:
         run: |
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ORG::${{ github.repository_owner }}"
           echo "::set-env name=OUTSIDE_COLLABORATORS_METADATA_FILENAME::.outside-collaborators/override.yml"
-          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}"
+          echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}"
       - uses: actions/checkout@master
       - name: Run Handler
         run: |

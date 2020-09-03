@@ -15,7 +15,7 @@ jobs:
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1.1.1
       with:
-        token: ${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_PATTACINI }}
+        token: ${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}
         repository: icub-tech-iit/outside-collaborators
         event-type: create_mentioning_issue
         client-payload: '{
