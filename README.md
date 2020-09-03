@@ -1,5 +1,5 @@
 # outside-collaborators
-To manage outside collaborators automatically
+To automatically manage outside collaborators within an organization.
 
 ### 👨🏻‍💻 Maintainers
 This repository is maintained by:
