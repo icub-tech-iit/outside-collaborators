@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
-          sudo gem install octokit json
+          sudo gem install octokit yaml
       - name: Set Env Variables
         run: |
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_REPO::${{ github.event.client_payload.repo }}"
