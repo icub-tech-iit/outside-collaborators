@@ -80,22 +80,24 @@ groupsfiles.each { |file|
 }
 
 # cycle over repo's users
+collaborators = ""
 repo_metadata.each { |user, props|
     if (props["type"].casecmp?("group")) then
         if (body.include? ("$" + user)) || (body.include? ("${" + user + "}")) then
             if groups.key?(user) then
                 puts "- Handling of notified group \"#{user}\" 👥"
-                notification = "@" + author + " wanted to notify the following collaborators:\n\n"
                 groups[user].each { |subuser|
-                    notification << "@" + subuser + " "
+                    collaborators << "@" + subuser + " "
                 }
-                puts "Posting the following comment:\n#{notification}"
-                $client.add_comment($repo, $issue_number, notification)
-                return
             else
-                puts "Unrecognized group \"#{user}\" ❌"
-                exit 1
+                puts "Unrecognized group \"#{user}\" ⚠"
             end
         end
     end
 }
+
+if !collaborators.empty? then
+    notification = "@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
+    puts "Posting the following comment:\n#{notification}"
+    $client.add_comment($repo, $issue_number, notification)
+end
