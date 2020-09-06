@@ -155,7 +155,7 @@ We also consider contributions that can improve the automation.
   Designing the org repo workflows sufficiently slim helps keeping such consumption limited and allows centralizing
   the main routine in a single place.
 
-- **Why do we stick to GitHub Actions instead of using GitHub Apps?**
+- **Why sticking to GitHub Actions instead of using GitHub Apps?**
 
   [GitHub Apps][8] come with lots of advantages over GitHub Actions (e.g. they are not ephemeral, they use their own
   identity without the need for maintaing bots as separate users...) but are applications that you have to host
