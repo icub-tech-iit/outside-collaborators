@@ -4,8 +4,8 @@ lab_xyz/group01:
 
 lab_xyz/group02:
   type: "group"
-  permission: "write"
+  permission: "triage"
 
 user06:
   type: "user"
-  permission: "read"
+  permission: "write"

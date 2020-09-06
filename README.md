@@ -44,7 +44,7 @@ The architecture relies on:
   aim to assign specific access permissions to outside groups (or even individuals).
 
 ### The workflow
-The "outside groups" are defined in YAML files under the [groups](./groups) directory as collections of the outside
+The "outside groups" are defined in YAML files under the subdirectory [groups](./groups) as collections of outside
 collaborators' usernames.
 
 Here's a simple example:
@@ -58,6 +58,7 @@ lab_xyz/group01:
 lab_xyz/group02:
   - "user04"
   - "user05"
+  - "user06"
 ```
 
 Upon updating/adding/deleting those YAML files in the `master` branch or upon a [manual trigger][3], a GitHub
@@ -78,11 +79,11 @@ lab_xyz/group01:
 
 lab_xyz/group02:
   type: "group"
-  permission: "write"
+  permission: "triage"
 
 user06:
   type: "user"
-  permission: "triage"
+  permission: "write"
 ```
 
 Be aware of the following points:
@@ -90,14 +91,15 @@ Be aware of the following points:
   requirement to deal with single outside collaborators within the repository.
 - Only `"read"`, `"triage"` and `"write"` permissions are automatically handled. This way, malicious
   collaborators with `"write"` permission are unable to elevate themselves to become admins.
+- Handling of outside collaborators on an individual basis takes over groups handling: e.g. `user06` ends up
+  with `"write"` permission instead of `"triage"`, as for members of `lab_xyz/group02`.
 - For security reasons, the file `.outside-collaborators/override.yml` should be managed by a repo maintainer
   who is also an org member, although it can be edited by outside collaborators with `"write"` permission.
 - When an org repo contains the file `.outside-collaborators/override.yml`, the managing of its outside collaborators
   will be always overridden by the automatic workflow. Instead, org members can be still added/removed manually
   as inside collaborators.
-
-In certain circumstances, it might be still useful to deal manually with permissions of a specific collaborator.
-To this end, leave the field `permission` empty.
+- In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
+  collaborator: to this end, leave the field `permission` empty.
 
 [3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
 

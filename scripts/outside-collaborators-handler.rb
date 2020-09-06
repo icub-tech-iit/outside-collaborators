@@ -250,7 +250,11 @@ get_repos().each { |repo|
             if groups.key?(user) then
                 puts "- Handling group \"#{user}\" 👥"
                 groups[user].each { |subuser|
-                    add_repo_collaborator(repo_name, subuser, permission)
+                    if repo_metadata.key?(subuser) then
+                        puts "- Detected group user \"#{subuser}\" handled individually"
+                    else
+                        add_repo_collaborator(repo_name, subuser, permission)
+                    end
                 }
             else
                 puts "- Unrecognized group \"#{user}\" ❌"
