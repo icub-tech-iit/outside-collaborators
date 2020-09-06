@@ -7,9 +7,9 @@ although this [feature is very much requested][1]. As of now, outside collaborat
 of the single repositories, having the main drawback of spreading in many places the knowledge of who can access what.
 
 This undesired effect poses a problem of maintenance. If an external group of developers collaborates to multiple
-repositories within an organization, what does it happen if the group evolves over time with new additions or with
-members who leave? What if it is required to change their access permissions? In short, one must visit all the
-repositories where such a collaboration takes place for checking and updating the corresponding information.
+repositories within an organization, what happens if the group evolves over time with new additions or with members
+who leave? What if it is required to change their access permissions? In short, one must visit all the repositories
+where such a collaboration takes place for checking and updating the corresponding information.
 
 A possible workaround foresees to **invite outside collaborators to join a dedicated organization team**. This way,
 we can benefit from the upsides we all know:
