@@ -6,9 +6,9 @@ Unfortunately, GitHub does not provide (yet) a centralized way to manage outside
 although this [feature is very much requested][1]. As of now, outside collaborators can be handled only at the level
 of the single repositories, having the main drawback of spreading in many places the knowledge of who can access what.
 
-This undesired effect, of course, poses a problem of maintenance. If an external group of developers collaborates to
-multiple repositories within an organization, what does it happen if the group evolves over time with new additions or
-with members who leave? What if it is required to change their access permissions? In short, one must visit all the
+This undesired effect poses a problem of maintenance. If an external group of developers collaborates to multiple
+repositories within an organization, what does it happen if the group evolves over time with new additions or with
+members who leave? What if it is required to change their access permissions? In short, one must visit all the
 repositories where such a collaboration takes place for checking and updating the corresponding information.
 
 A possible workaround foresees to **invite outside collaborators to join a dedicated organization team**. This way,
@@ -17,14 +17,14 @@ we can benefit from the upsides we all know:
 - teams can be mentioned
 
 Nonetheless, being a formal member of the organization may give the outside collaborators privileges when it comes
-down to some specific access policies: for instance, if the [base permissions][2] of the organization is set to "Read"
-instead of "None", then those collaborators will be able to clone and pull all repositories, private ones included!
+down to some specific access policies: for instance, if the [base permissions][2] of the organization is set to `"Read"`
+instead of `"None"`, then those collaborators will be able to clone and pull all repositories, private ones included!
 Also, keeping the clear intended separation among organization members and outside collaborators is certainly
 advantageous if we consider that we will prevent outside developers from inheriting future upcoming functionalities
 that GitHub will design for org members and that can turn out to be disruptive when assigned to non-members.
 
-A different solution to the problem is to implement an **automation of the handling of outside collaborators** within
-an organization from a central "dashboard".
+A different solution to the problem is to implement an **automated workflow for handling outside collaborators** within
+an organization from a central repo "dashboard".
 
 ## ⚡ How it works
 ### Components and Architecture
@@ -145,23 +145,9 @@ You are good to go ✨
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
 
-We also consider contributions that can improve the automation.
+Contributions that improve the automation are more than welcome.
 
-## 🙋🏻‍♂️ FAQ
-- **Why can't the workflow [`Triggering Mentioning Issues`][7] do the whole job within the org repo instead
-  of passing the payload onto the dashboard repo?**
-
-  Org repos may be private and private workflows do consume monthly quota assigned for running GitHub Actions.
-  Designing the org repo workflows sufficiently slim helps keeping such consumption limited and allows centralizing
-  the main routine in a single place.
-
-- **Why sticking to GitHub Actions instead of using GitHub Apps?**
-
-  [GitHub Apps][8] come with lots of advantages over GitHub Actions (e.g. they are not ephemeral, they use their own
-  identity without the need for maintaing bots as separate users...) but are applications that you have to host
-  somewhere. Unless eager developers out there will turn this automation into a GitHub App freely available in the
-  [marketplace][9] 😉, we deem much more convenient to spare the burden of maitaining a local server and offload
-  the service to the GitHub runners.
+## [🙋🏻‍♂️ FAQ](./FAQ.md)
 
 ## 👨🏻‍💻 Maintainers
 This repository is maintained by:
@@ -176,6 +162,3 @@ This repository is maintained by:
 [4]: https://github.com/icub-tech-iit-bot
 [5]: ./templates/.github/workflows/trigger-mentioning-issue.yml#L19
 [6]: ./templates/.outside-collaborators/override.yml
-[7]: ./templates/.github/workflows/trigger-mentioning-issue.yml
-[8]: https://docs.github.com/en/developers/apps/about-apps
-[9]: https://github.com/marketplace?type=apps
