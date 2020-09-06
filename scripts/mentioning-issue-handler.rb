@@ -87,7 +87,9 @@ repo_metadata.each { |user, props|
             if groups.key?(user) then
                 puts "- Handling of notified group \"#{user}\" 👥"
                 groups[user].each { |subuser|
-                    collaborators << "@" + subuser + " "
+                    if !subuser.casecmp?(author) then
+                        collaborators << "@" + subuser + " "
+                    end
                 }
             else
                 puts "Unrecognized group \"#{user}\" ⚠"

@@ -111,7 +111,7 @@ established can mention a group using the following _bash-like_ convention:
 - `$group-name`
 - `${group-name}`
 
-For example, If `@user01` posts:
+For example, If `user01` posts:
 ```
 Hey ${lab_xyz/group01} 👋🏻
 I' ve got an exciting news to share with you!
