@@ -1,7 +1,7 @@
 Automatically Manage Outside Collaborators Organization-wise
 ============================================================
 
-## Intro
+## ℹ Intro
 Unfortunately, GitHub does not provide (yet) a centralized way to manage outside collaborators within an organization,
 although this [feature is very much requested][1]. As of now, outside collaborators can be handled only at the level
 of the single repositories, having the main drawback of spreading in many places the knowledge of who can access what.
@@ -29,7 +29,7 @@ an organization from a central "dashboard".
 [1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
 [2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 
-## How it works
+## ⚡ How it works
 ### Components and Architecture
 We make use of the following components:
 - [GitHub Actions](https://docs.github.com/en/actions) for carrying out in the cloud the necessary jobs underlying
@@ -103,11 +103,30 @@ Be aware of the following points:
 
 [3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
 
-## Automation for your own organization
+### Mentioning a group of outside collaborators
+Anyone posting a message in an issue or a PR of a org repository where the outside collaborators overriding is set up
+can mention a group using the following _bash-like_ convention:
+- `$group-name`
+- `${group-name}`
 
-## Outro
+For example, If I post:
+```
+Hey ${lab_xyz/group01} 👋🏻
+I' ve got an exciting news to share with you!
+```
+Then, our [`icub-tech-iit-bot`](https://github.com/icub-tech-iit-bot) will reply with:
 
-### 👨🏻‍💻 Maintainers
+```
+@pattacini wanted to notify the following collaborators:
+
+@user01 @user02 @user03
+```
+
+## ⚙ Automation for your own organization
+
+## 👋🏻 Outro
+
+## 👨🏻‍💻 Maintainers
 This repository is maintained by:
 
 | | |
