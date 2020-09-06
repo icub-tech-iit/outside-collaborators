@@ -41,8 +41,8 @@ The architecture relies on:
   aim to assign specific access permissions to outside groups (or even individuals).
 
 ### The workflow
-The "outside groups" are defined in YAML files under [groups](./groups) as collections of outside collaborators'
-usernames.
+The "outside collaborators groups" are defined in YAML files under [groups](./groups) as collections of outside
+collaborators' usernames.
 
 Here's a simple example:
 
