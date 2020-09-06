@@ -1,0 +1,11 @@
+lab_xyz/group01:
+  type: "group"
+  permission: "read"
+
+lab_xyz/group02:
+  type: "group"
+  permission: "write"
+
+user06:
+  type: "user"
+  permission: "read"
