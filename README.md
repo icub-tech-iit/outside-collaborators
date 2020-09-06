@@ -26,9 +26,6 @@ that GitHub will design for org members and that can turn out to be disruptive w
 A different solution to the problem is to implement an **automation of the handling of outside collaborators** within
 an organization from a central "dashboard".
 
-[1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
-[2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
-
 ## ⚡ How it works
 ### Components and Architecture
 We make use of the following components:
@@ -67,7 +64,9 @@ outlined in the previous section. For each single repository in this set, the ou
 invited, removed or updated with the requested permissions stored in the repository.
 
 Importantly, the groups files can be modified via pull-requests, enabling the responsible persons of the
-outside collaborators (who are generally external to the organization) to keep their groups up-to-date. 
+outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
+In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can
+run securely.
 
 The static information is stored in the specific file of the repository called `.outside-collaborators/override.yml`,
 whose an example is given below:
@@ -101,8 +100,6 @@ Be aware of the following points:
 - In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
   collaborator: to this end, leave the field `permission` empty.
 
-[3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
-
 ### Mentioning a group of outside collaborators
 Anyone posting a message in an issue or a PR of a org repository where the outside collaborators overriding is set up
 can mention a group using the following _bash-like_ convention:
@@ -114,7 +111,7 @@ For example, If I post:
 Hey ${lab_xyz/group01} 👋🏻
 I' ve got an exciting news to share with you!
 ```
-Then, our [`icub-tech-iit-bot`](https://github.com/icub-tech-iit-bot) will reply with:
+Then, our [`icub-tech-iit-bot`][4] will reply with:
 
 ```
 @pattacini wanted to notify the following collaborators:
@@ -123,8 +120,25 @@ Then, our [`icub-tech-iit-bot`](https://github.com/icub-tech-iit-bot) will reply
 ```
 
 ## ⚙ Automation for your own organization
+1. We recommend that you create a **machine user** to manage the automation (as our [`icub-tech-iit-bot`][4]).
+  A standard user is perfectly fine, although be careful, as this user will be receiving lots of notifications
+  because of the automation.
+1. The selected user needs to be an **org admin**.
+1. Leveraging on this user:
+    - Create a **personal access token** (PAT) with full repo scope.
+    - Create an **organization level secret** called `OUTSIDE_COLLABORATORS_TOKEN_BOT` where
+      to store the user PAT. The name of the secret may be different of course, but then you ought to update
+      the scripts.
+1. For each single repo of your org you aim to apply automation to, do:
+    - Copy out the content of [templates](./templates) into the repository while preserving paths.
+    - Edit the content of the newly created file `.outside-collaborators/override.yml` according to your needs.
 
-## 👋🏻 Outro
+You are finally good to go ✨
+
+## 🔳 Outro
+Hope you will find this automation workflow helpful!
+
+## 🙋🏻‍♂️ FAQ
 
 ## 👨🏻‍💻 Maintainers
 This repository is maintained by:
@@ -132,3 +146,8 @@ This repository is maintained by:
 | | |
 |:---:|:---:|
 | [<img src="https://github.com/pattacini.png" width="40">](https://github.com/pattacini) | [@pattacini](https://github.com/pattacini) |
+
+[1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
+[2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
+[3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+[4]: https://github.com/icub-tech-iit-bot
