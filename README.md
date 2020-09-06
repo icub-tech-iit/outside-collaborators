@@ -93,7 +93,8 @@ Pay attention to the following points:
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
 - Only `"read"`, `"triage"` and `"write"` permissions are automatically handled. This way, malicious
-  collaborators with `"write"` permission are unable to elevate themselves to become admins.
+  collaborators with `"write"` permission are unable to elevate themselves to become admins. Permissions
+  other than those allowed are internally downgraded to the closest one.
 - Handling of outside collaborators on an individual basis takes over groups: e.g. `user06` ends up with
   `"write"` permission instead of `"triage"`, as for members of `lab_xyz/group02`.
 - For security reasons, the file `.outside-collaborators/override.yml` should be managed by a repo maintainer
@@ -101,6 +102,8 @@ Pay attention to the following points:
 - When an org repo contains the file `.outside-collaborators/override.yml`, the managing of its outside collaborators
   will be always overridden by the automatic workflow. Instead, org members can be still added/removed manually
   as inside collaborators.
+- When `.outside-collaborators/override.yml` gets updated in the org repo, remember to manually trigger the
+  workflow located in the main dashboard to apply the latest updates. 
 - Automation does not apply to org repos that do not contain overriding information.
 - In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
   collaborator: to this end, leave the field `permission` empty.
