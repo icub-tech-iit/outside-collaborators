@@ -114,7 +114,7 @@ established can mention a group using the following _bash-like_ convention:
 For example, If `user01` posts:
 ```
 Hey ${lab_xyz/group01} 👋🏻
-I' ve got an exciting news to share with you!
+I've got an exciting news to share with you!
 ```
 Then, our [`icub-tech-iit-bot`][4] will reply with:
 
