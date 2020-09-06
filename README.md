@@ -112,13 +112,13 @@ established can mention a group using the following _bash-like_ convention:
 - `${group-name}`
 
 For example, If `user01` posts:
-```
+```text
 Hey ${lab_xyz/group01} 👋🏻
 I've got an exciting news to share with you!
 ```
-Then, our [`icub-tech-iit-bot`][4] will reply with:
 
-```
+Then, our [`icub-tech-iit-bot`][4] will reply with:
+```text
 @user01 wanted to notify the following collaborators:
 
 @user02 @user03
