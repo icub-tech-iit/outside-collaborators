@@ -151,7 +151,7 @@ Then, our [`icub-tech-iit-bot`][4] will reply with:
     - Edit the field [`repository`][5] of the newly created workflow to let it point to your main dashboard repo.
     - Edit the content of the newly created file [`.outside-collaborators/override.yml`][6] according to your needs.
 
-You are good to go ✨
+You are finally good to go ✨
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
