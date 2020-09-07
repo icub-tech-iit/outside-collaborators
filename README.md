@@ -140,14 +140,14 @@ Then, our [`icub-tech-iit-bot`][4] will reply with:
       The name of the secret may be different of course, but then you ought to update the scripts.
 1. For each single repo of your org you aim to apply automation to, do:
     - Copy out the content of [templates](./templates) into the repository while preserving the following paths:
-    ```text
-    .
-    ├── .github
-    │   └── workflows
-    │       └── trigger-mentioning-issue.yml
-    └── .outside-collaborators
-        └── override.yml
-    ```
+      ```text
+      .
+      ├── .github
+      │   └── workflows
+      │       └── trigger-mentioning-issue.yml
+      └── .outside-collaborators
+          └── override.yml
+      ```
     - Edit the field [`repository`][5] of the newly created workflow to let it point to your main dashboard repo.
     - Edit the content of the newly created file [`.outside-collaborators/override.yml`][6] according to your needs.
 
