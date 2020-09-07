@@ -5,7 +5,7 @@
   of passing the payload onto the dashboard repo?**
 
     >Org repos may be private and private workflows do consume monthly quota assigned for running GitHub Actions.
-    Designing the org repo workflows sufficiently slim helps keeping such consumption limited and allows centralizing
+    Designing the org repo workflows sufficiently slim helps you keep such consumption limited and allows centralizing
     the main routine in a single place.
 
 1. **Why don't we use a issue-related webhook to trigger the "mentioning issue" workflow in place of the action?**
