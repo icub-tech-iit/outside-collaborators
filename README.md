@@ -102,7 +102,7 @@ Pay attention to the following points:
 - When an org repo contains the file `.outside-collaborators/override.yml`, the managing of its outside collaborators
   will be always overridden by the automatic workflow. Instead, org members can be still added/removed manually
   as inside collaborators.
-- When `.outside-collaborators/override.yml` gets updated in the org repo, remember to manually trigger the
+- When `.outside-collaborators/override.yml` gets modified in the org repo, remember to manually trigger the
   workflow located in the main dashboard to apply the latest updates. 
 - Automation does not apply to org repos that do not contain overriding information.
 - In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
