@@ -1,7 +1,7 @@
 🙋🏻‍♂️ FAQ
 =======
 
-1. **Why can't the workflow [`Triggering Mentioning Issues`][1] do the whole job within the org repo instead
+1. **Why can't the workflow [`Trigger Mentioning Comment`][1] do the whole job within the org repo instead
   of passing the payload onto the dashboard repo?**
 
     >Org repos may be private and private workflows do consume monthly quota assigned for running GitHub Actions.
@@ -20,8 +20,7 @@
     [marketplace][4] 😉, we deem much more convenient to spare the burden of maitaining a local server and offload
     the service to the GitHub runners.
 
-[1]: ./templates/.github/workflows/trigger-mentioning-issue.yml
+[1]: ./templates/.github/workflows/trigger-mentioning-comment.yml
 [2]: https://github.com/github/roadmap/issues/52
 [3]: https://docs.github.com/en/developers/apps/about-apps
 [4]: https://github.com/marketplace?type=apps
-
