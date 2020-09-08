@@ -39,7 +39,7 @@ The architecture relies on:
   them groups to differentiate from org teams) can be set up and modified using the mechanism of pull-requests.
 1. A few **static information** stored within the single repositories where the collaboration takes place with the
   aim to assign specific access permissions to outside groups (or even individuals). This static information does
-  override the standard method for managing access in a repository.
+  override the standard method for managing access permissions in a repository.
 
 ### The workflow
 The "outside collaborators groups" are defined in YAML files under [groups](./groups) as collections of outside
