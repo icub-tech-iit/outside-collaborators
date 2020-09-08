@@ -172,5 +172,5 @@ This repository is maintained by:
 [2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
 [4]: https://github.com/icub-tech-iit-bot
-[5]: ./templates/.github/workflows/trigger-mentioning-comment.yml#L25
+[5]: ./templates/.github/workflows/trigger-mentioning-comment.yml#L23
 [6]: ./templates/.outside-collaborators/override.yml
