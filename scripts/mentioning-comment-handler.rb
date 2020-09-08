@@ -111,7 +111,7 @@ repo_metadata.each { |user, props|
 if !collaborators.empty? then
     # quote initial portion of the original message
     header_max_length = 500
-    if body.length < header_max_length then
+    if body.length <= header_max_length then
         header = body
     else
         header = body.slice(0, header_max_length)
