@@ -38,9 +38,9 @@ We make use of the following components:
 The architecture relies on:
 1. This repository acting as the **central dashboard**, that is where "groups" of outside collaborators (let's call
   them groups to differentiate from org teams) can be set up and modified using the mechanism of pull-requests.
-1. A few **static information** stored within the single repositories where the collaboration takes place with the
-  aim to assign specific access permissions to outside groups (or even individuals). This static information does
-  override the standard method for managing access permissions in a repository.
+1. A few **static information** stored within the repositories where the collaboration takes place ("automated
+  repositories") with the aim to assign specific access permissions to outside groups (or even individuals).
+  This static information does override the standard method for managing access permissions in a repository.
 
 ### The workflow
 The "outside collaborators groups" are defined in YAML files under [groups](./groups) as collections of outside
@@ -74,7 +74,7 @@ outside collaborators (who are generally external to the organization) to keep t
 In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can
 run securely.
 
-The static information is stored in the specific file of the repository called `.outside-collaborators/override.yml`,
+The static information is stored in a specific file of the automated repositories called `.outside-collaborators/override.yml`,
 whose an example is shown below:
 
 ```yaml
