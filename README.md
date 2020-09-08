@@ -124,6 +124,9 @@ I've got an exciting news to share with you!
 
 Then, our [`icub-tech-iit-bot`][4] will reply with:
 ```markdown
+>Hey lab_xyz/group01 👋🏻
+>I've got an exciting news to share with you!
+
 @user01 wanted to notify the following collaborators:
 
 @user02 @user03
