@@ -115,7 +115,7 @@ if !collaborators.empty? then
         header = body
     else
         header = body.slice(0, header_max_length)
-        header << "\n..."
+        header << "..."
     end
     quoted_header = (">" + header).gsub("\n","\n>")
 
