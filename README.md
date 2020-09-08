@@ -1,4 +1,4 @@
-Automatically Manage Outside Collaborators Organization-wise
+Automatically Manage Outside Collaborators Organization-wide
 ============================================================
 
 ## ℹ Intro
