@@ -88,7 +88,12 @@ groupsfiles.each { |file|
 collaborators = ""
 repo_metadata.each { |user, props|
     if (props["type"].casecmp?("group")) then
-        if (body.include? ("$" + user)) || (body.include? ("${" + user + "}")) then
+        tag_1 = "$" + user
+        tag_2 = "${" + user + "}"
+        if (body.include? tag_1) || (body.include? tag_2) then
+            # avoid self-notifying
+            body = body.gsub(tag_1, user)
+            body = body.gsub(tag_2, user)
             if groups.key?(user) then
                 puts "- Handling of notified group \"#{user}\" 👥"
                 groups[user].each { |subuser|
@@ -112,16 +117,9 @@ if !collaborators.empty? then
         header = body.slice(0, header_max_length)
         header << "\n..."
     end
-    quoted_header = ">"
-    header.each_char { |c|
-        quoted_header << c
-        if c.casecmp?('\n') then
-            quoted_header << ">"
-        end
-    }
+    quoted_header = (">" + header).gsub("\n","\n>")
 
-    #notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
-    notification = "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
+    notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     puts "Posting the following comment:\n#{notification}"
     if ($event_name.include? "issue") then
         number = $issue_number
