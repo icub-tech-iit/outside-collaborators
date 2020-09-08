@@ -120,7 +120,8 @@ if !collaborators.empty? then
         end
     }
 
-    notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
+    #notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
+    notification = "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     puts "Posting the following comment:\n#{notification}"
     if ($event_name.include? "issue") then
         number = $issue_number
