@@ -104,7 +104,23 @@ repo_metadata.each { |user, props|
 }
 
 if !collaborators.empty? then
-    notification = "@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
+    # quote initial portion of the original message
+    header_max_length = 300
+    if body.length < header_max_length then
+        header = body
+    else
+        header = body.slice(0, header_max_length)
+        header << "\n..."
+    end
+    quoted_header = ">"
+    header.each { |c|
+        quoted_header << c
+        if c.casecmp?('\n') then
+            quoted_header << ">"
+        end
+    }
+
+    notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     puts "Posting the following comment:\n#{notification}"
     if ($event_name.include? "issue") then
         number = $issue_number
