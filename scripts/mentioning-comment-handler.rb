@@ -113,7 +113,7 @@ if !collaborators.empty? then
         header << "\n..."
     end
     quoted_header = ">"
-    header.each { |c|
+    header.each_char { |c|
         quoted_header << c
         if c.casecmp?('\n') then
             quoted_header << ">"
