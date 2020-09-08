@@ -1,9 +1,15 @@
-name: Trigger Mentioning Issue
+name: Trigger Mentioning Comment
 
 on:
   issues:
     types: [opened]
   issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
+  pull_request_review_comment:
     types: [created]
 
 jobs:
@@ -17,11 +23,12 @@ jobs:
       with:
         token: ${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}
         repository: icub-tech-iit/outside-collaborators
-        event-type: create_mentioning_issue
+        event-type: create_mentioning_comment
         client-payload: '{
                            "repo": "${{ github.repository }}",
                            "event_name": "${{ github.event_name }}",
                            "issue_number": "${{ github.event.issue.number }}",
+                           "pr_number": "${{ github.event.pull_request.number }}",
                            "comment_id": "${{ github.event.comment.id }}"
                          }'
         

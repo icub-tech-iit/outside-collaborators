@@ -14,6 +14,7 @@ require 'yaml'
 $repo = ENV['OUTSIDE_COLLABORATORS_GITHUB_REPO']
 $event_name = ENV['OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME']
 $issue_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_ISSUE_NUMBER']
+$pr_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_PR_NUMBER']
 $comment_id = ENV['OUTSIDE_COLLABORATORS_GITHUB_COMMENT_ID']
 $metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
@@ -39,6 +40,7 @@ puts "Received request with the following payload data:"
 puts "- repository   = \"#{$repo}\""
 puts "- event_name   = \"#{$event_name}\""
 puts "- issue_number = \"#{$issue_number}\""
+puts "- pr_number    = \"#{$pr_number}\""
 puts "- comment_id   = \"#{$comment_id}\""
 
 # retrieve message info
@@ -55,6 +57,11 @@ if $event_name.casecmp?("issues") then
     info = $client.issue($repo, $issue_number)
 elsif $event_name.casecmp?("issue_comment") then
     info = $client.issue_comment($repo, $comment_id)
+elsif $event_name.casecmp?("pull_request_target") ||
+      $event_name.casecmp?("pull_request_review") then
+    info = $client.pull_request($repo, $pr_number)
+elsif $event_name.casecmp?("pull_request_review_comment") then
+    info = $client.pull_request_comment($repo, $comment_id)
 else
     puts "Unhandled event \"#{$event_name}\" ❌"
     exit 1
@@ -101,5 +108,12 @@ repo_metadata.each { |user, props|
 if !collaborators.empty? then
     notification = "@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     puts "Posting the following comment:\n#{notification}"
-    $client.add_comment($repo, $issue_number, notification)
+    if ($event_name.include? "issue") then
+        $client.add_comment($repo, $issue_number, notification)
+    elsif $event_name.casecmp?("pull_request_target") ||
+          $event_name.casecmp?("pull_request_review") then
+        $client.add_comment($repo, $pr_number, notification)
+    else
+        $client.create_pull_request_comment_reply($repo, info.pull_request_review_id, notification, $comment_id)
+    end
 end
