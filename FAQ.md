@@ -8,7 +8,7 @@
     Designing the org repo workflows sufficiently slim helps you keep such consumption limited and allows centralizing
     the main routine in a single place.
 
-1. **Why don't we use a issue-related webhook to trigger the "mentioning issue" workflow in place of the action?**
+1. **Why don't we use a webhook to trigger the "mentioning comment" workflow in place of the action?**
 
     >Currently, webhooks cannot trigger workflows. However, GitHub is cooking this feature since it's in the [roadmap][2].
 
