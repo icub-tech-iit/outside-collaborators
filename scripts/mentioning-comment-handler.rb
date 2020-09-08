@@ -60,8 +60,6 @@ elsif $event_name.casecmp?("issue_comment") then
 elsif $event_name.casecmp?("pull_request_target") ||
       $event_name.casecmp?("pull_request_review") then
     info = $client.pull_request($repo, $pr_number)
-elsif $event_name.casecmp?("pull_request_review_comment") then
-    info = $client.pull_request_comment($repo, $comment_id)
 else
     puts "Unhandled event \"#{$event_name}\" ❌"
     exit 1
@@ -109,11 +107,9 @@ if !collaborators.empty? then
     notification = "@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     puts "Posting the following comment:\n#{notification}"
     if ($event_name.include? "issue") then
-        $client.add_comment($repo, $issue_number, notification)
-    elsif $event_name.casecmp?("pull_request_target") ||
-          $event_name.casecmp?("pull_request_review") then
-        $client.add_comment($repo, $pr_number, notification)
+        number = $issue_number
     else
-        $client.create_pull_request_comment_reply($repo, info.pull_request_review_id, notification, $comment_id)
+        number = $pr_number
     end
+    $client.add_comment($repo, number, notification)
 end
