@@ -36,7 +36,7 @@ if we consider that we will prevent outside developers from inheriting future up
 that GitHub will design for org members and that can turn out to be disruptive when assigned to "unintended" members.
 
 A different solution to the problem is to implement an **automated workflow for handling outside collaborators** within
-an organization from a central repo "dashboard".
+an organization from a central "dashboard" repo.
 
 ## ⚡ How it works
 ### Components and Architecture
