@@ -274,5 +274,5 @@ get_repos().each { |repo|
         end
     }
 
-    puts "...done with \"#{repo_name}\" ✔"
+    puts "...done with \"#{repo_name}\" ✔\n"
 }
