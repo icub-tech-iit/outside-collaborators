@@ -231,7 +231,7 @@ get_repos().each { |repo|
     repo_name = repo.keys[0]
     repo_metadata = repo.values[0]
     
-    puts "Processing repository \"#{repo_name}\"..."
+    puts "Processing automated repository \"#{repo_name}\"..."
 
     # clean up all pending invitations
     # so that we can revive those stale
