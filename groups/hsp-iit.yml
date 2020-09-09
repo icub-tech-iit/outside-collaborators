@@ -12,7 +12,8 @@ hsp-iit/everyone:
   - "MariaLombardi"
   - "morpheus1820"
   - "elandini84"
-  
+
+# used in icub-tech-iit/physical-modeling
 hsp-iit/modeling:
   - "lornat75"
   - "randaz81"
