@@ -31,9 +31,9 @@ Nonetheless, being a formal member of the organization may give the outside coll
 down to some specific access policies. For instance, if the [base permissions][2] of the organization is set to `"Read"`
 instead of `"None"`, then those collaborators will be able to clone and pull all repositories, private ones included!
 
-Also, keeping the clear intended separation among organization members and outside collaborators is certainly
-advantageous if we consider that we will prevent outside developers from inheriting future upcoming functionalities
-that GitHub will design for org members and that can turn out to be disruptive when assigned to non-members.
+Also, keeping the clear separation among organization members and outside collaborators is certainly advantageous
+if we consider that we will prevent outside developers from inheriting future upcoming functionalities
+that GitHub will design for org members and that can turn out to be disruptive when assigned to "unintended" members.
 
 A different solution to the problem is to implement an **automated workflow for handling outside collaborators** within
 an organization from a central repo "dashboard".
