@@ -1,6 +1,5 @@
 # used in:
 # - icub-tech-iit/tickets
-# - icub-tech-iit/purchases
 dic-iit/everyone:
   - "DanielePucci"
   - "diegoferigo"
@@ -26,6 +25,21 @@ dic-iit/everyone:
   - "vpunithreddy"
   - "paolo-viceconte"
   - "singhbal-baljinder"
+  - "AugustoFrancisco"
+
+# used in:
+# - icub-tech-iit/purchases
+dic-iit/purchases:
+  - "DanielePucci"
+  - "S-Dafarra"
+  - "gabrielenava" 
+  - "claudia-lat"
+  - "raffaello-camoriano"
+  - "Yeshasvitvs"
+  - "nunoguedelha"
+  - "evalli-iit"
+  - "CarlottaSartore"
+  - "Gianlucamilani"
 
 # used in:
 # - icub-tech-iit/calibration-ft-sensors

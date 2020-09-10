@@ -1,6 +1,5 @@
 # used in:
 # - icub-tech-iit/tickets
-# - icub-tech-iit/purchases
 edpr-iit/everyone:
   - "ChiaraBartolozzi"
   - "arrenglover"
@@ -10,6 +9,14 @@ edpr-iit/everyone:
   - "simbamford"
   - "marco-monforte"
   - "GiuliaDAngelo"
+  - "AArriandiaga"
+  - "ghoshsuman"
+
+# used in:
+# - icub-tech-iit/purchases
+hsp-iit/purchases:
+  - "ChiaraBartolozzi"
+  - "aikolina"
 
 # used in:
 # - icub-tech-iit/electronics

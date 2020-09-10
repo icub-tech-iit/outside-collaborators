@@ -1,6 +1,5 @@
 # used in:
 # - icub-tech-iit/tickets
-# - icub-tech-iit/purchases
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
@@ -16,6 +15,16 @@ hsp-iit/everyone:
   - "morpheus1820"
   - "elandini84"
   - "damianomal"
+  - "yuriyOn"
+  - "AngeloRendiniello"
+
+# used in:
+# - icub-tech-iit/purchases
+hsp-iit/purchases:
+  - "lornat75"
+  - "randaz81"
+  - "drdanz"
+  - "GiuliaP"
 
 # used in:
 # - icub-tech-iit/physical-modeling
