@@ -12,10 +12,20 @@ hsp-iit/everyone:
   - "MariaLombardi"
   - "morpheus1820"
   - "elandini84"
+  - "damianomal"
 
-# used in icub-tech-iit/physical-modeling
+# used in:
+# - icub-tech-iit/physical-modeling
 hsp-iit/modeling:
   - "lornat75"
   - "randaz81"
   - "fbottarel"
   - "xEnVrE"
+  
+# used in:
+# - icub-tech-iit/sw-distro-management
+hsp-iit/sw-dev:
+  - "lornat75"
+  - "randaz81"
+  - "drdanz"
+  - "elandini84"
