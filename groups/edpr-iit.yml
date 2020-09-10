@@ -14,7 +14,7 @@ edpr-iit/everyone:
 
 # used in:
 # - icub-tech-iit/purchases
-hsp-iit/purchases:
+edpr-iit/purchases:
   - "ChiaraBartolozzi"
   - "aikolina"
 
