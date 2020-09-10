@@ -7,8 +7,15 @@ edpr-iit/everyone:
   - "simbamford"
   - "marco-monforte"
   - "GiuliaDAngelo"
-  
+
+# used in:
+# - icub-tech-iit/electronics
 edpr-iit/electronics:
   - "ChiaraBartolozzi"
   - "francescodiotalevi"
- 
+  
+# used in:
+# - icub-tech-iit/sw-distro-management
+edpr-iit/sw-dev:
+  - "ChiaraBartolozzi"
+  - "arrenglover"
