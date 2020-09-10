@@ -67,4 +67,10 @@ dic-iit/mech:
 dic-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
-  
+
+# used in:
+# - icub-tech-iit/electronics
+dic-iit/electronics:
+  - "DanielePucci"
+  - "evalli-iit"
+  - "Gianlucamilani"
