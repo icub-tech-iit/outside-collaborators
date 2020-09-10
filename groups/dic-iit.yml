@@ -1,3 +1,6 @@
+# used in:
+# - icub-tech-iit/tickets
+# - icub-tech-iit/purchases
 dic-iit/everyone:
   - "DanielePucci"
   - "diegoferigo"
@@ -24,6 +27,8 @@ dic-iit/everyone:
   - "paolo-viceconte"
   - "singhbal-baljinder"
 
+# used in:
+# - icub-tech-iit/calibration-ft-sensors
 dic-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
