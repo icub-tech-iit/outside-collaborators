@@ -35,8 +35,17 @@ dic-iit/seniors:
   - "evalli-iit"
   - "CarlottaSartore"
 
+# used in:
+# - icub-tech-iit/cad-mechanics
 dic-iit/mech:
   - "DanielePucci"
   - "S-Dafarra"
   - "vpunithreddy" 
   - "FabioBergonti"
+
+# used in:
+# - icub-tech-iit/sw-distro-management
+dic-iit/sw-dev:
+  - "DanielePucci"
+  - "diegoferigo"
+  
