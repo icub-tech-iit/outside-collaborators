@@ -106,8 +106,8 @@ Pay attention to the following points:
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
 - Only `"read"`, `"triage"` and `"write"` permissions are automatically handled. This way, malicious
-  collaborators with `"write"` permission are unable to elevate themselves to become admins. Permissions
-  other than those allowed are internally downgraded to the closest one.
+  collaborators with `"write"` permission are unable to elevate themselves to become admins. Higher permissions,
+  if specified, are thus internally downgraded to "write".
 - Handling of outside collaborators on an individual basis takes over groups: e.g. `user06` ends up with
   `"write"` permission instead of `"triage"`, as for members of `lab_xyz/group02`.
 - For security reasons, the file `.outside-collaborators/override.yml` should be managed by a repo maintainer
