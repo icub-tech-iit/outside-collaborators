@@ -46,7 +46,7 @@ dic-iit/purchases:
 dic-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
-  - "gabrielenava" 
+  - "gabrielenava"
   - "claudia-lat"
   - "raffaello-camoriano"
   - "Yeshasvitvs"
@@ -67,6 +67,9 @@ dic-iit/mech:
 dic-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
+  - "S-Dafarra"
+  - "gabrielenava"
+  - "Yeshasvitvs"
 
 # used in:
 # - icub-tech-iit/electronics
