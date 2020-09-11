@@ -143,6 +143,8 @@ Then, our [`icub-tech-iit-bot`][4] will reply with:
 @user02 @user03
 ```
 
+To avoid cluttering the thread, the original triggering message is quoted up to a given extent.
+
 ## ⚙ Automation for your organization
 1. Fork this dashboard repository to your organization account.
 1. Edit the initial content of [groups](./groups).
