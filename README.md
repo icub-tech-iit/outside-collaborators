@@ -143,7 +143,7 @@ Then, our [`icub-tech-iit-bot`][4] will reply with:
 @user02 @user03
 ```
 
-To avoid cluttering the thread, the original triggering message is quoted up to a given extent.
+To avoid cluttering the thread, the original triggering message is quoted only up to a given extent.
 
 ## ⚙ Automation for your organization
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
