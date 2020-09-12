@@ -187,7 +187,7 @@ This repository is maintained by:
 
 [1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
 [2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
-[3]: https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/
+[3]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
 [4]: https://github.com/icub-tech-iit-bot
 [5]: ./templates/.github/workflows/trigger-mentioning-comment.yml#L23
 [6]: ./templates/.outside-collaborators/override.yml
