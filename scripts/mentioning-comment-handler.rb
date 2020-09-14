@@ -122,10 +122,10 @@ if !collaborators.empty? then
 
     notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
     if ($event_name.include? "issue") then
-        number = $issue_number
+        n = $issue_number
     else
-        number = $pr_number
+        n = $pr_number
     end
-    puts "Posting notification ✉"
-    $client.add_comment($repo, number, notification)
+    puts "Posting notification 👋🏻"
+    $client.add_comment($repo, n, notification)
 end
