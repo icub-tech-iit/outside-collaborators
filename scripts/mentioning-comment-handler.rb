@@ -121,11 +121,11 @@ if !collaborators.empty? then
     quoted_header = (">" + header).gsub("\n","\n>")
 
     notification = quoted_header + "\n\n@" + author + " wanted to notify the following collaborators:\n\n" + collaborators
-    puts "Posting the following comment:\n#{notification}"
     if ($event_name.include? "issue") then
         number = $issue_number
     else
         number = $pr_number
     end
+    puts "Posting notification ✉"
     $client.add_comment($repo, number, notification)
 end
