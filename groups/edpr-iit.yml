@@ -11,6 +11,8 @@ edpr-iit/everyone:
   - "GiuliaDAngelo"
   - "AArriandiaga"
   - "ghoshsuman"
+  - "dabbous94"
+  - "valerdi"
 
 # used in:
 # - icub-tech-iit/purchases
@@ -26,6 +28,7 @@ edpr-iit/electronics:
   
 # used in:
 # - icub-tech-iit/sw-distro-management
+# - icub-tech-iit/telemetry
 edpr-iit/sw-dev:
   - "ChiaraBartolozzi"
   - "arrenglover"

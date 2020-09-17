@@ -38,6 +38,7 @@ hsp-iit/modeling:
   
 # used in:
 # - icub-tech-iit/sw-distro-management
+# - icub-tech-iit/telemetry
 hsp-iit/sw-dev:
   - "lornat75"
   - "randaz81"

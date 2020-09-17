@@ -63,6 +63,7 @@ dic-iit/mech:
 
 # used in:
 # - icub-tech-iit/sw-distro-management
+# - icub-tech-iit/telemetry
 dic-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
