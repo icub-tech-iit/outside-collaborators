@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-LABEL maintainer="ugo.pattacini@iit.it"
+LABEL org.opencontainers.image.authors="Ugo Pattacini <ugo.pattacini@iit.it>"
 
 # Non-interactive installation mode
 ENV DEBIAN_FRONTEND=noninteractive
