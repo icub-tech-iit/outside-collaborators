@@ -146,6 +146,7 @@ Then, our [`icub-tech-iit-bot`][4] will reply with:
 To avoid cluttering the thread, the original triggering message is quoted only up to a given extent.
 
 ## ⚙ Automation for your organization
+Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
 1. Edit the initial content of [groups](./groups).
 1. We recommend that you create a **machine user** to manage the automation (as our [`icub-tech-iit-bot`][4]).
