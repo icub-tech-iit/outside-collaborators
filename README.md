@@ -119,7 +119,7 @@ Pay attention to the following points:
   workflow located in the main dashboard to apply the latest updates. 
 - Automation does not apply to org repos that do not contain overriding information.
 - In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
-  collaborator: to this end, leave the field `permission` empty.
+  collaborator: to this end, leave the field `permission` empty to rely on the standard repo settings.
 
 ### Mentioning a group
 Anyone posting a message in an issue or a PR of a org repository where the outside collaborators automation is
