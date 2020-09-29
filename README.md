@@ -77,8 +77,9 @@ generic-group:
 
 Upon updating/adding/deleting those YAML files in the `master` branch or upon a [manual trigger][3], a GitHub
 workflow starts crawling the organization to search for those repositories containing the static information
-outlined in the previous section. For each single repository in this set, the outside collaborators are automatically
-invited, removed or updated with the requested permissions stored in the repository.
+outlined in the previous section to propagate the changes therein. For each single repository in this set,
+the outside collaborators are automatically invited, removed or updated with the requested permissions stored
+in the repository.
 
 Importantly, the groups files can be modified via pull-requests, enabling the representatives responsible for the
 outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
