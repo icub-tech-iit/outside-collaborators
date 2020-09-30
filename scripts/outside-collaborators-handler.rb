@@ -88,17 +88,17 @@ def get_repo_invitations(repo)
         end
         sleep($wait)
     end
-
-    invitations = []
       
-    last_response = $client.last_response
-    if defined?(last_response.data.invitee) then
-        invitations = last_response.data
-    end
+    invitations = []
 
+    last_response = $client.last_response
+    if last_response.data.respond_to?("invitee") then  
+        invitations << last_response.data
+    end
+ 
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
-        if defined?(last_response.data.invitee) then
+        if last_response.data.respond_to?("invitee") then
             invitations << last_response.data
         end
     end
