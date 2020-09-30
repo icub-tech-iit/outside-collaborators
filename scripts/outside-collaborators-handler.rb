@@ -89,12 +89,18 @@ def get_repo_invitations(repo)
         sleep($wait)
     end
 
+    invitations = []
+      
     last_response = $client.last_response
-    invitations = last_response.data
+    if defined?(last_response.data.invitee) then
+        invitations = last_response.data
+    end
 
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
-        invitations << last_response.data
+        if defined?(last_response.data.invitee) then
+            invitations << last_response.data
+        end
     end
 
     return invitations
@@ -113,6 +119,7 @@ def get_repo_collaborators(repo)
     end
 
     collaborators = []
+      
     last_response = $client.last_response
     data = last_response.data
     data.each { |c| collaborators << "#{c.login}" }
@@ -154,7 +161,7 @@ def add_repo_collaborator(repo, user, auth)
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
                 if invitation.invitee.login.casecmp?(user) then
-                    print "- Updating invitation to collaborator \"#{user}\" with permission \"#{auth_}\""
+                    print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
                     if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
                         print " (\"#{auth}\" is not allowed/available ⚠)"
                     end
