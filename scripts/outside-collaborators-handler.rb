@@ -89,12 +89,16 @@ def get_repo_invitations(repo)
         sleep($wait)
     end
       
+    invitations = []
+      
     last_response = $client.last_response
-    invitations = last_response.data
+    data = last_response.data
+    data.each { |i| invitations << {i.id => i.invitee.login} }
       
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
-        invitations << last_response.data
+        data = last_response.data
+        data.each { |i| invitations << {i.id => i.invitee.login} }
     end
 
     return invitations
@@ -154,18 +158,16 @@ def add_repo_collaborator(repo, user, auth)
 
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
-                begin
-                    if invitation.invitee.login.casecmp?(user) then
-                        print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
-                        if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
-                            print " (\"#{auth}\" is not allowed/available ⚠)"
-                        end
-                        print "\n"
-                        $client.update_repository_invitation(repo, invitation.id, permission: auth_)
-                        return
+                id = invitation.keys[0]
+                invitee = invitation.values[0]
+                if invitee.casecmp?(user) then
+                    print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
+                    if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
+                        print " (\"#{auth}\" is not allowed/available ⚠)"
                     end
-                rescue
-                    puts "⚠ problem detected!"
+                    print "\n"
+                    $client.update_repository_invitation(repo, id, permission: auth_)
+                    return
                 end
             }
 
@@ -241,12 +243,10 @@ get_repos().each { |repo|
     # clean up all pending invitations
     # so that we can revive those stale
     get_repo_invitations(repo_name).each { |invitation|
-        begin
-            puts "- Deleting invitee \"#{invitation.invitee.login}\""
-            $client.delete_repository_invitation(repo_name, invitation.id)
-        rescue
-            puts "⚠ problem detected!"
-        end
+        id = invitation.keys[0]
+        invitee = invitation.values[0]
+        puts "- Deleting invitee \"#{invitee}\""
+        $client.delete_repository_invitation(repo_name, id)
     }
 
     # add collaborators
