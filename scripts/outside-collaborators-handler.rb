@@ -89,18 +89,12 @@ def get_repo_invitations(repo)
         sleep($wait)
     end
       
-    invitations = []
-
     last_response = $client.last_response
-    if last_response.data.respond_to?("invitee") then  
-        invitations << last_response.data
-    end
- 
+    invitations = last_response.data
+      
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
-        if last_response.data.respond_to?("invitee") then
-            invitations << last_response.data
-        end
+        invitations << last_response.data
     end
 
     return invitations
@@ -160,6 +154,7 @@ def add_repo_collaborator(repo, user, auth)
 
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
+                begin
                 if invitation.invitee.login.casecmp?(user) then
                     print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
                     if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
@@ -168,6 +163,9 @@ def add_repo_collaborator(repo, user, auth)
                     print "\n"
                     $client.update_repository_invitation(repo, invitation.id, permission: auth_)
                     return
+                end
+                rescue
+                  puts "ERROR: #{invitations}"
                 end
             }
 
