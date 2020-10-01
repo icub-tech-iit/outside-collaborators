@@ -16,7 +16,6 @@ $event_name = ENV['OUTSIDE_COLLABORATORS_GITHUB_EVENT_NAME']
 $issue_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_ISSUE_NUMBER']
 $pr_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_PR_NUMBER']
 $comment_id = ENV['OUTSIDE_COLLABORATORS_GITHUB_COMMENT_ID']
-$metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
 $wait = 60
 
@@ -33,6 +32,22 @@ Signal.trap("TERM") {
 
 
 #########################################################################################
+def get_entries(dirname)
+    files = Dir[dirname + "/*.yml"]
+    files << Dir[dirname + "/*.yaml"]
+
+    entries = {}
+    files.each { |file|
+        if !file.empty? then
+            entries.merge!(YAML.load_file(file))
+        end
+    }
+
+    return entries
+end
+
+
+#########################################################################################
 # main
 
 # print request payload
@@ -43,16 +58,20 @@ puts "- issue_number = \"#{$issue_number}\""
 puts "- pr_number    = \"#{$pr_number}\""
 puts "- comment_id   = \"#{$comment_id}\""
 
-# retrieve message info
-begin
-    repo_metadata = $client.contents($repo, :path => $metadata_filename)
-rescue
-    puts "Repository \"#{$repo}\" does not contain metadata ❌"
-    exit 1
+# retrieve information from files
+groups = get_entries("../groups")
+repos = get_entries("../repos")
+
+# retrieve metadata
+repo_name = $repo.split('/')[-1]
+if repos.key?(repo_name) then
+    repo_metadata = repos[repo_name]
 else
-    repo_metadata=YAML.load(Base64.decode64(repo_metadata.content))
+    puts "Repository \"#{$repo}\" is not automated ❌"
+    exit 1
 end
 
+# retrieve message info
 if $event_name.casecmp?("issues") then
     info = $client.issue($repo, $issue_number)
 elsif $event_name.casecmp?("issue_comment") then
@@ -72,17 +91,6 @@ end
 
 body = info.body
 author = info.user.login
-
-# retrieve groups information
-groupsfiles = Dir["../groups/*.yml"]
-groupsfiles << Dir["../groups/*.yaml"]
-
-groups = {}
-groupsfiles.each { |file|
-    if !file.empty? then
-        groups.merge!(YAML.load_file(file))
-    end
-}
 
 # cycle over repo's users
 collaborators = ""
