@@ -8,6 +8,7 @@ Automatically Manage Outside Collaborators Organization-wide
   - [The workflow](#the-workflow)
   - [Mentioning a group](#mentioning-a-group)
 - [Automation for your organization](#-automation-for-your-organization)
+- [Known limitations](#-known-limitations)
 - [Outro](#-outro)
 - [FAQ](#%EF%B8%8F-faq)
 - [Maintainers](#-maintainers)
@@ -173,6 +174,9 @@ Follow the quick guide below if you want to install this automation in your orga
 
 You are finally good to go ✨
 
+## ⚠ Known limitations
+- We are required to comply with the GitHub API [rate limit rules][7]. 
+
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
 
@@ -193,3 +197,4 @@ This repository is maintained by:
 [4]: https://github.com/icub-tech-iit-bot
 [5]: ./templates/.github/workflows/trigger-mentioning-comment.yml#L23
 [6]: ./templates/.outside-collaborators/override.yml
+[7]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
