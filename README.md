@@ -47,12 +47,11 @@ We make use of the following components:
 - [GitHub REST API](https://docs.github.com/en/rest) for querying and setting the information related to the outside
   collaborators.
 
-The architecture relies on:
-1. This repository acting as the **central dashboard**, that is where "groups" of outside collaborators (let's call
-  them groups to differentiate from org teams) can be set up and modified using the mechanism of pull-requests.
-1. A few **static information** stored within the repositories where the collaboration takes place ("automated
-  repositories") with the aim to assign specific access permissions to outside groups (or even individuals).
-  This static information does override the standard method for managing access permissions in a repository.
+The architecture relies on this repository acting as the **central dashboard** where:
+1. "groups" of outside collaborators (let's call them _groups_ to differentiate from org teams) can be set up and
+   modified using the mechanism of pull-requests.
+1. permissions to access those repositories where the collaboration takes place ("automated repositories") are
+   stored and used to override the standard methodology.
 
 ### The workflow
 The "outside collaborators groups" are defined in YAML files under [groups](./groups) as collections of outside
@@ -76,50 +75,50 @@ generic-group:
   - "user08"
 ```
 
-Upon updating/adding/deleting those YAML files in the `master` branch or upon a [manual trigger][3], a GitHub
-workflow starts crawling the organization to search for those repositories containing the static information
-outlined in the previous section to propagate the changes therein. For each single repository in this set,
-the outside collaborators are automatically invited, removed or updated with the requested permissions stored
-in the repository.
-
-Importantly, the groups files can be modified via pull-requests, enabling the representatives responsible for the
-outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
-In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can
-run securely.
-
-The static information is stored in a specific file of the automated repositories called `.outside-collaborators/override.yml`,
-whose an example is shown below:
+Likewise, access permissions to automated repositories are defined in YAML files under [repos](./repos) as in the
+following example:
 
 ```yaml
-lab_xyz/group01:
-  type: "group"
-  permission: "read"
+repo_name_1:
+  lab_xyz/group01:
+    type: "group"
+    permission: "read"
 
-lab_xyz/group02:
-  type: "group"
-  permission: "triage"
+  lab_xyz/group02:
+    type: "group"
+    permission: "triage"
 
-user06:
-  type: "user"
-  permission: "write"
+  user06:
+    type: "user"
+    permission: "write"
+
+repo_name_2:
+  lab_abc/group01:
+    type: "group"
+    permission: "write"
+
+  user07:
+    type: "user"
+    permission: "maintain"
 ```
 
+Upon updating/adding/deleting those YAML files in the default branch or upon a [manual trigger][3], a GitHub
+workflow propagates the changes to the automated repositories. In detail, for each automated repo, the outside
+collaborators are automatically invited, removed or updated with the requested permissions.
+
+Importantly, the YAML files can be modified via pull-requests, enabling the representatives responsible for the
+outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
+In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can run securely.
+
 Pay attention to the following points:
+- The name of the automated repositoris shall not contain the organization.
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
-- Only `"read"`, `"triage"` and `"write"` permissions are automatically handled. This way, malicious
-  collaborators with `"write"` permission are unable to elevate themselves to become admins. Higher permissions,
-  if specified, are thus internally downgraded to "write".
-- Handling of outside collaborators on an individual basis takes over groups: e.g. `user06` ends up with
-  `"write"` permission instead of `"triage"`, as for members of `lab_xyz/group02`.
-- For security reasons, the file `.outside-collaborators/override.yml` should be managed by a repo maintainer
-  who is also an org member, although it can be edited by outside collaborators with `"write"` permission.
-- When an org repo contains the file `.outside-collaborators/override.yml`, the managing of its outside collaborators
-  will be always overridden by the automatic workflow. Instead, org members can be still added/removed manually
-  as inside collaborators.
-- When `.outside-collaborators/override.yml` gets modified in the org repo, remember to manually trigger the
-  workflow located in the main dashboard to apply the latest updates. 
-- Automation does not apply to org repos that do not contain overriding information.
+- Handling of outside collaborators on an individual basis takes over groups: e.g. for the repo `repo_name_1`,
+  the user `user06` ends up with `"write"` permission instead of `"triage"`, as it should have been instead
+  for being a member of `lab_xyz/group02`.
+- The managing of outside collaborators of an automated repo will be always overridden by the automatic workflow.
+  Instead, org members can be still added/removed manually as inside collaborators.
 - In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
   collaborator: to this end, leave the field `permission` empty to rely on the standard repo settings.
 
@@ -163,19 +162,17 @@ Follow the quick guide below if you want to install this automation in your orga
     - Copy out the content of [templates](./templates) into the repository while preserving the following paths:
       ```text
       .
-      ├── .github
-      │   └── workflows
-      │       └── trigger-mentioning-comment.yml
-      └── .outside-collaborators
-          └── override.yml
+      └── .github
+          └── workflows
+              └── trigger-mentioning-comment.yml
       ```
     - Edit the field [`repository`][5] of the newly created workflow to let it point to your main dashboard repo.
-    - Edit the content of the newly created file [`.outside-collaborators/override.yml`][6] according to your needs.
+    - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
 
 You are finally good to go ✨
 
 ## ⚠ Known limitations
-- We are required to comply with the GitHub API [rate limit rules][7]. 
+- We are required to comply with the GitHub API [rate limit rules][6]. 
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -196,5 +193,4 @@ This repository is maintained by:
 [3]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
 [4]: https://github.com/icub-tech-iit-bot
 [5]: ./templates/.github/workflows/trigger-mentioning-comment.yml#L23
-[6]: ./templates/.outside-collaborators/override.yml
-[7]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+[6]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting

@@ -1,0 +1,12 @@
+task-force-miscellanea:
+  dic-iit/everyone:
+    type: "group"
+    permission: "read"
+
+  hsp-iit/everyone:
+    type: "group"
+    permission: "read"
+
+  edpr-iit/everyone:
+    type: "group"
+    permission: "read"

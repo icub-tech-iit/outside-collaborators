@@ -1,0 +1,24 @@
+purchases:
+  dic-iit/purchases:
+    type: "group"
+    permission: "triage"
+
+  DanielePucci:
+    type: "user"
+    permission: "write"
+
+  hsp-iit/purchases:
+    type: "group"
+    permission: "triage"
+
+  lornat75:
+    type: "user"
+    permission: "write"
+
+  edpr-iit/purchases:
+    type: "group"
+    permission: "triage"
+
+  ChiaraBartolozzi:
+    type: "user"
+    permission: "write"

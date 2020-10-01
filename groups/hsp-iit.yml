@@ -1,5 +1,3 @@
-# used in:
-# - icub-tech-iit/tickets
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
@@ -20,25 +18,18 @@ hsp-iit/everyone:
   - "claudioverardo"
   - "fedeceola"
 
-# used in:
-# - icub-tech-iit/purchases
 hsp-iit/purchases:
   - "lornat75"
   - "randaz81"
   - "drdanz"
   - "GiuliaP"
 
-# used in:
-# - icub-tech-iit/physical-modeling
 hsp-iit/modeling:
   - "lornat75"
   - "randaz81"
   - "fbottarel"
   - "xEnVrE"
   
-# used in:
-# - icub-tech-iit/sw-distro-management
-# - icub-tech-iit/telemetry
 hsp-iit/sw-dev:
   - "lornat75"
   - "randaz81"

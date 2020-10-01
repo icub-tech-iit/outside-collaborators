@@ -1,4 +1,4 @@
-name: List Automated Repositories
+name: Check Automated Repositories
 
 on:
   pull_request_target:
@@ -7,11 +7,13 @@ on:
     paths:
     - "groups/*.yml"
     - "groups/*.yaml"
+    - "repos/*.yml"
+    - "repos/*.yaml"
   workflow_dispatch:
 
 jobs:
   Update:
-    name: "List"
+    name: "Check"
     runs-on: ubuntu-latest
 
     steps:
@@ -21,11 +23,10 @@ jobs:
       - name: Set Env Variables
         run: |
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ORG::${{ github.repository_owner }}"
-          echo "::set-env name=OUTSIDE_COLLABORATORS_METADATA_FILENAME::.outside-collaborators/override.yml"
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}"
       - uses: actions/checkout@master
       - name: Run Handler
         run: |
           cd scripts
-          ./list-automated-repositories.rb
+          ./check-automated-repositories.rb
       

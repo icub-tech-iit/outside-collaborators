@@ -1,5 +1,3 @@
-# used in:
-# - icub-tech-iit/tickets
 edpr-iit/everyone:
   - "ChiaraBartolozzi"
   - "arrenglover"
@@ -14,21 +12,14 @@ edpr-iit/everyone:
   - "dabbous94"
   - "valerdi"
 
-# used in:
-# - icub-tech-iit/purchases
 edpr-iit/purchases:
   - "ChiaraBartolozzi"
   - "aikolina"
 
-# used in:
-# - icub-tech-iit/electronics
 edpr-iit/electronics:
   - "ChiaraBartolozzi"
   - "francescodiotalevi"
   
-# used in:
-# - icub-tech-iit/sw-distro-management
-# - icub-tech-iit/telemetry
 edpr-iit/sw-dev:
   - "ChiaraBartolozzi"
   - "arrenglover"

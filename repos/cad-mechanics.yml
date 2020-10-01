@@ -1,0 +1,20 @@
+cad-mechanics:
+  dic-iit/mech:
+    type: "group"
+    permission: "read"
+ 
+  FabioBergonti:
+    type: "user"
+    permission: "write"
+
+  miggia:
+    type: "user"
+    permission: "read"
+  
+  mpinaffo:
+    type: "user"
+    permission: "read"
+  
+  divyashah:
+    type: "user"
+    permission: "read"

@@ -1,0 +1,16 @@
+tickets:
+  dic-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  hsp-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  edpr-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  ddetommaso:
+    type: "user"
+    permission: "triage"

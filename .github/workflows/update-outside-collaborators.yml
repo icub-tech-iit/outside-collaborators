@@ -7,6 +7,8 @@ on:
     paths:
     - "groups/*.yml"
     - "groups/*.yaml"
+    - "repos/*.yml"
+    - "repos/*.yaml"
   workflow_dispatch:
 
 jobs:
@@ -21,7 +23,6 @@ jobs:
       - name: Set Env Variables
         run: |
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_ORG::${{ github.repository_owner }}"
-          echo "::set-env name=OUTSIDE_COLLABORATORS_METADATA_FILENAME::.outside-collaborators/override.yml"
           echo "::set-env name=OUTSIDE_COLLABORATORS_GITHUB_TOKEN::${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}"
       - uses: actions/checkout@master
       - name: Run Handler
