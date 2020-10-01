@@ -1,0 +1,8 @@
+physical-modeling:
+  dic-iit/seniors:
+    type: "group"
+    permission: "read"
+
+  hsp-iit/modeling:
+    type: "group"
+    permission: "read"

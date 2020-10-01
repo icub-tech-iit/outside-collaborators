@@ -1,0 +1,12 @@
+electronics:
+  dic-iit/electronics:
+    type: "group"
+    permission: "write"
+
+  edpr-iit/electronics:
+    type: "group"
+    permission: "read"
+
+  andreamerello:
+    type: "user"
+    permission: "read"

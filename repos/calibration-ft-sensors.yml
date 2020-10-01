@@ -1,0 +1,4 @@
+calibration-ft-sensors:
+  dic-iit/seniors:
+    type: "group"
+    permission: "read"

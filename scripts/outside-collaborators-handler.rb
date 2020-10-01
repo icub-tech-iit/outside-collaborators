@@ -13,7 +13,6 @@ require 'yaml'
 #########################################################################################
 # global vars
 $org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
-$metadata_filename = ENV['OUTSIDE_COLLABORATORS_METADATA_FILENAME']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
 $wait = 60
 
@@ -30,51 +29,18 @@ Signal.trap("TERM") {
 
 
 #########################################################################################
-def get_repo_metadata(repo)
-    begin
-        repo_metadata = $client.contents(repo.full_name, :path => $metadata_filename)
-    rescue
-        return {}
-    else
-        return {repo.full_name => YAML.load(Base64.decode64(repo_metadata.content))}
-    end
-end
+def get_entries(dirname)
+    files = Dir[dirname + "/*.yml"]
+    files << Dir[dirname + "/*.yaml"]
 
-
-#########################################################################################
-def get_repos()
-    loop do
-        $client.org_repos($org, {:type => 'all'})
-        rate_limit = $client.rate_limit
-        if rate_limit.remaining > 0 then
-            break
-        end
-        sleep($wait)
-    end
-
-    repos = []
-
-    last_response = $client.last_response
-    data = last_response.data
-    data.each { |repo|
-        repo = get_repo_metadata(repo)
-        if !repo.empty? then
-            repos << repo
+    entries = {}
+    files.each { |file|
+        if !file.empty? then
+            entries.merge!(YAML.load_file(file))
         end
     }
 
-    until last_response.rels[:next].nil?
-        last_response = last_response.rels[:next].get
-        data = last_response.data
-        data.each { |repo|
-            repo = get_repo_metadata(repo)
-            if !repo.empty? then
-                repos << repo
-            end
-        }
-    end
-
-    return repos
+    return entries
 end
 
 
@@ -90,7 +56,7 @@ def get_repo_invitations(repo)
     end
       
     invitations = []
-      
+
     last_response = $client.last_response
     data = last_response.data
     data.each { |i| invitations << {i.id => i.invitee.login} }
@@ -146,13 +112,11 @@ def add_repo_collaborator(repo, user, auth)
                 auth = ""
             end
 
-            # "write" is the highest allowed permission we can handle
-            # in order to make sure that malicious collaborators
-            # won't be able to elevate themselves
+            # bind authorization within available options
             auth_ = auth
-            if auth_.casecmp?("maintain") || auth_.casecmp?("admin")
-                auth_ = "write"
-            elsif !auth_.casecmp?("read") && !auth_.casecmp?("triage") && !auth_.casecmp?("write") then
+            if !auth_.casecmp?("admin") && !auth_.casecmp?("maintain") &&
+               !auth_.casecmp?("write") && !auth_.casecmp?("triage") &&
+               !auth_.casecmp?("read") then
                 auth_ = "read"
             end
 
@@ -162,8 +126,8 @@ def add_repo_collaborator(repo, user, auth)
                 invitee = invitation.values[0]
                 if invitee.casecmp?(user) then
                     print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
-                    if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
-                        print " (\"#{auth}\" is not allowed/available ⚠)"
+                    if !auth_.casecmp?(auth) then
+                        print " (\"#{auth}\" is not available ⚠)"
                     end
                     print "\n"
                     $client.update_repository_invitation(repo, id, permission: auth_)
@@ -187,8 +151,8 @@ def add_repo_collaborator(repo, user, auth)
                 else
                     print "- Inviting collaborator \"#{user}\" with permission \"#{auth_}\""
                 end
-                if !auth_.casecmp?(auth) && !auth.casecmp?("read") then
-                    print " (\"#{auth}\" is not allowed/available ⚠)"
+                if !auth_.casecmp?(auth) then
+                    print " (\"#{auth}\" is not available ⚠)"
                 end
                 print "\n"
                 $client.add_collaborator(repo, user, permission: auth__)
@@ -222,67 +186,62 @@ end
 #########################################################################################
 # main
 
-# retrieve groups information
-groupsfiles = Dir["../groups/*.yml"]
-groupsfiles << Dir["../groups/*.yaml"]
-
-groups = {}
-groupsfiles.each { |file|
-    if !file.empty? then
-        groups.merge!(YAML.load_file(file))
-    end
-}
+# retrieve information from files
+groups = get_entries("../groups")
+repos = get_entries("../repos")
 
 # cycle over repos
-get_repos().each { |repo|
-    repo_name = repo.keys[0]
-    repo_metadata = repo.values[0]
-    
-    puts "Processing automated repository \"#{repo_name}\"..."
+repos.each { |repo_name, repo_metadata|
+    repo_full_name = $org + "/" + repo_name
+    puts "Processing automated repository \"#{repo_full_name}\"..."
 
-    # clean up all pending invitations
-    # so that we can revive those stale
-    get_repo_invitations(repo_name).each { |invitation|
-        id = invitation.keys[0]
-        invitee = invitation.values[0]
-        puts "- Removing invitee \"#{invitee}\""
-        $client.delete_repository_invitation(repo_name, id)
-    }
+    if $client.repository?(repo_full_name) then
+        # clean up all pending invitations
+        # so that we can revive those stale
+        get_repo_invitations(repo_full_name).each { |invitation|
+            id = invitation.keys[0]
+            invitee = invitation.values[0]
+            puts "- Removing invitee \"#{invitee}\""
+            $client.delete_repository_invitation(repo_full_name, id)
+        }
 
-    # add collaborators
-    repo_metadata.each { |user, props|
-        type = props["type"]
-        permission = props["permission"]
-        if (type.casecmp?("user")) then
-            add_repo_collaborator(repo_name, user, permission)
-        elsif (type.casecmp?("group")) then
-            if groups.key?(user) then
-                puts "- Handling group \"#{user}\" 👥"
-                groups[user].each { |subuser|
-                    if repo_metadata.key?(subuser) then
-                        puts "- Detected group user \"#{subuser}\" handled individually"
-                    else
-                        add_repo_collaborator(repo_name, subuser, permission)
-                    end
-                }
+        # add collaborators
+        repo_metadata.each { |user, props|
+            type = props["type"]
+            permission = props["permission"]
+            if (type.casecmp?("user")) then
+                add_repo_collaborator(repo_full_name, user, permission)
+            elsif (type.casecmp?("group")) then
+                if groups.key?(user) then
+                    puts "- Handling group \"#{user}\" 👥"
+                    groups[user].each { |subuser|
+                        if repo_metadata.key?(subuser) then
+                            puts "- Detected group user \"#{subuser}\" handled individually"
+                        else
+                            add_repo_collaborator(repo_full_name, subuser, permission)
+                        end
+                    }
+                else
+                    puts "- Unrecognized group \"#{user}\" ❌"
+                end
             else
-                puts "- Unrecognized group \"#{user}\" ❌"
+                puts "- Unrecognized type \"#{type}\" ❌"
             end
-        else
-            puts "- Unrecognized type \"#{type}\" ❌"
-        end
-    }
+        }
 
-    # remove collaborators no longer requested
-    get_repo_collaborators(repo_name).each { |user|
-        if !$client.org_member?($org, user) then
-            if !repo_member(repo_metadata, groups, user) then
-                puts "- Removing collaborator \"#{user}\""
-                $client.remove_collaborator(repo_name, user)
+        # remove collaborators no longer requested
+        get_repo_collaborators(repo_full_name).each { |user|
+            if !$client.org_member?($org, user) then
+                if !repo_member(repo_metadata, groups, user) then
+                    puts "- Removing collaborator \"#{user}\""
+                    $client.remove_collaborator(repo_full_name, user)
+                end
             end
-        end
-    }
+        }
 
-    puts "...done with \"#{repo_name}\" ✔"
+        puts "...done with \"#{repo_full_name}\" ✔"
+    else
+        puts "Repository \"#{repo_full_name}\" does not exist ❌"
+    end
     puts ""
 }

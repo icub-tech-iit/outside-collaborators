@@ -1,5 +1,3 @@
-# used in:
-# - icub-tech-iit/tickets
 dic-iit/everyone:
   - "DanielePucci"
   - "diegoferigo"
@@ -26,8 +24,6 @@ dic-iit/everyone:
   - "paolo-viceconte"
   - "singhbal-baljinder"
 
-# used in:
-# - icub-tech-iit/purchases
 dic-iit/purchases:
   - "DanielePucci"
   - "S-Dafarra"
@@ -40,8 +36,6 @@ dic-iit/purchases:
   - "CarlottaSartore"
   - "Gianlucamilani"
 
-# used in:
-# - icub-tech-iit/calibration-ft-sensors
 dic-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
@@ -53,17 +47,12 @@ dic-iit/seniors:
   - "evalli-iit"
   - "CarlottaSartore"
 
-# used in:
-# - icub-tech-iit/cad-mechanics
 dic-iit/mech:
   - "DanielePucci"
   - "S-Dafarra"
   - "vpunithreddy" 
   - "FabioBergonti"
 
-# used in:
-# - icub-tech-iit/sw-distro-management
-# - icub-tech-iit/telemetry
 dic-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
@@ -71,8 +60,6 @@ dic-iit/sw-dev:
   - "gabrielenava"
   - "Yeshasvitvs"
 
-# used in:
-# - icub-tech-iit/electronics
 dic-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
