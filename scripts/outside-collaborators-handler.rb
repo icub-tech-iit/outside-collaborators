@@ -245,7 +245,7 @@ get_repos().each { |repo|
     get_repo_invitations(repo_name).each { |invitation|
         id = invitation.keys[0]
         invitee = invitation.values[0]
-        puts "- Deleting invitee \"#{invitee}\""
+        puts "- Removing invitee \"#{invitee}\""
         $client.delete_repository_invitation(repo_name, id)
     }
 
