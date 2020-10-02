@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v1.1.1
+      uses: peter-evans/repository-dispatch@v1.1.2
       with:
         token: ${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}
         repository: icub-tech-iit/outside-collaborators
