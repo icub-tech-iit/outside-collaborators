@@ -24,7 +24,7 @@ who leave? What if it is required to change their access permissions? In short, 
 where such a collaboration takes place for checking and updating the corresponding information.
 
 A possible workaround foresees to **invite outside collaborators to join a dedicated organization team**. This way,
-we can benefit from the upsides we all know:
+we can take advantage of the perks we all know:
 - teams are maintained within the central settings of the organization
 - teams can be mentioned
 
