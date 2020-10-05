@@ -119,8 +119,6 @@ Pay attention to the following points:
   for being a member of `lab_xyz/group02`.
 - The managing of outside collaborators of an automated repo will be always overridden by the automatic workflow.
   Instead, org members can be still added/removed manually as inside collaborators.
-- In certain circumstances, it might be still useful to deal manually with permissions of a specific outside
-  collaborator: to this end, leave the field `permission` empty to rely on the standard repo settings.
 
 ### Mentioning a group
 Anyone posting a message in an issue or a PR of a org repository where the outside collaborators automation is
