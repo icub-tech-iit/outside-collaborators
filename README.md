@@ -159,7 +159,7 @@ Follow the quick guide below if you want to install this automation in your orga
       The name of the secret may be different of course, but then you ought to update the scripts.
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
-    - Optionally, if you aim to enable the mentioning mechanism, do:
+    - **Optionally**, if you aim to enable the mentioning mechanism, do:
         - Copy out the content of [templates](./templates) into the repository while preserving the following paths:
         ```text
         .
