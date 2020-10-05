@@ -55,6 +55,11 @@ def check_user(user, permission)
         if $client.org_member?($org, user) then
             puts "- \"#{user}\" is also organization member ❌"
             exit 1
+        elsif !permission.casecmp?("admin") && !permission.casecmp?("maintain") &&
+            !permission.casecmp?("write") && !permission.casecmp?("triage") &&
+            !permission.casecmp?("read") then
+            puts "- \"#{user}\" with unavailable permission \"#{permission}\" ❌"
+            exit 1
         else
             puts "- \"#{user}\" with permission \"#{permission}\""
         end
