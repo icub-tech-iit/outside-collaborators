@@ -155,8 +155,8 @@ Follow the quick guide below if you want to install this automation in your orga
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
-    - **Optionally**, if you aim to enable the mentioning mechanism, do:
-        - Copy out the content of [templates](./templates) into the repository while preserving the following paths:
+    - **Optionally**, if you aim to enable the mentioning mechanism, copy out the content of [templates](./templates)
+      into the repository while preserving the following paths:
         ```text
         .
         └── .github
