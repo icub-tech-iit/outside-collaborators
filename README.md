@@ -161,12 +161,12 @@ Follow the quick guide below if you want to install this automation in your orga
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
     - Optionally, if you aim to enable the mentioning mechanism, do:
         - Copy out the content of [templates](./templates) into the repository while preserving the following paths:
-          ```text
-          .
-          └── .github
-              └── workflows
-                  └── trigger-mentioning-comment.yml
-          ```
+        ```text
+        .
+        └── .github
+            └── workflows
+                └── trigger-mentioning-comment.yml
+        ```
         - Edit the field [`repository`][5] of the newly created workflow to let it point to your main dashboard repo.
 
 You are finally good to go ✨
