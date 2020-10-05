@@ -147,7 +147,7 @@ To avoid cluttering the thread, the original triggering message is quoted only u
 ## ⚙ Automation for your organization
 Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
-1. Make sure that **only org admins can manage the dasboard** repository.
+1. Make sure that **only org admins can manage the dashboard** repository.
 1. Edit the initial content of [groups](./groups).
 1. We recommend that you create a **machine user** to manage the automation (as our [`icub-tech-iit-bot`][4]).
   A standard user is perfectly fine, although be aware that such a user will be receiving lots of notifications
