@@ -143,22 +143,17 @@ def add_repo_collaborator(repo, user, auth)
                 auth__ = "push"
             end
 
-            # handle: invitation, update, skip due to unspecified permission
-            is_collaborator = $client.collaborator?(repo, user)
-            if !auth.empty? || !is_collaborator then
-                if is_collaborator then
-                    print "- Updating collaborator \"#{user}\" with permission \"#{auth_}\""
-                else
-                    print "- Inviting collaborator \"#{user}\" with permission \"#{auth_}\""
-                end
-                if !auth_.casecmp?(auth) then
-                    print " (\"#{auth}\" is not available ⚠)"
-                end
-                print "\n"
-                $client.add_collaborator(repo, user, permission: auth__)
+            # handle: invitation, update
+            if $client.collaborator?(repo, user) then
+                print "- Updating collaborator \"#{user}\" with permission \"#{auth_}\""
             else
-                puts "Skipping collaborator \"#{user}\" whose permission is handled manually ⚠"
+                print "- Inviting collaborator \"#{user}\" with permission \"#{auth_}\""
             end
+            if !auth_.casecmp?(auth) then
+                print " (\"#{auth}\" is not available ⚠)"
+            end
+            print "\n"
+            $client.add_collaborator(repo, user, permission: auth__)
         end
     end
 end
