@@ -172,7 +172,9 @@ Follow the quick guide below if you want to install this automation in your orga
 You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
-- We are required to comply with the GitHub API [rate limit rules][6]. 
+- We are required to comply with the GitHub API [rate limit rules][6].
+- Outside collaborators with `"write"` permission may create and run workflows that leverage on the PAT to get
+  unintended access to org sensitive information.
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
