@@ -102,9 +102,10 @@ repo_name_2:
     permission: "maintain"
 ```
 
-Upon updating/adding/deleting those YAML files in the default branch or upon a [manual trigger][3], a GitHub
-workflow propagates the changes to the automated repositories. In detail, for each automated repo, the outside
-collaborators are automatically invited, removed or updated with the requested permissions.
+Upon updating/adding/deleting those YAML files in the default branch via [forks and pull requests][3] or
+upon a [manual trigger][4], a GitHub workflow propagates the changes to the automated repositories.
+In detail, for each automated repo, the outside collaborators are automatically invited, removed or
+updated with the requested permissions.
 
 Importantly, the YAML files can be modified via pull-requests, enabling the representatives responsible for the
 outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
@@ -160,7 +161,7 @@ Follow the quick guide below if you want to install this automation in your orga
 You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
-- We are required to comply with the GitHub API [rate limit rules][4].
+- We are required to comply with the GitHub API [rate limit rules][5].
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -178,5 +179,6 @@ This repository is maintained by:
 
 [1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
 [2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
-[3]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
-[4]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+[3]: https://guides.github.com/activities/forking
+[4]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
+[5]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
