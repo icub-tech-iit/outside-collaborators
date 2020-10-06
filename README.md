@@ -151,18 +151,11 @@ Follow the quick guide below if you want to install this automation in your orga
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN_BOT` where to store the admin PAT.
-   The name of the secret may be different but then you ought to update the scripts.
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
     - **Optionally**, if you aim to enable the mentioning mechanism, copy out the content of [templates](./templates)
-      into the repository while preserving the following paths:
-        ```text
-        .
-        └── .github
-            └── workflows
-                └── trigger-mentioning-comment.yml
-        ```
+      into the repository while preserving the files paths.
 
 You are finally good to go ✨
 
