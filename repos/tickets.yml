@@ -14,3 +14,11 @@ tickets:
   ddetommaso:
     type: "user"
     permission: "triage"
+    
+  DanielePucci:
+    type: "user"
+    permission: "write"
+    
+  S-Dafarra:
+    type: "user"
+    permission: "write"
