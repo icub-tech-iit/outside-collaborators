@@ -1,12 +1,12 @@
 task-force-miscellanea:
   dic-iit/everyone:
     type: "group"
-    permission: "read"
+    permission: "write"
 
   hsp-iit/everyone:
     type: "group"
-    permission: "read"
+    permission: "write"
 
   edpr-iit/everyone:
     type: "group"
-    permission: "read"
+    permission: "write"
