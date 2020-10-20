@@ -105,7 +105,7 @@ repo_metadata.each { |user, props|
             if groups.key?(user) then
                 puts "- Handling of notified group \"#{user}\" 👥"
                 groups[user].each { |subuser|
-                    # take the author ouf ot the notification list
+                    # take the author out of the notification list
                     if !subuser.casecmp?(author) then
                         collaborators << "@" + subuser + " "
                     end
