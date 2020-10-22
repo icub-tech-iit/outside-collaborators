@@ -28,9 +28,9 @@ we can take advantage of the perks we all know:
 - teams are maintained within the central settings of the organization
 - teams can be mentioned
 
-Nonetheless, being a formal member of the organization may give the outside collaborators privileges when it comes
+Nonetheless, being a formal member of the organization may give the outside collaborator privileges when it comes
 down to some specific access policies. For instance, if the [base permissions][2] of the organization is set to `"Read"`
-instead of `"None"`, then those collaborators will be able to clone and pull all repositories, private ones included!
+instead of `"None"`, then that collaborator will be able to clone and pull all repositories, private ones included!
 
 Also, keeping the clear separation among organization members and outside collaborators is certainly advantageous
 if we consider that we will prevent outside developers from inheriting future upcoming functionalities
