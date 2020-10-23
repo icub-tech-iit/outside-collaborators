@@ -112,7 +112,7 @@ outside collaborators (who are generally external to the organization) to keep t
 In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can run securely.
 
 Pay attention to the following points:
-- The name of the automated repositoris shall not contain the organization.
+- The name of the automated repositories in the YAML files shall not contain the organization.
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
 - Handling of outside collaborators on an individual basis takes over groups: e.g. for the repo `repo_name_1`,
