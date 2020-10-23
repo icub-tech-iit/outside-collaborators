@@ -151,7 +151,7 @@ Follow the quick guide below if you want to install this automation in your orga
    To use the mentioning mechanism, it is required to keep this repo **public**.
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
-1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN_BOT` where to store the admin PAT.
+1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.

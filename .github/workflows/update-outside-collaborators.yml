@@ -23,7 +23,7 @@ jobs:
       - name: Set Env Variables
         run: |
           echo "OUTSIDE_COLLABORATORS_GITHUB_ORG=${{ github.repository_owner }}" >> ${GITHUB_ENV}
-          echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN_BOT }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN }}" >> ${GITHUB_ENV}
       - uses: actions/checkout@master
       - name: Run Handler
         run: |
