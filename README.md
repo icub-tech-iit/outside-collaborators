@@ -162,6 +162,8 @@ You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
 - We are required to comply with the GitHub API [rate limit rules][5].
+- The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
+  See [FAQ](./FAQ.md) for more details.
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
