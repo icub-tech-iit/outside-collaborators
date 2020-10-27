@@ -1,0 +1,4 @@
+icub-snapshots:
+  iiborisov:
+    type: "user"
+    permission: "read"
