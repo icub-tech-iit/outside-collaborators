@@ -1,0 +1,4 @@
+mechatronics:
+  dic-iit/mech:
+    type: "group"
+    permission: "read"
