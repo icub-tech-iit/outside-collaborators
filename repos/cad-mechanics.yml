@@ -7,14 +7,6 @@ cad-mechanics:
     type: "user"
     permission: "write"
 
-  miggia:
-    type: "user"
-    permission: "read"
-  
-  mpinaffo:
-    type: "user"
-    permission: "read"
-  
-  divyashah:
-    type: "user"
+  mws-iit/mech:
+    type: "group"
     permission: "read"
