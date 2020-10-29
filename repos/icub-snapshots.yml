@@ -2,3 +2,6 @@ icub-snapshots:
   iiborisov:
     type: "user"
     permission: "read"
+  svyatoslavdm:
+    type: "user"
+    permission: "read"
