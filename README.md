@@ -118,6 +118,8 @@ Pay attention to the following points:
 - Handling of outside collaborators on an individual basis takes over groups: e.g. for the repo `repo_name_1`,
   the user `user06` ends up with `"write"` permission instead of `"triage"`, as it should have been instead
   for being a member of `lab_xyz/group02`.
+- If a user belongs to multiple groups that are all assigned to a single specific repository, then that user
+  will end up receiving permissions according to how those groups get sequentially processed by the automation.
 - The managing of outside collaborators of an automated repo will be always overridden by the automatic workflow.
   Instead, org members can be still added/removed manually as inside collaborators.
 
