@@ -7,6 +7,10 @@ electronics:
     type: "group"
     permission: "read"
 
+  hsp-iit/electronics:
+    type: "group"
+    permission: "read"
+
   andreamerello:
     type: "user"
     permission: "read"
