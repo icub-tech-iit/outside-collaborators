@@ -166,6 +166,7 @@ You are finally good to go ✨
 - We are required to comply with the GitHub API [rate limit rules][5].
 - The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
   See [FAQ](./FAQ.md) for more details.
+- [Known bugs][6] 🐛
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -186,3 +187,4 @@ This repository is maintained by:
 [3]: https://guides.github.com/activities/forking
 [4]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
 [5]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+[6]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
