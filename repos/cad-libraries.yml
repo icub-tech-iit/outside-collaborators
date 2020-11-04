@@ -1,8 +1,0 @@
-cad-libraries:
-  dic-iit/mech:
-    type: "group"
-    permission: "read"
-
-  mws-iit/mech:
-    type: "group"
-    permission: "read"
