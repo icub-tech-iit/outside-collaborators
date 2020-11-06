@@ -161,20 +161,22 @@ end
 
 #########################################################################################
 def repo_member(repo_metadata, groups, user)
-    if repo_metadata.key?(user) then
-        return true
-    else
-        repo_metadata.each { |item, props|
-            if (props["type"].casecmp?("group")) then
-                if groups.key?(item) then
-                    if groups[item].include?(user)
-                        return true
+    if repo_metadata then
+        if repo_metadata.key?(user) then
+            return true
+        else
+            repo_metadata.each { |item, props|
+                if (props["type"].casecmp?("group")) then
+                    if groups.key?(item) then
+                        if groups[item].include?(user)
+                            return true
+                        end
                     end
                 end
-            end
-        }
-        return false
+            }
+        end
     end
+    return false
 end
 
 
@@ -201,28 +203,30 @@ repos.each { |repo_name, repo_metadata|
         }
 
         # add collaborators
-        repo_metadata.each { |user, props|
-            type = props["type"]
-            permission = props["permission"]
-            if (type.casecmp?("user")) then
-                add_repo_collaborator(repo_full_name, user, permission)
-            elsif (type.casecmp?("group")) then
-                if groups.key?(user) then
-                    puts "- Handling group \"#{user}\" 👥"
-                    groups[user].each { |subuser|
-                        if repo_metadata.key?(subuser) then
-                            puts "- Detected group user \"#{subuser}\" handled individually"
-                        else
-                            add_repo_collaborator(repo_full_name, subuser, permission)
-                        end
-                    }
+        if repo_metadata then
+            repo_metadata.each { |user, props|
+                type = props["type"]
+                permission = props["permission"]
+                if (type.casecmp?("user")) then
+                    add_repo_collaborator(repo_full_name, user, permission)
+                elsif (type.casecmp?("group")) then
+                    if groups.key?(user) then
+                        puts "- Handling group \"#{user}\" 👥"
+                        groups[user].each { |subuser|
+                            if repo_metadata.key?(subuser) then
+                                puts "- Detected group user \"#{subuser}\" handled individually"
+                            else
+                                add_repo_collaborator(repo_full_name, subuser, permission)
+                            end
+                        }
+                    else
+                        puts "- Unrecognized group \"#{user}\" ❌"
+                    end
                 else
-                    puts "- Unrecognized group \"#{user}\" ❌"
+                    puts "- Unrecognized type \"#{type}\" ❌"
                 end
-            else
-                puts "- Unrecognized type \"#{type}\" ❌"
-            end
-        }
+            }
+        end
 
         # remove collaborators no longer requested
         get_repo_collaborators(repo_full_name).each { |user|

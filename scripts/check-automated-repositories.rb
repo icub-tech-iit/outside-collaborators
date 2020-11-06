@@ -81,30 +81,32 @@ repos.each { |repo_name, repo_metadata|
 
     if $client.repository?(repo_full_name) then
         # check collaborators
-        repo_metadata.each { |user, props|
-            type = props["type"]
-            permission = props["permission"]
-            if (type.casecmp?("user")) then
-                check_user(user, permission)
-            elsif (type.casecmp?("group")) then
-                if groups.key?(user) then
-                    puts "- Listing collaborators in group \"#{user}\" 👥"
-                    groups[user].each { |subuser|
-                        if repo_metadata.key?(subuser) then
-                            puts "- Detected group user \"#{subuser}\" handled individually"
-                        else
-                            check_user(subuser, permission)
-                        end
-                    }
+        if repo_metadata then
+            repo_metadata.each { |user, props|
+                type = props["type"]
+                permission = props["permission"]
+                if (type.casecmp?("user")) then
+                    check_user(user, permission)
+                elsif (type.casecmp?("group")) then
+                    if groups.key?(user) then
+                        puts "- Listing collaborators in group \"#{user}\" 👥"
+                        groups[user].each { |subuser|
+                            if repo_metadata.key?(subuser) then
+                                puts "- Detected group user \"#{subuser}\" handled individually"
+                            else
+                                check_user(subuser, permission)
+                            end
+                        }
+                    else
+                        puts "- Unrecognized group \"#{user}\" ❌"
+                        exit 1
+                    end
                 else
-                    puts "- Unrecognized group \"#{user}\" ❌"
+                    puts "- Unrecognized type \"#{type}\" ❌"
                     exit 1
                 end
-            else
-                puts "- Unrecognized type \"#{type}\" ❌"
-                exit 1
-            end
-        }
+            }
+        end
 
         puts "...done with \"#{repo_full_name}\" ✔"
     else
