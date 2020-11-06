@@ -166,6 +166,10 @@ You are finally good to go ✨
 - We are required to comply with the GitHub API [rate limit rules][5].
 - The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
   See [FAQ](./FAQ.md) for more details.
+- When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
+  any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
+  find it out. To get around this, leave the entry empty for one round to give the action the possibility
+  to perform the required cleanup. Soon afterward, the entry can be safely removed.
 - [Known bugs][6] 🐛
 
 ## 🔳 Outro
