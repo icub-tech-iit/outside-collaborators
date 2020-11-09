@@ -34,11 +34,13 @@ def get_entries(dirname)
     files << Dir[dirname + "/*.yaml"]
 
     entries = {}
-    files.each { |file|
-        if !file.empty? then
-            entries.merge!(YAML.load_file(file))
-        end
-    }
+    if files then
+        files.each { |file|
+            if !file.empty? then
+                entries.merge!(YAML.load_file(file))
+            end
+        }
+    end
 
     return entries
 end
