@@ -120,6 +120,7 @@ Pay attention to the following points:
   for being a member of `lab_xyz/group02`.
 - If a user belongs to multiple groups that are all assigned to a single specific repository, then that user
   will end up receiving permissions according to how those groups get sequentially processed by the automation.
+  To get around this, just handle that user on an individual basis.
 - The managing of outside collaborators of an automated repo will be always overridden by the automatic workflow.
   Instead, org members can be still added/removed manually as inside collaborators.
 
@@ -168,9 +169,10 @@ You are finally good to go ✨
   See [FAQ](./FAQ.md) for more details.
 - When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
   any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
-  find it out. To get around this, leave the entry empty for one round to give the action the possibility
-  to perform the required cleanup. Soon afterward, the entry can be safely removed.
-- [Known bugs][6] 🐛
+  find it out. To circumvent this, leave the entry empty for one round to give the action the possibility
+  to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
+  other smarter ways to get it done automatically but this is actually the simplest.
+- Pending [known bugs][6] 🐛
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
