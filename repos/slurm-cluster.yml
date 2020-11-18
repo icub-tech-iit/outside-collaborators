@@ -1,0 +1,20 @@
+slurm-cluster:
+  dic-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  hsp-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  edpr-iit/everyone:
+    type: "group"
+    permission: "triage"
+    
+  diegoferigo:
+    type: "user"
+    permission: "write"
+    
+  GiuliaP:
+    type: "user"
+    permission: "write"
