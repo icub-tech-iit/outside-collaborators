@@ -154,8 +154,12 @@ def add_repo_collaborator(repo, user, auth)
             if !auth_.casecmp?(auth) then
                 print " (\"#{auth}\" is not available ⚠)"
             end
+            begin
+                $client.add_collaborator(repo, user, permission: auth__)
+            rescue
+                puts " - problem detected ❌"
+            end
             print "\n"
-            $client.add_collaborator(repo, user, permission: auth__)
         end
     end
 end
