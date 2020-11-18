@@ -1,13 +1,13 @@
 slurm-cluster:
-  dic-iit/everyone:
+  dic-iit/sw-dev:
     type: "group"
     permission: "triage"
     
-  hsp-iit/everyone:
+  hsp-iit/sw-dev:
     type: "group"
     permission: "triage"
     
-  edpr-iit/everyone:
+  edpr-iit/sw-dev:
     type: "group"
     permission: "triage"
     
