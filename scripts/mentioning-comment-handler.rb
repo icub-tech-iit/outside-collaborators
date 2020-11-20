@@ -32,6 +32,18 @@ Signal.trap("TERM") {
 
 
 #########################################################################################
+def check_and_wait_until_reset
+    rate_limit = $client.rate_limit
+    if rate_limit.remaining == 0 then
+        reset_secs = rate_limit.resets_in
+        reset_mins = reset_secs / 60
+        puts "⏳ GitHub API Rate Limit will reset at #{rate_limit.resets_at} in #{reset_mins} mins"
+        wait(reset_secs)
+    end
+end
+
+
+#########################################################################################
 def get_entries(dirname)
     files = Dir[dirname + "/*.yml"]
     files << Dir[dirname + "/*.yaml"]
@@ -74,6 +86,7 @@ else
 end
 
 # retrieve message info
+check_and_wait_until_reset
 if $event_name.casecmp?("issues") then
     info = $client.issue($repo, $issue_number)
 elsif $event_name.casecmp?("issue_comment") then
