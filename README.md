@@ -8,7 +8,7 @@ Automatically Manage Outside Collaborators Organization-wide
   - [The workflow](#the-workflow)
   - [Mentioning a group](#mentioning-a-group)
 - [Automation for your organization](#-automation-for-your-organization)
-- [Known limitations](#-known-limitations)
+- [Known limitations/issues](#-known-limitationsissues)
 - [Outro](#-outro)
 - [FAQ](#%EF%B8%8F-faq)
 - [Maintainers](#-maintainers)
