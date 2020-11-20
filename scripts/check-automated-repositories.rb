@@ -14,7 +14,6 @@ require 'yaml'
 # global vars
 $org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
-$wait = 60
 
 
 #########################################################################################
@@ -26,6 +25,18 @@ Signal.trap("INT") {
 Signal.trap("TERM") {
   exit 2
 }
+
+
+#########################################################################################
+def check_and_wait_until_reset
+    rate_limit = $client.rate_limit
+    if rate_limit.remaining == 0 then
+        reset_secs = rate_limit.resets_in
+        reset_mins = reset_secs / 60
+        puts "⏳ GitHub API Rate Limit will reset at #{rate_limit.resets_at} in #{reset_mins} mins"
+        wait(reset_secs)
+    end
+end
 
 
 #########################################################################################
@@ -48,12 +59,14 @@ end
 
 #########################################################################################
 def check_user(user, permission)
+    check_and_wait_until_reset
     begin
         $client.user(user)
     rescue
         puts "- \"#{user}\" does not exist ❌"
         exit 1
     else
+        check_and_wait_until_reset
         if $client.org_member?($org, user) then
             puts "- \"#{user}\" is also organization member ❌"
             exit 1
@@ -81,6 +94,7 @@ repos.each { |repo_name, repo_metadata|
     repo_full_name = $org + "/" + repo_name
     puts "Processing automated repository \"#{repo_full_name}\"..."
 
+    check_and_wait_until_reset
     if $client.repository?(repo_full_name) then
         # check collaborators
         if repo_metadata then

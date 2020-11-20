@@ -14,7 +14,6 @@ require 'yaml'
 # global vars
 $org = ENV['OUTSIDE_COLLABORATORS_GITHUB_ORG']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
-$wait = 60
 
 
 #########################################################################################
@@ -26,6 +25,18 @@ Signal.trap("INT") {
 Signal.trap("TERM") {
   exit 2
 }
+
+
+#########################################################################################
+def check_and_wait_until_reset
+    rate_limit = $client.rate_limit
+    if rate_limit.remaining == 0 then
+        reset_secs = rate_limit.resets_in
+        reset_mins = reset_secs / 60
+        puts "⏳ GitHub API Rate Limit will reset at #{rate_limit.resets_at} in #{reset_mins} mins"
+        wait(reset_secs)
+    end
+end
 
 
 #########################################################################################
@@ -49,12 +60,12 @@ end
 #########################################################################################
 def get_repo_invitations(repo)
     loop do
+        check_and_wait_until_reset
         $client.repository_invitations(repo)
         rate_limit = $client.rate_limit
         if rate_limit.remaining > 0 then
             break
         end
-        sleep($wait)
     end
       
     invitations = []
@@ -76,12 +87,12 @@ end
 #########################################################################################
 def get_repo_collaborators(repo)
     loop do
+        check_and_wait_until_reset
         $client.collaborators(repo)
         rate_limit = $client.rate_limit
         if rate_limit.remaining > 0 then
             break
         end
-        sleep($wait)
     end
 
     collaborators = []
@@ -102,11 +113,13 @@ end
 
 #########################################################################################
 def add_repo_collaborator(repo, user, auth)
+    check_and_wait_until_reset
     begin
         $client.user(user)
     rescue
         puts "- Requested action for not existing user \"#{user}\" ❌"
     else
+        check_and_wait_until_reset
         if $client.org_member?($org, user) then
             puts "- Requested action for organization member \"#{user}\" ❌"
         else
@@ -132,6 +145,7 @@ def add_repo_collaborator(repo, user, auth)
                         print " (\"#{auth}\" is not available ⚠)"
                     end
                     print "\n"
+                    check_and_wait_until_reset
                     $client.update_repository_invitation(repo, id, permission: auth_)
                     return
                 end
@@ -146,6 +160,7 @@ def add_repo_collaborator(repo, user, auth)
             end
 
             # handle: invitation, update
+            check_and_wait_until_reset
             if $client.collaborator?(repo, user) then
                 print "- Updating collaborator \"#{user}\" with permission \"#{auth_}\""
             else
@@ -154,6 +169,7 @@ def add_repo_collaborator(repo, user, auth)
             if !auth_.casecmp?(auth) then
                 print " (\"#{auth}\" is not available ⚠)"
             end
+            check_and_wait_until_reset
             begin
                 $client.add_collaborator(repo, user, permission: auth__)
             rescue
@@ -198,6 +214,7 @@ repos.each { |repo_name, repo_metadata|
     repo_full_name = $org + "/" + repo_name
     puts "Processing automated repository \"#{repo_full_name}\"..."
 
+    check_and_wait_until_reset
     if $client.repository?(repo_full_name) then
         # clean up all pending invitations
         # so that we can revive those stale
@@ -205,6 +222,7 @@ repos.each { |repo_name, repo_metadata|
             id = invitation.keys[0]
             invitee = invitation.values[0]
             puts "- Removing invitee \"#{invitee}\""
+            check_and_wait_until_reset
             $client.delete_repository_invitation(repo_full_name, id)
         }
 
@@ -236,9 +254,11 @@ repos.each { |repo_name, repo_metadata|
 
         # remove collaborators no longer requested
         get_repo_collaborators(repo_full_name).each { |user|
+            check_and_wait_until_reset
             if !$client.org_member?($org, user) then
                 if !repo_member(repo_metadata, groups, user) then
                     puts "- Removing collaborator \"#{user}\""
+                    check_and_wait_until_reset
                     $client.remove_collaborator(repo_full_name, user)
                 end
             end
