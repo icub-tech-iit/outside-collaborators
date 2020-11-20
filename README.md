@@ -164,7 +164,8 @@ Follow the quick guide below if you want to install this automation in your orga
 You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
-- We are required to comply with the GitHub API [rate limit rules][5].
+- We are required to comply with the GitHub API [rate limit rules][5]. In case we hit such a limit,
+  the automation will wait for the reset to take place.
 - The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
   See [FAQ](./FAQ.md) for more details.
 - When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
