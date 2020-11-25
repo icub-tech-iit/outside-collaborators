@@ -10,7 +10,3 @@ cad-mechanics:
   mws-iit/mech:
     type: "group"
     permission: "read"
-
-  divyashah:
-    type: "user"
-    permission: "read"
