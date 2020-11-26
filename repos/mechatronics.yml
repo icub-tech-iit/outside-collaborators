@@ -6,3 +6,12 @@ mechatronics:
   divyashah:
     type: "user"
     permission: "read"
+    
+  Gianlucamilani:
+    type: "user"
+    permission: "read"
+  
+  evalli-iit:
+    type: "user"
+    permission: "read"
+    
