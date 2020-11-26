@@ -172,7 +172,8 @@ You are finally good to go ✨
   any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
   find it out. To circumvent this, leave the entry empty for one round to give the action the possibility
   to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
-  other smarter ways to get it done automatically but this is actually the simplest.
+  other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is
+  actually the simplest. Obviously, one can also perform a manual cleanup. 
 - Pending [known bugs][6] 🐛
 
 ## 🔳 Outro
