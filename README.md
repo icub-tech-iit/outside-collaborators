@@ -173,7 +173,7 @@ You are finally good to go ✨
   find it out. To circumvent this, leave the entry empty for one round to give the action the possibility
   to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
   other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is
-  actually the simplest. Obviously, one can also perform a manual cleanup. 
+  actually the simplest. Obviously, one can also perform a manual cleanup straight away.
 - Pending [known bugs][6] 🐛
 
 ## 🔳 Outro
