@@ -1,4 +1,4 @@
-electronics:
+electronics-boards:
   dic-iit/electronics:
     type: "group"
     permission: "write"
