@@ -55,7 +55,8 @@ dic-iit/mech:
   - "S-Dafarra"
   - "vpunithreddy" 
   - "FabioBergonti"
-
+  - "gabrielenava" 
+  
 dic-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
@@ -64,8 +65,12 @@ dic-iit/sw-dev:
   - "Yeshasvitvs"
   - "giovannipizzolante"
   - "GiulioRomualdi"
-
+  - "nunoguedelha"
+  
 dic-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
   - "Gianlucamilani"
+  - "giovannipizzolante"
+  - "GiulioRomualdi"
+  - "isorrentino"
