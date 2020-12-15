@@ -155,6 +155,7 @@ Follow the quick guide below if you want to install this automation in your orga
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
+1. You may consider enforcing the use of a [GitHub environment][5] to improve security.
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
@@ -164,7 +165,7 @@ Follow the quick guide below if you want to install this automation in your orga
 You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
-- We are required to comply with the GitHub API [rate limit rules][5]. In case we hit such a limit,
+- We are required to comply with the GitHub API [rate limit rules][6]. In case we hit such a limit,
   the automation will wait for the reset to take place.
 - The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
   See [FAQ](./FAQ.md) for more details.
@@ -174,7 +175,7 @@ You are finally good to go ✨
   to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
   other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is
   actually the simplest. Obviously, one can also perform a manual cleanup straight away.
-- Pending [known bugs][6] 🐛
+- Pending [known bugs][7] 🐛
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -194,5 +195,6 @@ This repository is maintained by:
 [2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [3]: https://guides.github.com/activities/forking
 [4]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
-[5]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
-[6]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
+[5]: ./.github/workflows/update-outside-collaborators.yml#L18
+[6]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+[7]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
