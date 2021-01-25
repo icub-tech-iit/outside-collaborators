@@ -43,12 +43,17 @@ def get_repo_invitations(repo)
 
     last_response = $client.last_response
     data = last_response.data
-    data.each { |i| invitations << {i.id => i.invitee.login} }
+    data.each { |i| invitations << {"id" => i.id,
+                                    "invitee" => i.invitee.login,
+                                    "permissions" => i.permissions}
       
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
         data = last_response.data
-        data.each { |i| invitations << {i.id => i.invitee.login} }
+        data.each { |i| invitations << {i.id => {i.invitee.login, i.permissions} }
+        data.each { |i| invitations << {"id" => i.id,
+                                        "invitee" => i.invitee.login,
+                                        "permissions" => i.permissions}
     end
 
     return invitations
@@ -108,16 +113,15 @@ def add_repo_collaborator(repo, user, auth)
 
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
-                id = invitation.keys[0]
-                invitee = invitation.values[0]
-                if invitee.casecmp?(user) then
+                if invitation["invitee"].casecmp?(user) &&
+                   !invitation["permissions"].casecmp?(permission) then
                     print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
                     if !auth_.casecmp?(auth) then
                         print " (\"#{auth}\" is not available ⚠)"
                     end
                     print "\n"
                     check_and_wait_until_reset
-                    $client.update_repository_invitation(repo, id, permission: auth_)
+                    $client.update_repository_invitation(repo, invitation["id"], permission: auth_)
                     return
                 end
             }
@@ -190,11 +194,10 @@ repos.each { |repo_name, repo_metadata|
         # clean up all pending invitations
         # so that we can revive those stale
         get_repo_invitations(repo_full_name).each { |invitation|
-            id = invitation.keys[0]
-            invitee = invitation.values[0]
+            invitee = invitation["invitee"]
             puts "- Removing invitee \"#{invitee}\""
             check_and_wait_until_reset
-            $client.delete_repository_invitation(repo_full_name, id)
+            $client.delete_repository_invitation(repo_full_name, invitation["id"])
         }
 
         # add collaborators
