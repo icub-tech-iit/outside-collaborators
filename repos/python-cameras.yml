@@ -6,10 +6,6 @@ python-cameras:
   edpr-iit/electronics:
     type: "group"
     permission: "triage"
-    
-  edpr-iit/sw-dev:
-    type: "group"
-    permission: "triage"
 
   hsp-iit/electronics:
     type: "group"
