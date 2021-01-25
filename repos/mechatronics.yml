@@ -2,10 +2,6 @@ mechatronics:
   dic-iit/mech:
     type: "group"
     permission: "read"
-
-  divyashah:
-    type: "user"
-    permission: "read"
     
   Gianlucamilani:
     type: "user"
