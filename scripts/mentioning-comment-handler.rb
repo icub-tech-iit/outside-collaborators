@@ -19,7 +19,6 @@ $issue_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_ISSUE_NUMBER']
 $pr_number = ENV['OUTSIDE_COLLABORATORS_GITHUB_PR_NUMBER']
 $comment_id = ENV['OUTSIDE_COLLABORATORS_GITHUB_COMMENT_ID']
 $client = Octokit::Client.new :access_token => ENV['OUTSIDE_COLLABORATORS_GITHUB_TOKEN']
-$wait = 60
 
 
 #########################################################################################
