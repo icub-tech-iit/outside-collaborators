@@ -45,15 +45,14 @@ def get_repo_invitations(repo)
     data = last_response.data
     data.each { |i| invitations << {"id" => i.id,
                                     "invitee" => i.invitee.login,
-                                    "permissions" => i.permissions}
+                                    "permissions" => i.permissions} }
       
     until last_response.rels[:next].nil?
         last_response = last_response.rels[:next].get
         data = last_response.data
-        data.each { |i| invitations << {i.id => {i.invitee.login, i.permissions} }
         data.each { |i| invitations << {"id" => i.id,
                                         "invitee" => i.invitee.login,
-                                        "permissions" => i.permissions}
+                                        "permissions" => i.permissions} }
     end
 
     return invitations
