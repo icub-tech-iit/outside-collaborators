@@ -29,7 +29,7 @@ Signal.trap("TERM") {
 
 
 #########################################################################################
-def check_user(user, permission)
+def check_user(user, permissions)
     check_and_wait_until_reset
     begin
         $client.user(user)
@@ -41,13 +41,13 @@ def check_user(user, permission)
         if $client.org_member?($org, user) then
             puts "- \"#{user}\" is also organization member ❌"
             exit 1
-        elsif !permission.casecmp?("admin") && !permission.casecmp?("maintain") &&
-            !permission.casecmp?("write") && !permission.casecmp?("triage") &&
-            !permission.casecmp?("read") then
-            puts "- \"#{user}\" with unavailable permission \"#{permission}\" ❌"
+        elsif !permissions.casecmp?("admin") && !permissions.casecmp?("maintain") &&
+            !permissions.casecmp?("write") && !permissions.casecmp?("triage") &&
+            !permissions.casecmp?("read") then
+            puts "- \"#{user}\" with unavailable permissions \"#{permissions}\" ❌"
             exit 1
         else
-            puts "- \"#{user}\" with permission \"#{permission}\""
+            puts "- \"#{user}\" with permissions \"#{permissions}\""
         end
     end
 end
@@ -71,9 +71,9 @@ repos.each { |repo_name, repo_metadata|
         if repo_metadata then
             repo_metadata.each { |user, props|
                 type = props["type"]
-                permission = props["permission"]
+                permissions = props["permissions"]
                 if (type.casecmp?("user")) then
-                    check_user(user, permission)
+                    check_user(user, permissions)
                 elsif (type.casecmp?("group")) then
                     if groups.key?(user) then
                         puts "- Listing collaborators in group \"#{user}\" 👥"
@@ -81,7 +81,7 @@ repos.each { |repo_name, repo_metadata|
                             if repo_metadata.key?(subuser) then
                                 puts "- Detected group user \"#{subuser}\" handled individually"
                             else
-                                check_user(subuser, permission)
+                                check_user(subuser, permissions)
                             end
                         }
                     else

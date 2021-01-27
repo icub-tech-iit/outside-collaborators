@@ -82,24 +82,24 @@ following example:
 repo_name_1:
   lab_xyz/group01:
     type: "group"
-    permission: "read"
+    permissions: "read"
 
   lab_xyz/group02:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
 
   user06:
     type: "user"
-    permission: "write"
+    permissions: "write"
 
 repo_name_2:
   lab_abc/group01:
     type: "group"
-    permission: "write"
+    permissions: "write"
 
   user07:
     type: "user"
-    permission: "maintain"
+    permissions: "maintain"
 ```
 
 Upon updating/adding/deleting those YAML files in the default branch via [forks and pull requests][3] or
@@ -116,7 +116,7 @@ Pay attention to the following points:
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
 - Handling of outside collaborators on an individual basis takes over groups: e.g. for the repo `repo_name_1`,
-  the user `user06` ends up with `"write"` permission instead of `"triage"`, as it should have been instead
+  the user `user06` ends up with `"write"` permissions instead of `"triage"`, as it should have been instead
   for being a member of `lab_xyz/group02`.
 - If a user belongs to multiple groups that are all assigned to a single specific repository, then that user
   will end up receiving permissions according to how those groups get sequentially processed by the automation.

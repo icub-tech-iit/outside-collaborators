@@ -1,24 +1,24 @@
 slurm-cluster:
   dic-iit/sw-dev:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   hsp-iit/sw-dev:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   edpr-iit/sw-dev:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   diegoferigo:
     type: "user"
-    permission: "write"
+    permissions: "write"
     
   GiuliaP:
     type: "user"
-    permission: "write"
+    permissions: "write"
     
   cyberseawolf:
     type: "user"
-    permission: "read"
+    permissions: "read"

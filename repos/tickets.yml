@@ -1,28 +1,28 @@
 tickets:
   dic-iit/everyone:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   hsp-iit/everyone:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   edpr-iit/everyone:
     type: "group"
-    permission: "triage"
+    permissions: "triage"
     
   ddetommaso:
     type: "user"
-    permission: "triage"
+    permissions: "triage"
     
   DanielePucci:
     type: "user"
-    permission: "write"
+    permissions: "write"
 
   lornat75:
     type: "user"
-    permission: "write"
+    permissions: "write"
 
   ChiaraBartolozzi:
     type: "user"
-    permission: "write"
+    permissions: "write"

@@ -1,13 +1,13 @@
 mechatronics:
   dic-iit/mech:
     type: "group"
-    permission: "read"
+    permissions: "read"
     
   Gianlucamilani:
     type: "user"
-    permission: "read"
+    permissions: "read"
   
   evalli-iit:
     type: "user"
-    permission: "read"
+    permissions: "read"
     

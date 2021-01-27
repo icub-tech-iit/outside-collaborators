@@ -16,6 +16,6 @@
 
    >With a private dashboard repo, the action devoted to managing the mentioning mechanism would need an organization PAT
    to access the dashboard where all the required info is stored to correctly process the request. Relying on organization
-   PATs represents a vulnerability as it may allow a user/contributor with `write` permission to run a malicious action to
+   PATs represents a vulnerability as it may allow a user/contributor with `write` permissions to run a malicious action to
    take over the control of the organization.
    
