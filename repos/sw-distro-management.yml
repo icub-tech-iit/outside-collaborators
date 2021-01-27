@@ -1,12 +1,13 @@
 sw-distro-management:
   dic-iit/sw-dev:
     type: "group"
-    permission: "read"
+    permissions: "read"
 
   hsp-iit/sw-dev:
     type: "group"
-    permission: "read"
+    permissions: "read"
 
   edpr-iit/sw-dev:
     type: "group"
-    permission: "read"
+    permissions: "read"
+    

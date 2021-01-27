@@ -1,12 +1,12 @@
 cad-mechanics:
   dic-iit/mech:
     type: "group"
-    permission: "read"
+    permissions: "read"
  
   FabioBergonti:
     type: "user"
-    permission: "write"
+    permissions: "write"
 
   mws-iit/mech:
     type: "group"
-    permission: "read"
+    permissions: "read"

@@ -113,8 +113,8 @@ def add_repo_collaborator(repo, user, auth)
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
                 if invitation["invitee"].casecmp?(user) &&
-                   !invitation["permissions"].casecmp?(permission) then
-                    print "- Updating invitee \"#{user}\" with permission \"#{auth_}\""
+                   !invitation["permissions"].casecmp?(auth_) then
+                    print "- Updating invitee \"#{user}\" with permissions \"#{auth_}\""
                     if !auth_.casecmp?(auth) then
                         print " (\"#{auth}\" is not available ⚠)"
                     end
@@ -136,9 +136,9 @@ def add_repo_collaborator(repo, user, auth)
             # handle: invitation, update
             check_and_wait_until_reset
             if $client.collaborator?(repo, user) then
-                print "- Updating collaborator \"#{user}\" with permission \"#{auth_}\""
+                print "- Updating collaborator \"#{user}\" with permissions \"#{auth_}\""
             else
-                print "- Inviting collaborator \"#{user}\" with permission \"#{auth_}\""
+                print "- Inviting collaborator \"#{user}\" with permissions \"#{auth_}\""
             end
             if !auth_.casecmp?(auth) then
                 print " (\"#{auth}\" is not available ⚠)"
@@ -203,9 +203,9 @@ repos.each { |repo_name, repo_metadata|
         if repo_metadata then
             repo_metadata.each { |user, props|
                 type = props["type"]
-                permission = props["permission"]
+                permissions = props["permissions"]
                 if (type.casecmp?("user")) then
-                    add_repo_collaborator(repo_full_name, user, permission)
+                    add_repo_collaborator(repo_full_name, user, permissions)
                 elsif (type.casecmp?("group")) then
                     if groups.key?(user) then
                         puts "- Handling group \"#{user}\" 👥"
@@ -213,7 +213,7 @@ repos.each { |repo_name, repo_metadata|
                             if repo_metadata.key?(subuser) then
                                 puts "- Detected group user \"#{subuser}\" handled individually"
                             else
-                                add_repo_collaborator(repo_full_name, subuser, permission)
+                                add_repo_collaborator(repo_full_name, subuser, permissions)
                             end
                         }
                     else
