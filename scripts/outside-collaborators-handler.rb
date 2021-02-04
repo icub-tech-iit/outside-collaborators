@@ -190,15 +190,6 @@ repos.each { |repo_name, repo_metadata|
 
     check_and_wait_until_reset
     if $client.repository?(repo_full_name) then
-        # clean up all pending invitations
-        # so that we can revive those stale
-        get_repo_invitations(repo_full_name).each { |invitation|
-            invitee = invitation["invitee"]
-            puts "- Removing invitee \"#{invitee}\""
-            check_and_wait_until_reset
-            $client.delete_repository_invitation(repo_full_name, invitation["id"])
-        }
-
         # add collaborators
         if repo_metadata then
             repo_metadata.each { |user, props|
@@ -233,6 +224,19 @@ repos.each { |repo_name, repo_metadata|
                     puts "- Removing collaborator \"#{user}\""
                     check_and_wait_until_reset
                     $client.remove_collaborator(repo_full_name, user)
+                end
+            end
+        }
+
+        # remove pending invitations of collaborators no longer requested
+        get_repo_invitations(repo_full_name).each { |invitation|
+            invitee = invitation["invitee"]
+            check_and_wait_until_reset
+            if !$client.org_member?($org, invitee) then
+                if !repo_member(repo_metadata, groups, user) then
+                    puts "- Removing invitee \"#{invitee}\""
+                    check_and_wait_until_reset
+                    $client.delete_repository_invitation(repo_full_name, invitation["id"])
                 end
             end
         }
