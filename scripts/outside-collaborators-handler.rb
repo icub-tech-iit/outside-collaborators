@@ -114,7 +114,7 @@ def add_repo_collaborator(repo, user, auth)
             get_repo_invitations(repo).each { |invitation|
                 if invitation["invitee"].casecmp?(user) then
                     if invitation["permissions"].casecmp?(auth_) then
-                        print "- Skipping invitee \"#{user}\" with permissions \"#{auth_}\""
+                        puts "- Skipping invitee \"#{user}\" with permissions \"#{auth_}\""
                     else
                         print "- Updating invitee \"#{user}\" with permissions \"#{auth_}\""
                         if !auth_.casecmp?(auth) then
