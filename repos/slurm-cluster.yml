@@ -19,6 +19,10 @@ slurm-cluster:
     type: "user"
     permissions: "write"
     
+  xEnVrE:
+    type: "user"
+    permissions: "read"
+    
   cyberseawolf:
     type: "user"
     permissions: "read"
