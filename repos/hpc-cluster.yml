@@ -1,4 +1,4 @@
-slurm-cluster:
+hpc-cluster:
   dic-iit/sw-dev:
     type: "group"
     permissions: "triage"
