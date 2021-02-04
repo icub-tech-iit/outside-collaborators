@@ -112,15 +112,18 @@ def add_repo_collaborator(repo, user, auth)
 
             # update pending invitation
             get_repo_invitations(repo).each { |invitation|
-                if invitation["invitee"].casecmp?(user) &&
-                   !invitation["permissions"].casecmp?(auth_) then
-                    print "- Updating invitee \"#{user}\" with permissions \"#{auth_}\""
-                    if !auth_.casecmp?(auth) then
-                        print " (\"#{auth}\" is not available ⚠)"
+                if invitation["invitee"].casecmp?(user) then
+                    if invitation["permissions"].casecmp?(auth_) then
+                        print "- Skipping invitee \"#{user}\" with permissions \"#{auth_}\""
+                    else
+                        print "- Updating invitee \"#{user}\" with permissions \"#{auth_}\""
+                        if !auth_.casecmp?(auth) then
+                            print " (\"#{auth}\" is not available ⚠)"
+                        end
+                        print "\n"
+                        check_and_wait_until_reset
+                        $client.update_repository_invitation(repo, invitation["id"], permission: auth_)
                     end
-                    print "\n"
-                    check_and_wait_until_reset
-                    $client.update_repository_invitation(repo, invitation["id"], permission: auth_)
                     return
                 end
             }
@@ -233,7 +236,7 @@ repos.each { |repo_name, repo_metadata|
             invitee = invitation["invitee"]
             check_and_wait_until_reset
             if !$client.org_member?($org, invitee) then
-                if !repo_member(repo_metadata, groups, user) then
+                if !repo_member(repo_metadata, groups, invitee) then
                     puts "- Removing invitee \"#{invitee}\""
                     check_and_wait_until_reset
                     $client.delete_repository_invitation(repo_full_name, invitation["id"])
