@@ -21,7 +21,7 @@ hpc-cluster:
     
   xEnVrE:
     type: "user"
-    permissions: "read"
+    permissions: "triage"
     
   cyberseawolf:
     type: "user"
