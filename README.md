@@ -167,7 +167,8 @@ You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
 - We are required to comply with the GitHub API [rate limit rules][6]. In case we hit such a limit,
-  the automation will wait for the reset to take place.
+  the automation will wait for the reset to take place. To alleviate this, one can follow
+  [@JeroenKnoops](https://github.com/JeroenKnoops)'s [suggestion][7] and use a GitHub App to perform API calls.
 - The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
   See [FAQ](./FAQ.md) for more details.
 - When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
@@ -176,7 +177,7 @@ You are finally good to go ✨
   to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
   other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is
   actually the simplest. Obviously, one can also perform a manual cleanup straight away.
-- Pending [known bugs][7] 🐛
+- Pending [known bugs][8] 🐛
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -198,4 +199,5 @@ This repository is maintained by:
 [4]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
 [5]: ./.github/workflows/update-outside-collaborators.yml#L18
 [6]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
-[7]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
+[7]: ../../issues/22#issuecomment-772079850
+[8]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
