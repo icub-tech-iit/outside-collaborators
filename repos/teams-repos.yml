@@ -1,0 +1,43 @@
+fix:
+  lornat75:
+    type: "user"
+    permissions: "read"
+  DanielePucci:
+    type: "user"
+    permissions: "read"
+  ChiaraBartolozzi:
+    type: "user"
+    permissions: "read"
+
+code:
+  lornat75:
+    type: "user"
+    permissions: "read"
+  DanielePucci:
+    type: "user"
+    permissions: "read"
+  ChiaraBartolozzi:
+    type: "user"
+    permissions: "read"
+
+dev:
+  lornat75:
+    type: "user"
+    permissions: "read"
+  DanielePucci:
+    type: "user"
+    permissions: "read"
+  ChiaraBartolozzi:
+    type: "user"
+    permissions: "read"
+
+proto:
+  lornat75:
+    type: "user"
+    permissions: "read"
+  DanielePucci:
+    type: "user"
+    permissions: "read"
+  ChiaraBartolozzi:
+    type: "user"
+    permissions: "read"
