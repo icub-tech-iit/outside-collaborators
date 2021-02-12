@@ -115,16 +115,12 @@ def add_repo_collaborator(repo, user, auth)
                 if invitation["invitee"].casecmp?(user) then
                     if invitation["permissions"].casecmp?(auth_) then
                         puts "- Skipping invitee \"#{user}\" with permissions \"#{auth_}\""
+                        return
                     else
-                        print "- Updating invitee \"#{user}\" with permissions \"#{auth_}\""
-                        if !auth_.casecmp?(auth) then
-                            print " (\"#{auth}\" is not available ⚠)"
-                        end
-                        print "\n"
+                        puts "- Removing invitee \"#{user}\""
                         check_and_wait_until_reset
-                        $client.update_repository_invitation(repo, invitation["id"], permission: auth_)
+                        $client.delete_repository_invitation(repo, invitation["id"])
                     end
-                    return
                 end
             }
 
