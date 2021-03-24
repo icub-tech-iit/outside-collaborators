@@ -30,6 +30,9 @@ dev:
   ChiaraBartolozzi:
     type: "user"
     permissions: "read"
+  AugustoFrancisco:
+    type: "user"
+    permissions: "read"
 
 proto:
   lornat75:
