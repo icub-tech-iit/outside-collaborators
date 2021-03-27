@@ -1,18 +1,6 @@
 Automatically Manage Outside Collaborators Organization-wide
 ============================================================
 
-## 📑 Table of Contents
-- [Intro](#%E2%84%B9-intro)
-- [How it works](#-how-it-works)
-  - [Components and Architecture](#components-and-architecture)
-  - [The workflow](#the-workflow)
-  - [Mentioning a group](#mentioning-a-group)
-- [Automation for your organization](#-automation-for-your-organization)
-- [Known limitations/issues](#-known-limitationsissues)
-- [Outro](#-outro)
-- [FAQ](#%EF%B8%8F-faq)
-- [Maintainers](#-maintainers)
-
 ## ℹ Intro
 Unfortunately, GitHub does not provide (yet) a centralized way to manage outside collaborators within an organization,
 although this [feature is very much requested][1]. As of now, outside collaborators can be handled only at the level
