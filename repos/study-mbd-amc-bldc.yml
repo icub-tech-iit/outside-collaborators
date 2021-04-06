@@ -1,0 +1,4 @@
+study-mbd-amc-bldc:
+  dic-iit/model-based-design:
+    type: "group"
+    permissions: "read"
