@@ -1,3 +1,7 @@
+# Copyright: (C) 2020 iCub Tech Facility - Istituto Italiano di Tecnologia
+# Authors: Ugo Pattacini <ugo.pattacini@iit.it>
+
+
 #########################################################################################
 def check_and_wait_until_reset
     rate_limit = $client.rate_limit
