@@ -23,6 +23,10 @@ hpc-cluster:
     type: "user"
     permissions: "triage"
     
+  damianomal:
+    type: "user"
+    permissions: "triage"    
+    
   cyberseawolf:
     type: "user"
     permissions: "read"
