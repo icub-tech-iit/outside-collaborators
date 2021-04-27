@@ -139,7 +139,7 @@ To avoid cluttering the thread, the original triggering message is quoted only u
 ## ⚙ Automation for your organization
 Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
-   To use the mentioning mechanism, it is required to keep this repo **public**.
+   To use the [mentioning mechanism](#mentioning-a-group), it is required to keep this repo **public**.
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
@@ -149,8 +149,8 @@ Follow the quick guide below if you want to install this automation in your orga
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
-    - **Optionally**, if you aim to enable the mentioning mechanism, copy out the content of [templates](./templates)
-      into the repository while preserving the files paths.
+    - **Optionally**, if you aim to enable the [mentioning mechanism](#mentioning-a-group), copy out the
+      content of [templates](./templates) into the repository while preserving the files paths.
 
 You are finally good to go ✨
 
@@ -158,7 +158,7 @@ You are finally good to go ✨
 - We are required to comply with the GitHub API [rate limit rules][6]. In case we hit such a limit,
   the automation will wait for the reset to take place. To alleviate this, one can follow
   [@JeroenKnoops](https://github.com/JeroenKnoops)'s [suggestion][7] and use a GitHub App to perform API calls.
-- The dashboard repository is required to be **public** in order to enable the mentioning mechanism.
+- The dashboard repository is required to be **public** in order to enable the [mentioning mechanism](#mentioning-a-group).
   See [FAQ](./FAQ.md) for more details.
 - When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
   any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
