@@ -12,7 +12,7 @@
 [1]: https://docs.github.com/en/developers/apps/about-apps
 [2]: https://github.com/marketplace?type=apps
 
-2. **Why does the dashboard repo need to be public to enable the mentioning mechanism?**
+2. **Why does the dashboard repo need to be public to enable the [mentioning mechanism](/README.md#mentioning-a-group)?**
 
    >With a private dashboard repo, the action devoted to managing the mentioning mechanism would need an organization PAT
    to access the dashboard where all the required info is stored to correctly process the request. Relying on organization
