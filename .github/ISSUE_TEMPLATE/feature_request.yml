@@ -1,0 +1,34 @@
+name: ✨ Feature Request
+description: Suggest an idea for this project
+labels: "request-feature"
+body:
+- type: markdown
+  attributes:
+    value: |
+      ⚠
+      Verify first that your issue is not [already reported on GitHub][issue search].
+      Also test if the latest release and devel branch are affected too.
+
+      [issue search]: https://github.com/icub-tech-iit/outside-collaborators/search?q=is%3Aissue&type=issues
+- type: textarea
+  attributes:
+    label: Is your feature request related to a problem?
+    description: A clear and concise description of what the problem is.
+- type: textarea
+  attributes:
+    label: The solution you would like to have available
+    description: A clear and concise description of what you want us to implement.
+    placeholder: >-
+      I am trying to do X from the devel branch on GitHub and I think that
+      implementing a feature Y would be very helpful for me and every other
+      user because of Z.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Alternatives you have considered
+    description: A clear and concise description of any alternative solutions or features you have considered so far.
+- type: textarea
+  attributes:
+    label: Additional context
+    description: Add any other context or screenshots about the feature request here.
