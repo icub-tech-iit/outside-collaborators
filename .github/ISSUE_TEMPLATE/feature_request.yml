@@ -1,6 +1,7 @@
 name: ✨ Feature Request
 description: Suggest an idea for this project
 labels: "request-feature"
+assignees: pattacini
 body:
 - type: markdown
   attributes:
