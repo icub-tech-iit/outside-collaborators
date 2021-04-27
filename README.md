@@ -143,6 +143,7 @@ Follow the quick guide below if you want to install this automation in your orga
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
+   This PAT will allow the automation to modify the organization repositories.
 1. You may consider enforcing the use of a [GitHub environment][5] to improve security. Jobs referring to
    environments can start only if approved by specific reviewers.
 1. Edit the initial content of [groups](./groups).
