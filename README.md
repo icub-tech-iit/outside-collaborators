@@ -90,10 +90,9 @@ repo_name_2:
     permissions: "maintain"
 ```
 
-Upon updating/adding/deleting those YAML files in the default branch via [forks and pull requests][3] or
-upon a [manual trigger][4], a GitHub workflow propagates the changes to the automated repositories.
-In detail, for each automated repo, the outside collaborators are automatically invited, removed or
-updated with the requested permissions.
+Upon updating those YAML files in the default branch via [forks and pull requests][3] or upon a [manual trigger][4],
+a GitHub workflow propagates the changes to the automated repositories. In detail, for each automated repo, the outside
+collaborators are automatically invited, removed or updated with the requested permissions.
 
 Importantly, the YAML files can be modified via pull-requests, enabling the representatives responsible for the
 outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
