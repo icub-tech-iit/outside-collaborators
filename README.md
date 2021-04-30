@@ -3,7 +3,7 @@ Automatically Manage Outside Collaborators Organization-wide
 
 ## ℹ Intro
 Unfortunately, GitHub does not provide (yet) a centralized way to manage outside collaborators within an organization,
-although this [feature is very much requested][1]. As of now, outside collaborators can be handled only at the level
+although this [feature is very much requested][request]. As of now, outside collaborators can be handled only at the level
 of the single repositories, having the main drawback of spreading in many places the knowledge of who can access what.
 
 This undesired effect poses a problem of maintenance. If an external group of developers collaborates to multiple
@@ -17,8 +17,9 @@ we can take advantage of the perks we all know:
 - teams can be mentioned
 
 Nonetheless, being a formal member of the organization may give the outside collaborator privileges when it comes
-down to some specific access policies. For instance, if the [base permissions][2] of the organization is set to `"Read"`
-instead of `"None"`, then that collaborator will be able to clone and pull all repositories, private ones included!
+down to some specific access policies. For instance, if the [base permissions][base-permissions] of the organization
+is set to `"Read"` instead of `"None"`, then that collaborator will be able to clone and pull all repositories,
+private ones included!
 
 Also, keeping the clear separation among organization members and outside collaborators is certainly advantageous
 if we consider that we will prevent outside developers from inheriting future upcoming functionalities
@@ -90,9 +91,8 @@ repo_name_2:
     permissions: "maintain"
 ```
 
-Upon updating those YAML files in the default branch via [forks and pull requests][3] or upon a [manual trigger][4],
-a GitHub workflow propagates the changes to the automated repositories. In detail, for each automated repo, the outside
-collaborators are automatically invited, removed or updated with the requested permissions.
+Upon updating those YAML files in the default branch via [forks and pull requests][forks-prs] or upon a [manual trigger][manual-trigger], a GitHub workflow propagates the changes to the automated repositories. In detail, for each automated repo,
+the outside collaborators are automatically invited, removed or updated with the requested permissions.
 
 Importantly, the YAML files can be modified via pull-requests, enabling the representatives responsible for the
 outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
@@ -110,6 +110,7 @@ Pay attention to the following points:
   To get around this, just handle that user on an individual basis.
 - The managing of outside collaborators of an automated repo will be always overridden by the automatic workflow.
   Instead, org members can be still added/removed manually as inside collaborators.
+- You can use [YAML anchors and aliases][yaml-anchors] to streamline the content of the files.
 
 ### Mentioning a group
 Anyone posting a message in an issue or a PR of a org repository where the outside collaborators automation is
@@ -143,8 +144,8 @@ Follow the quick guide below if you want to install this automation in your orga
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
    This PAT will allow the automation to modify the organization repositories.
-1. You may consider enforcing the use of a [GitHub environment][5] to improve security. Jobs referring to
-   environments can start only if approved by specific reviewers.
+1. You may consider enforcing the use of a [GitHub environment][gh-environment] to improve security.
+   Jobs referring to environments can start only if approved by specific reviewers.
 1. Edit the initial content of [groups](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
     - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
@@ -154,9 +155,10 @@ Follow the quick guide below if you want to install this automation in your orga
 You are finally good to go ✨
 
 ## ⚠ Known limitations/issues
-- We are required to comply with the GitHub API [rate limit rules][6]. In case we hit such a limit,
+- We are required to comply with the GitHub API [rate limit rules][rate-limit]. In case we hit such a limit,
   the automation will wait for the reset to take place. To alleviate this, one can follow
-  [@JeroenKnoops](https://github.com/JeroenKnoops)'s [suggestion][7] and use a GitHub App to perform API calls.
+  [@JeroenKnoops](https://github.com/JeroenKnoops)'s [suggestion][gh-app-suggestion] and use a GitHub App
+  to perform API calls.
 - The dashboard repository is required to be **public** in order to enable the [mentioning mechanism](#mentioning-a-group).
   See [FAQ](./FAQ.md) for more details.
 - When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
@@ -165,7 +167,7 @@ You are finally good to go ✨
   to perform the required cleanup. Soon afterward, the entry can be safely removed. Of course, there are
   other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is
   actually the simplest. Obviously, one can also perform a manual cleanup straight away.
-- Pending [known bugs][8] 🐛
+- Pending [known bugs][known-bugs] 🐛
 
 ## 🔳 Outro
 We hope that you will find this workflow helpful!
@@ -181,11 +183,12 @@ This repository is maintained by:
 |:---:|:---:|
 | [<img src="https://github.com/pattacini.png" width="40">](https://github.com/pattacini) | [@pattacini](https://github.com/pattacini) |
 
-[1]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
-[2]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
-[3]: https://guides.github.com/activities/forking
-[4]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
-[5]: ./.github/workflows/update-outside-collaborators.yml#L18
-[6]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
-[7]: ../../issues/22#issuecomment-772079850
-[8]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
+[request]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
+[base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
+[forks-prs]: https://guides.github.com/activities/forking
+[manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
+[gh-environment]: ./.github/workflows/update-outside-collaborators.yml#L18
+[rate-limit]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
+[gh-app-suggestion]: ../../issues/22#issuecomment-772079850
+[known-bugs]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
+[yaml-anchors]: https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors
