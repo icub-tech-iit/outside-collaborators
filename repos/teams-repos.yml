@@ -1,4 +1,4 @@
-fix: &template_team_repo
+fix: &template_teams_repos
   lornat75:
     type: "user"
     permissions: "read"
@@ -9,6 +9,13 @@ fix: &template_team_repo
     type: "user"
     permissions: "read"
 
-code: *template_team_repo
-dev: *template_team_repo
-proto: *template_team_repo
+code: *template_teams_repos
+
+proto: *template_teams_repos
+
+dev:
+  <<: *template_teams_repos
+  AugustoFrancisco:
+    type: "user"
+    permissions: "read"
+  
