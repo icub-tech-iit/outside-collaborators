@@ -3,8 +3,9 @@ Automatically Manage Outside Collaborators Organization-wide
 
 ## ℹ Intro
 Unfortunately, GitHub does not provide (yet) a centralized way to manage outside collaborators within an organization,
-although this [feature is very much requested][request]. As of now, outside collaborators can be handled only at the level
-of the single repositories, having the main drawback of spreading in many places the knowledge of who can access what.
+although this [feature is very much requested][feature-request]. As of now, outside collaborators can be handled only
+at the level of the single repositories, having the main drawback of spreading in many places the knowledge of who can
+access what.
 
 This undesired effect poses a problem of maintenance. If an external group of developers collaborates to multiple
 repositories within an organization, what happens if the group evolves over time with new additions or with members
@@ -91,8 +92,10 @@ repo_name_2:
     permissions: "maintain"
 ```
 
-Upon updating those YAML files in the default branch via [forks and pull requests][forks-prs] or upon a [manual trigger][manual-trigger], a GitHub workflow propagates the changes to the automated repositories. In detail, for each automated repo,
-the outside collaborators are automatically invited, removed or updated with the requested permissions.
+Upon updating those YAML files in the default branch via [forks and pull requests][forks-prs] or upon a
+[manual trigger][manual-trigger], a GitHub workflow propagates the changes to the automated repositories.
+In detail, for each automated repo, the outside collaborators are automatically invited, removed or updated
+with the requested permissions.
 
 Importantly, the YAML files can be modified via pull-requests, enabling the representatives responsible for the
 outside collaborators (who are generally external to the organization) to keep their groups up-to-date.
@@ -183,7 +186,7 @@ This repository is maintained by:
 |:---:|:---:|
 | [<img src="https://github.com/pattacini.png" width="40">](https://github.com/pattacini) | [@pattacini](https://github.com/pattacini) |
 
-[request]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
+[feature-request]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
 [base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [forks-prs]: https://guides.github.com/activities/forking
 [manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
