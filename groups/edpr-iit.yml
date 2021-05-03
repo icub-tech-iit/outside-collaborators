@@ -26,9 +26,5 @@ edpr-iit/electronics:
 edpr-iit/sw-dev:
   - "ChiaraBartolozzi"
   - "arrenglover"
-  
-edpr-iit/ultrapython-cameras:
-  - "ChiaraBartolozzi"
-  - "arrenglover"
   - "Iaxama"
   
