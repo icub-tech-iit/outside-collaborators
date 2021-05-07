@@ -1,0 +1,12 @@
+electronics-legacy:
+  dic-iit/electronics:
+    type: "group"
+    permissions: "read"
+
+  edpr-iit/electronics:
+    type: "group"
+    permissions: "read"
+
+  hsp-iit/electronics:
+    type: "group"
+    permissions: "read"
