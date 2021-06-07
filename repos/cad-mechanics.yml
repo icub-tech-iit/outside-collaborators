@@ -10,3 +10,7 @@ cad-mechanics:
   mws-iit/mech:
     type: "group"
     permissions: "read"
+
+  torazza:
+    type: "user"
+    permissions: "read"
