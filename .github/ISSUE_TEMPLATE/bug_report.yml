@@ -8,7 +8,6 @@ body:
     value: |
       ⚠
       Verify first that your issue is not [already reported on GitHub][issue search].
-      Also test if the latest release and devel branch are affected too.
 
       [issue search]: https://github.com/icub-tech-iit/outside-collaborators/search?q=is%3Aissue&type=issues
 - type: textarea
