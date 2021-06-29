@@ -1,0 +1,4 @@
+study-fw-toolchain:
+  dic-iit/model-based-design:
+    type: "group"
+    permissions: "read"
