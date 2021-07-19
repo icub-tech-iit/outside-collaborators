@@ -15,7 +15,6 @@ dic-iit/everyone:
   - "isorrentino"
   - "lrapetti"
   - "prashanthr05"
-  - "anqingd"
   - "FabioBergonti"
   - "Giulero"
   - "HosameldinMohamed"
@@ -30,6 +29,8 @@ dic-iit/everyone:
   - "fabiodinatale"
   - "VenusPasandi"
   - "itbellix"
+  - "RiccardoGrieco"
+  - "Gianmarcogatti93"
 
 dic-iit/purchases:
   - "DanielePucci"
@@ -63,6 +64,7 @@ dic-iit/mech:
   - "FabioBergonti"
   - "gabrielenava" 
   - "fabiodinatale"
+  - "Gianmarcogatti93"
   
 dic-iit/sw-dev:
   - "DanielePucci"
@@ -74,6 +76,7 @@ dic-iit/sw-dev:
   - "GiulioRomualdi"
   - "nunoguedelha"
   - "VenusPasandi"
+  - "RiccardoGrieco"
   
 dic-iit/electronics:
   - "DanielePucci"
@@ -91,6 +94,7 @@ dic-iit/model-based-design:
   - "giovannipizzolante"
   - "GiulioRomualdi"
   - "isorrentino"
+  - "RiccardoGrieco"
 
 dic-iit/ergocub:
   - "DanielePucci"
@@ -120,3 +124,5 @@ dic-iit/ergocub:
   - "kouroshD"
   - "paolo-viceconte"
   - "prashanthr05"
+  - "RiccardoGrieco"
+  - "Gianmarcogatti93"
