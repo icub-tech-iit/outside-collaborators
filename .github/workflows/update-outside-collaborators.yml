@@ -11,6 +11,10 @@ on:
     - "repos/*.yaml"
   workflow_dispatch:
 
+concurrency:
+  group: outside_collaborators_update
+  cancel-in-progress: true
+
 jobs:
   Update:
     name: "Update"

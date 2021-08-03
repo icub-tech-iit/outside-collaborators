@@ -11,6 +11,10 @@ on:
     - "repos/*.yaml"
   workflow_dispatch:
 
+concurrency:
+  group: outside_collaborators_check_repos
+  cancel-in-progress: true
+
 jobs:
   Check:
     name: "Check"
