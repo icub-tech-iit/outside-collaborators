@@ -2,3 +2,7 @@ calibration-ft-sensors:
   dic-iit/seniors:
     type: "group"
     permissions: "read"
+    
+  HosameldinMohamed:
+    type: "user"
+    permissions: "read"
