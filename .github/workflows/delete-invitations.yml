@@ -1,0 +1,34 @@
+name: Delete Invitations
+
+on:
+  workflow_dispatch:
+    inputs:
+      repositories:
+        description: 'A comma-separated list of repos containing the invitations to delete'
+        required: true
+        default: '*'
+
+concurrency:
+  group: outside_collaborators_delete_invitations
+  cancel-in-progress: true
+
+jobs:
+  Check:
+    name: "Delete"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Dependencies
+        run: |
+          sudo gem install octokit yaml
+      - name: Set Env Variables
+        run: |
+          echo "OUTSIDE_COLLABORATORS_GITHUB_ORG=${{ github.repository_owner }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS=\"${{ github.event.inputs.repositories }}\"" >> ${GITHUB_ENV}
+      - uses: actions/checkout@main
+      - name: Run Handler
+        run: |
+          cd scripts
+          ./delete-invitations.rb
+      

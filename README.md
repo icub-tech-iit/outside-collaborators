@@ -152,6 +152,16 @@ semantically correct that the automation does no longer handle it.
 
 Obviously, one can also perform a manual cleanup straight away.
 
+### Cleaning up stale invitations
+[Pending invitations self-expire after a few days](https://docs.github.com/en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
+
+It may happen that certain invitees do not want to join the intended repositories as external
+collaborators. In this regard, we do not clean up automatically stale invitations to use them as
+indicators that we shall not spam those invitees with continuous requests at every automation run.
+
+However, it might be convenient sometimes to clean up stale invitations on demand. To this end,
+one can rely on the manually-triggered workflow [`Delete Invitations`](./.github/workflows/delete-invitations.yml).
+
 ## ⚙ Automation for your organization
 Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.

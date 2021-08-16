@@ -32,3 +32,55 @@ def get_entries(dirname)
 
     return entries
 end
+
+
+#########################################################################################
+def get_repo_invitations(repo)
+    loop do
+        check_and_wait_until_reset
+        $client.repository_invitations(repo)
+        rate_limit = $client.rate_limit
+        if rate_limit.remaining > 0 then
+            break
+        end
+    end
+      
+    invitations = []
+
+    last_response = $client.last_response
+    data = last_response.data
+    data.each { |i| invitations << {"id" => i.id,
+                                    "invitee" => i.invitee.login,
+                                    "permissions" => i.permissions} }
+      
+    until last_response.rels[:next].nil?
+        last_response = last_response.rels[:next].get
+        data = last_response.data
+        data.each { |i| invitations << {"id" => i.id,
+                                        "invitee" => i.invitee.login,
+                                        "permissions" => i.permissions} }
+    end
+
+    return invitations
+end
+
+
+#########################################################################################
+def repo_member(repo_metadata, groups, user)
+    if repo_metadata then
+        if repo_metadata.key?(user) then
+            return true
+        else
+            repo_metadata.each { |item, props|
+                if (props["type"].casecmp?("group")) then
+                    if groups.key?(item) then
+                        if groups[item].include?(user)
+                            return true
+                        end
+                    end
+                end
+            }
+        end
+    end
+    return false
+end
