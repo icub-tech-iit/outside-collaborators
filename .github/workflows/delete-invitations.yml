@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       repositories:
-        description: 'A comma-separated list of repos containing the invitations to delete'
+        description: 'A comma-separated list of repos containing the invitations to delete (use the wildcard * for all)'
         required: true
         default: '*'
 
