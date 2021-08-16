@@ -44,7 +44,7 @@ The architecture relies on this repository acting as the **central dashboard** w
    stored and used to override the standard methodology.
 
 ### The workflow
-The "outside collaborators groups" are defined in YAML files under [groups](./groups) as collections of outside
+The "outside collaborators groups" are defined in YAML files under [`groups`](./groups) as collections of outside
 collaborators' usernames.
 
 Here's a simple example:
@@ -65,7 +65,7 @@ generic-group:
   - "user08"
 ```
 
-Likewise, access permissions to automated repositories are defined in YAML files under [repos](./repos) as in the
+Likewise, access permissions to automated repositories are defined in YAML files under [`repos`](./repos) as in the
 following example:
 
 ```yaml
@@ -102,7 +102,8 @@ outside collaborators (who are generally external to the organization) to keep t
 In addition, pull-requests have to be reviewed by org members, thus ensuring that the process can run securely.
 
 Pay attention to the following points:
-- The name of the automated repositories in the YAML files shall not contain the organization.
+- The name of the automated repositories in the YAML files shall not contain the organization (i.e. the repository
+  owner).
 - With specific keys, entries can represent groups but also individuals (e.g. `user06`), if there exists the
   requirement to deal with single outside collaborators within the repository.
 - Handling of outside collaborators on an individual basis takes over groups: e.g. for the repo `repo_name_1`,
@@ -139,6 +140,18 @@ Then, GitHub will reply with:
 
 To avoid cluttering the thread, the original triggering message is quoted only up to a given extent.
 
+### Removing entries from [`repos`](./repos)
+When a repo entry gets removed from [`repos`](./repos), the subsequent action won't be able to perform
+any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
+find it out. To circumvent this, leave the entry empty for one round to give the action the possibility
+to perform the required cleanup. Soon afterward, the entry can be safely removed.
+
+There are other smarter ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`)
+but this is actually the simplest. Also, consider that if an entry is no longer declared, then it is
+semantically correct that the automation does no longer handle it.   
+
+Obviously, one can also perform a manual cleanup straight away.
+
 ## ⚙ Automation for your organization
 Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
@@ -149,11 +162,11 @@ Follow the quick guide below if you want to install this automation in your orga
    This PAT will allow the automation to modify the organization repositories.
 1. You may consider enforcing the use of a [GitHub environment][gh-environment] to improve security.
    Jobs referring to environments can start only if approved by specific reviewers.
-1. Edit the initial content of [groups](./groups).
+1. Edit the initial content of [`groups`](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
-    - Create the corresponding file in [repos](./repos) and add up the entries according to your needs.
+    - Create the corresponding file in [`repos`](./repos) and add up the entries according to your needs.
     - **Optionally**, if you aim to enable the [mentioning mechanism](#mentioning-a-group), copy out the
-      content of [templates](./templates) into the repository while preserving the files paths.
+      content of [`templates`](./templates) into the repository while preserving the files paths.
 
 You are finally good to go ✨
 
@@ -164,13 +177,6 @@ You are finally good to go ✨
   to perform API calls.
 - The dashboard repository is required to be **public** in order to enable the [mentioning mechanism](#mentioning-a-group).
   See [FAQ](./FAQ.md) for more details.
-- When a repo entry gets removed from [repos](./repos), the subsequent action won't be able to perform
-  any cleanup of the corresponding repository as the entry is simply missing and thus the action won't
-  find it out. To circumvent this, leave the entry empty for one round to give the action the possibility
-  to perform the required cleanup. Soon afterward, the entry can be safely removed. There are other smarter
-  ways to get it done automatically (e.g. by comparing `HEAD` against `HEAD~`) but this is actually the
-  simplest, also considering that if an entry is no longer declared, then it is officially no longer handled.
-  Obviously, one can also perform a manual cleanup straight away.
 - Pending [known bugs][known-bugs] 🐛
 
 ## 🔳 Outro
