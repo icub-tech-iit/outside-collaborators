@@ -178,7 +178,7 @@ Follow the quick guide below if you want to install this automation in your orga
     - **Optionally**, if you aim to enable the [mentioning mechanism](#mentioning-a-group), copy out the
       content of [`templates`](./templates) into the repository while preserving the files paths.
 
-You are finally good to go ✨
+✨ You are finally good to go! Remember to manage the update of the outside collaborators through [pull requests][pull-requests].
 
 ## ⚠ Known limitations/issues
 - We are required to comply with the GitHub API [rate limit rules][rate-limit]. In case we hit such a limit,
@@ -212,3 +212,4 @@ This repository is maintained by:
 [gh-app-suggestion]: ../../issues/22#issuecomment-772079850
 [known-bugs]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
 [yaml-anchors]: https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors
+[pull-requests]: ../../pulls?q=is%3Apr
