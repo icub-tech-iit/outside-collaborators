@@ -207,7 +207,7 @@ This repository is maintained by:
 [base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [forks-prs]: https://guides.github.com/activities/forking
 [manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
-[gh-environment]: ./.github/workflows/update-outside-collaborators.yml#L18
+[gh-environment]: ./.github/workflows/update-outside-collaborators.yml#L22
 [rate-limit]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
 [gh-app-suggestion]: ../../issues/22#issuecomment-772079850
 [known-bugs]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug
