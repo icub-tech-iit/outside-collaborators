@@ -1,5 +1,5 @@
 purchases:
-  dic-iit/purchases:
+  ami-iit/purchases:
     type: "group"
     permissions: "triage"
 

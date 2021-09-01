@@ -1,5 +1,5 @@
 tickets:
-  dic-iit/everyone:
+  ami-iit/everyone:
     type: "group"
     permissions: "triage"
     

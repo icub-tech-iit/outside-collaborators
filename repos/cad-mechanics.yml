@@ -1,5 +1,5 @@
 cad-mechanics:
-  dic-iit/mech:
+  ami-iit/mech:
     type: "group"
     permissions: "read"
  

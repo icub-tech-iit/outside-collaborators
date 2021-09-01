@@ -1,5 +1,5 @@
 ergocub-design-head:
-  dic-iit/ergocub:
+  ami-iit/ergocub:
     type: "group"
     permissions: "read"
 
