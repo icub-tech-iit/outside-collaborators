@@ -1,5 +1,5 @@
 calibration-ft-sensors:
-  dic-iit/seniors:
+  ami-iit/seniors:
     type: "group"
     permissions: "read"
     

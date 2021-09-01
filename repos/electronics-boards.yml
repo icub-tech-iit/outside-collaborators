@@ -1,5 +1,5 @@
 electronics-boards:
-  dic-iit/electronics:
+  ami-iit/electronics:
     type: "group"
     permissions: "write"
 

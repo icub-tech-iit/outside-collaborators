@@ -1,4 +1,4 @@
-dic-iit/everyone:
+ami-iit/everyone:
   - "DanielePucci"
   - "diegoferigo"
   - "S-Dafarra"
@@ -32,7 +32,7 @@ dic-iit/everyone:
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
 
-dic-iit/purchases:
+ami-iit/purchases:
   - "DanielePucci"
   - "S-Dafarra"
   - "gabrielenava" 
@@ -45,7 +45,7 @@ dic-iit/purchases:
   - "Gianlucamilani"
   - "lrapetti"
 
-dic-iit/seniors:
+ami-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
   - "gabrielenava"
@@ -57,7 +57,7 @@ dic-iit/seniors:
   - "CarlottaSartore"
   - "lrapetti"
 
-dic-iit/mech:
+ami-iit/mech:
   - "DanielePucci"
   - "S-Dafarra"
   - "vpunithreddy" 
@@ -66,7 +66,7 @@ dic-iit/mech:
   - "fabiodinatale"
   - "Gianmarcogatti93"
   
-dic-iit/sw-dev:
+ami-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
   - "S-Dafarra"
@@ -78,7 +78,7 @@ dic-iit/sw-dev:
   - "VenusPasandi"
   - "RiccardoGrieco"
   
-dic-iit/electronics:
+ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
   - "Gianlucamilani"
@@ -87,7 +87,7 @@ dic-iit/electronics:
   - "isorrentino"
   - "itbellix"
 
-dic-iit/model-based-design:
+ami-iit/model-based-design:
   - "DanielePucci"
   - "S-Dafarra"
   - "nunoguedelha"  
@@ -97,7 +97,7 @@ dic-iit/model-based-design:
   - "RiccardoGrieco"
   - "HosameldinMohamed"
 
-dic-iit/ergocub:
+ami-iit/ergocub:
   - "DanielePucci"
   - "lrapetti"
   - "S-Dafarra"

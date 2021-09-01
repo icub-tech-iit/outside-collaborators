@@ -1,5 +1,5 @@
 task-force-miscellanea:
-  dic-iit/everyone:
+  ami-iit/everyone:
     type: "group"
     permissions: "write"
 
