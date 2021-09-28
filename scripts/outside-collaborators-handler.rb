@@ -114,8 +114,8 @@ def add_repo_collaborator(repo, user, auth)
             check_and_wait_until_reset
             begin
                 $client.add_collaborator(repo, user, permission: auth__)
-            rescue
-                puts " - problem detected ❌"
+            rescue StandardError => e
+                puts " - problem detected #{e.inspect}❌"
             end
             print "\n"
         end
@@ -129,6 +129,8 @@ end
 # retrieve information from files
 groups = get_entries("../groups")
 repos = get_entries("../repos")
+
+has_errors = false
 
 # cycle over repos
 repos.each { |repo_name, repo_metadata|
@@ -156,9 +158,11 @@ repos.each { |repo_name, repo_metadata|
                         }
                     else
                         puts "- Unrecognized group \"#{user}\" ❌"
+                        has_errors = true
                     end
                 else
                     puts "- Unrecognized type \"#{type}\" ❌"
+                    has_errors = true
                 end
             }
         end
@@ -189,6 +193,11 @@ repos.each { |repo_name, repo_metadata|
         puts "...done with \"#{repo_full_name}\" ✔"
     else
         puts "Repository \"#{repo_full_name}\" does not exist ❌"
+        has_errors = true
     end
     puts ""
 }
+
+if has_errors then 
+    exit 1
+end
