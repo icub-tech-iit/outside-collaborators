@@ -158,7 +158,7 @@ repos.each { |repo_name, repo_metadata|
                             else
                                 ok = add_repo_collaborator(repo_full_name, subuser, permissions)
                                 if !ok then
-                                    has_errors = false
+                                    has_errors = true
                                 end
                             end
                         }
