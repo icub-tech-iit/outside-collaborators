@@ -62,10 +62,12 @@ def add_repo_collaborator(repo, user, auth)
         $client.user(user)
     rescue
         puts "- Requested action for not existing user \"#{user}\" ❌"
+        return false
     else
         check_and_wait_until_reset
         if $client.org_member?($org, user) then
             puts "- Requested action for organization member \"#{user}\" ❌"
+            return false
         else
             if auth.nil? then
                 auth = ""
@@ -115,7 +117,8 @@ def add_repo_collaborator(repo, user, auth)
             begin
                 $client.add_collaborator(repo, user, permission: auth__)
             rescue StandardError => e
-                puts " - problem detected #{e.inspect}❌"
+                puts " - problem detected: #{e.inspect}❌"
+                return false
             end
             print "\n"
         end
@@ -153,7 +156,10 @@ repos.each { |repo_name, repo_metadata|
                             if repo_metadata.key?(subuser) then
                                 puts "- Detected group user \"#{subuser}\" handled individually"
                             else
-                                add_repo_collaborator(repo_full_name, subuser, permissions)
+                                ok = add_repo_collaborator(repo_full_name, subuser, permissions)
+                                if !ok then
+                                    has_errors = false
+                                end
                             end
                         }
                     else
