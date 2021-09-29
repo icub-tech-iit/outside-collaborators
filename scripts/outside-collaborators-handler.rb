@@ -117,12 +117,14 @@ def add_repo_collaborator(repo, user, auth)
             begin
                 $client.add_collaborator(repo, user, permission: auth__)
             rescue StandardError => e
-                puts " - problem detected: #{e.inspect}❌"
+                puts " - problem detected: #{e.inspect} ❌"
                 return false
             end
             print "\n"
         end
     end
+
+    return true
 end
 
 
@@ -148,7 +150,10 @@ repos.each { |repo_name, repo_metadata|
                 type = props["type"]
                 permissions = props["permissions"]
                 if (type.casecmp?("user")) then
-                    add_repo_collaborator(repo_full_name, user, permissions)
+                    ok = add_repo_collaborator(repo_full_name, user, permissions)
+                    if !ok then
+                        has_errors = true
+                    end
                 elsif (type.casecmp?("group")) then
                     if groups.key?(user) then
                         puts "- Handling group \"#{user}\" 👥"
@@ -205,5 +210,6 @@ repos.each { |repo_name, repo_metadata|
 }
 
 if has_errors then 
+    puts "Errors detected: inspect the log searching for ❌"
     exit 1
 end
