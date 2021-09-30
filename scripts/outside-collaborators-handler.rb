@@ -210,6 +210,6 @@ repos.each { |repo_name, repo_metadata|
 }
 
 if has_errors then 
-    puts "Errors detected: inspect the log searching for ❌"
+    puts "Errors detected: inspect the log"
     exit 1
 end
