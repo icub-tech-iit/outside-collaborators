@@ -86,7 +86,7 @@ def add_repo_collaborator(repo, user, auth)
                 if invitation["invitee"].casecmp?(user) then
                     if invitation["permissions"].casecmp?(auth_) then
                         puts "- Skipping invitee \"#{user}\" with permissions \"#{auth_}\""
-                        return
+                        return true
                     else
                         puts "- Removing invitee \"#{user}\""
                         check_and_wait_until_reset
@@ -150,8 +150,7 @@ repos.each { |repo_name, repo_metadata|
                 type = props["type"]
                 permissions = props["permissions"]
                 if (type.casecmp?("user")) then
-                    ok = add_repo_collaborator(repo_full_name, user, permissions)
-                    if !ok then
+                    if !add_repo_collaborator(repo_full_name, user, permissions) then
                         has_errors = true
                     end
                 elsif (type.casecmp?("group")) then
@@ -160,11 +159,8 @@ repos.each { |repo_name, repo_metadata|
                         groups[user].each { |subuser|
                             if repo_metadata.key?(subuser) then
                                 puts "- Detected group user \"#{subuser}\" handled individually"
-                            else
-                                ok = add_repo_collaborator(repo_full_name, subuser, permissions)
-                                if !ok then
-                                    has_errors = true
-                                end
+                            elsif !add_repo_collaborator(repo_full_name, subuser, permissions) then
+                                has_errors = true
                             end
                         }
                     else
