@@ -40,27 +40,26 @@ end
 def get_repo_invitations(repo)
     loop do
         check_and_wait_until_reset
-        $client.repository_invitations(repo)
-        rate_limit = $client.rate_limit
-        if rate_limit.remaining > 0 then
+        begin
+            $client.repository_invitations(repo)
+        rescue
+        else
             break
         end
     end
       
     invitations = []
-
     last_response = $client.last_response
-    data = last_response.data
-    data.each { |i| invitations << {"id" => i.id,
-                                    "invitee" => i.invitee.login,
-                                    "permissions" => i.permissions} }
-      
-    until last_response.rels[:next].nil?
-        last_response = last_response.rels[:next].get
+    loop do
         data = last_response.data
         data.each { |i| invitations << {"id" => i.id,
                                         "invitee" => i.invitee.login,
                                         "permissions" => i.permissions} }
+        if last_response.rels[:next].nil?
+            break
+        else
+            last_response = last_response.rels[:next].get
+        end
     end
 
     return invitations
