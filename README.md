@@ -165,7 +165,7 @@ one can rely on the manually-triggered workflow [`Delete Invitations`](./.github
 ## ⚙ Automation for your organization
 Follow the quick guide below if you want to install this automation in your organization:
 1. [Create a copy](../../generate) of this dashboard repository in your organization account.
-   To use the [mentioning mechanism](#mentioning-a-group), it is required to keep this repo **public**.
+   To use the [mentioning mechanism](#mentioning-a-group) (optional), it is required to keep this repo **public**.
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
