@@ -32,11 +32,16 @@ Signal.trap("TERM") {
 def check_user(user, permissions)
     check_and_wait_until_reset
     begin
-        $client.user(user)
+        login = $client.user(user).login
     rescue
         puts "- \"#{user}\" does not exist ❌"
         exit 1
     else
+        if user != login then
+            puts "- \"#{user}\" shall be provided as \"#{login}\" ❌"
+            exit 1
+        end
+
         check_and_wait_until_reset
         if $client.org_member?($org, user) then
             puts "- \"#{user}\" is also organization member ❌"
