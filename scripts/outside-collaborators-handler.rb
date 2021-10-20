@@ -60,11 +60,16 @@ end
 def add_repo_collaborator(repo, user, auth)
     check_and_wait_until_reset
     begin
-        $client.user(user)
+        login = $client.user(user).login
     rescue
         puts "- Requested action for not existing user \"#{user}\" ❌"
         return false
     else
+        if user != login then
+            puts "- \"#{user}\" shall be provided as \"#{login}\" ❌"
+            exit 1
+        end
+
         check_and_wait_until_reset
         if $client.org_member?($org, user) then
             puts "- Requested action for organization member \"#{user}\" ❌"
