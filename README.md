@@ -170,7 +170,7 @@ Follow the quick guide below if you want to install this automation in your orga
 1. One org admin is required to create a **personal access token** (PAT) with full repo scope.
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
    This PAT will allow the automation to modify the organization repositories.
-1. You may consider enforcing the use of a [GitHub environment][gh-environment] to improve security.
+1. Enforce the use of a [GitHub environment][gh-environment] to guarantee security when checking PRs from external forks.
    Jobs referring to environments can start only if approved by specific reviewers.
 1. Edit the initial content of [`groups`](./groups).
 1. For each single repo of your org you aim to apply automation to, do:
@@ -207,7 +207,7 @@ This repository is maintained by:
 [base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [forks-prs]: https://guides.github.com/activities/forking
 [manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
-[gh-environment]: ./.github/workflows/update-outside-collaborators.yml#L22
+[gh-environment]: ./.github/workflows/check-automated-repositories.yml#L22
 [rate-limit]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
 [gh-app-suggestion]: ../../issues/22#issuecomment-772079850
 [known-bugs]: ../../issues?q=is%3Aopen+is%3Aissue+label%3Areport-bug

@@ -19,6 +19,7 @@ jobs:
   Check:
     name: "Check"
     runs-on: ubuntu-latest
+    environment: outside_collaborators_environment
 
     steps:
       - name: Install Dependencies
@@ -29,6 +30,8 @@ jobs:
           echo "OUTSIDE_COLLABORATORS_GITHUB_ORG=${{ github.repository_owner }}" >> ${GITHUB_ENV}
           echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN }}" >> ${GITHUB_ENV}
       - uses: actions/checkout@main
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Run Handler
         run: |
           cd scripts
