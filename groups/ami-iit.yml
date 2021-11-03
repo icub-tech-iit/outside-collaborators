@@ -28,6 +28,7 @@ ami-iit/everyone:
   - "VenusPasandi"
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
+  - "mebbaid"
 
 ami-iit/purchases:
   - "DanielePucci"
@@ -72,6 +73,7 @@ ami-iit/sw-dev:
   - "nunoguedelha"
   - "VenusPasandi"
   - "RiccardoGrieco"
+  - "mebbaid"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -88,6 +90,7 @@ ami-iit/model-based-design:
   - "isorrentino"
   - "RiccardoGrieco"
   - "HosameldinMohamed"
+  - "mebbaid"
 
 ami-iit/ergocub:
   - "DanielePucci"
@@ -115,3 +118,4 @@ ami-iit/ergocub:
   - "prashanthr05"
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
+  - "mebbaid"
