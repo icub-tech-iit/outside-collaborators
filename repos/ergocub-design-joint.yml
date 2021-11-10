@@ -1,0 +1,8 @@
+ergocub-design-head:
+  ami-iit/ergocub:
+    type: "group"
+    permissions: "read"
+
+  hsp-iit/ergocub:
+    type: "group"
+    permissions: "read"
