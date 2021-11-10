@@ -1,4 +1,4 @@
-ergocub-design-head:
+ergocub-design-joint:
   ami-iit/ergocub:
     type: "group"
     permissions: "read"
