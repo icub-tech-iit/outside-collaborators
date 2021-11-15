@@ -5,7 +5,7 @@
 #########################################################################################
 def check_and_wait_until_reset
     rate_limit = $client.rate_limit
-    if rate_limit.remaining == 0 then
+    if rate_limit.remaining <= 2 then
         reset_secs = rate_limit.resets_in + 60
         reset_mins = reset_secs / 60
         puts ""
