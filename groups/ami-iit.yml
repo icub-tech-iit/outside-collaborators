@@ -41,6 +41,7 @@ ami-iit/purchases:
   - "CarlottaSartore"
   - "Gianlucamilani"
   - "lrapetti"
+  - "kouroshD"
 
 ami-iit/seniors:
   - "DanielePucci"
@@ -52,7 +53,8 @@ ami-iit/seniors:
   - "evalli-iit"
   - "CarlottaSartore"
   - "lrapetti"
-
+  - "kouroshD"
+  
 ami-iit/mech:
   - "DanielePucci"
   - "S-Dafarra"
@@ -74,6 +76,7 @@ ami-iit/sw-dev:
   - "VenusPasandi"
   - "RiccardoGrieco"
   - "mebbaid"
+  - "kouroshD"
   
 ami-iit/electronics:
   - "DanielePucci"
