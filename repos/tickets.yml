@@ -10,7 +10,7 @@ tickets:
   edpr-iit/everyone:
     type: "group"
     permissions: "triage"
-    
+  
   ddetommaso:
     type: "user"
     permissions: "triage"
@@ -30,3 +30,8 @@ tickets:
   ChiaraBartolozzi:
     type: "user"
     permissions: "write"
+
+  ict-iit/everyone:
+    type: "group"
+    permissions: "write"
+  
