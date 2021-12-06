@@ -29,6 +29,7 @@ ami-iit/everyone:
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
   - "mebbaid"
+  - "Andrea8Testa"
 
 ami-iit/purchases:
   - "DanielePucci"
@@ -77,6 +78,7 @@ ami-iit/sw-dev:
   - "RiccardoGrieco"
   - "mebbaid"
   - "kouroshD"
+  - "Andrea8Testa"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -94,7 +96,8 @@ ami-iit/model-based-design:
   - "RiccardoGrieco"
   - "HosameldinMohamed"
   - "mebbaid"
-
+  - "Andrea8Testa"
+  
 ami-iit/ergocub:
   - "DanielePucci"
   - "lrapetti"
