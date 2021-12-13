@@ -22,3 +22,8 @@ purchases:
   ChiaraBartolozzi:
     type: "user"
     permissions: "write"
+
+  LaMelis:
+    type: "user"
+    permissions: "write"
+  
