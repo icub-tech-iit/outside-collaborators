@@ -1,0 +1,12 @@
+training:
+  ami-iit/everyone:
+    type: "group"
+    permissions: "read"
+    
+  hsp-iit/everyone:
+    type: "group"
+    permissions: "read"
+    
+  edpr-iit/everyone:
+    type: "group"
+    permissions: "read"
