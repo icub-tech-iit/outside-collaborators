@@ -30,6 +30,7 @@ ami-iit/everyone:
   - "Gianmarcogatti93"
   - "mebbaid"
   - "Andrea8Testa"
+  - "MarcoCaianiello"
 
 ami-iit/purchases:
   - "DanielePucci"
@@ -79,14 +80,16 @@ ami-iit/sw-dev:
   - "mebbaid"
   - "kouroshD"
   - "Andrea8Testa"
-  
+  - "MarcoCaianiello"
+
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
-
+  - "MarcoCaianiello"
+  
 ami-iit/model-based-design:
   - "DanielePucci"
   - "S-Dafarra"
@@ -97,6 +100,7 @@ ami-iit/model-based-design:
   - "HosameldinMohamed"
   - "mebbaid"
   - "Andrea8Testa"
+  - "MarcoCaianiello"
   
 ami-iit/ergocub:
   - "DanielePucci"
@@ -125,3 +129,4 @@ ami-iit/ergocub:
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
   - "mebbaid"
+  - "MarcoCaianiello"
