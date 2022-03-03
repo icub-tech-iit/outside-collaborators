@@ -1,26 +1,14 @@
 purchases:
   ami-iit/purchases:
     type: "group"
-    permissions: "triage"
-
-  DanielePucci:
-    type: "user"
     permissions: "write"
 
   hsp-iit/purchases:
     type: "group"
-    permissions: "triage"
-
-  lornat75:
-    type: "user"
     permissions: "write"
 
   edpr-iit/purchases:
     type: "group"
-    permissions: "triage"
-
-  ChiaraBartolozzi:
-    type: "user"
     permissions: "write"
 
   LaMelis:
