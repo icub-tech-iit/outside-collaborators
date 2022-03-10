@@ -34,6 +34,7 @@ ami-iit/everyone:
   - "rob-mau"
   - "RiccardoZuppetti"
   - "evelyd"
+  - "EhsanRanjbari"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -87,7 +88,8 @@ ami-iit/sw-dev:
   - "MarcoCaianiello"
   - "rob-mau"
   - "evelyd"
-
+  - "EhsanRanjbari"
+  
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
@@ -110,6 +112,7 @@ ami-iit/model-based-design:
   - "Zweisteine96"
   - "rob-mau"
   - "evelyd"  
+  - "EhsanRanjbari"
   
 ami-iit/ergocub:
   - "DanielePucci"
