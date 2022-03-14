@@ -6,3 +6,7 @@ calibration-ft-sensors:
   HosameldinMohamed:
     type: "user"
     permissions: "read"
+    
+  SanderRuijters:
+    type: "user"
+    permissions: "read"
