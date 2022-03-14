@@ -10,3 +10,7 @@ calibration-ft-sensors:
   SanderRuijters:
     type: "user"
     permissions: "read"
+
+  isorrentino:
+    type: "user"
+    permissions: "read"
