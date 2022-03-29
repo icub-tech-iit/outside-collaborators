@@ -52,9 +52,13 @@ def get_repo_invitations(repo)
     last_response = $client.last_response
     loop do
         data = last_response.data
-        data.each { |i| invitations << {"id" => i.id,
-                                        "invitee" => i.invitee.login,
-                                        "permissions" => i.permissions} }
+        data.each { |i| 
+            if !i.expired then
+                invitations << {"id" => i.id,
+                                "invitee" => i.invitee.login,
+                                "permissions" => i.permissions}
+            end
+        }
         if last_response.rels[:next].nil?
             break
         else
