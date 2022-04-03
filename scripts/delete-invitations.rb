@@ -39,6 +39,9 @@ repos = get_entries("../repos")
 repos_input = ENV['OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS'].split(/\s*,\s*/)
 puts "📃 List of automated repositories to process: #{repos_input}"
 
+only_expired = ENV['OUTSIDE_COLLABORATORS_ONLY_EXPIRED_INVITATIONS']
+puts "Delete only expired invitations? #{only_expired}"
+
 # cycle over repos
 repos.each { |repo_name, repo_metadata|
     repo_full_name = $org + "/" + repo_name
@@ -51,11 +54,17 @@ repos.each { |repo_name, repo_metadata|
             # delete invitations
             get_repo_invitations(repo_full_name).each { |invitation|
                 invitee = invitation["invitee"]
+                expired = invitation["expired"]
                 check_and_wait_until_reset
                 if !$client.org_member?($org, invitee) then
-                    puts "- Removing invitee \"#{invitee}\""
-                    check_and_wait_until_reset
-                    $client.delete_repository_invitation(repo_full_name, invitation["id"])
+                    if only_expired.casecmp?('true') && !expired then
+                        puts "- Skipping invitee \"#{invitee}\" whose invitation has not expired yet"
+                        next
+                    else
+                        puts "- Removing invitee \"#{invitee}\""
+                        check_and_wait_until_reset
+                        $client.delete_repository_invitation(repo_full_name, invitation["id"])
+                    end
                 end
             }
 

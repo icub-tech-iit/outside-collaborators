@@ -54,7 +54,8 @@ def get_repo_invitations(repo)
         data = last_response.data
         data.each { |i| invitations << {"id" => i.id,
                                         "invitee" => i.invitee.login,
-                                        "permissions" => i.permissions} }
+                                        "permissions" => i.permissions,
+                                        "expired" => i.expired} }
         if last_response.rels[:next].nil?
             break
         else
