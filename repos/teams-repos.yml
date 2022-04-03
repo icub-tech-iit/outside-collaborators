@@ -19,3 +19,8 @@ dev:
     type: "user"
     permissions: "read"
   
+five:
+  <<: *template_teams_repos
+  AugustoFrancisco:
+    type: "user"
+    permissions: "read"
