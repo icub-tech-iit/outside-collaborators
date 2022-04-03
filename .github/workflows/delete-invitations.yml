@@ -7,6 +7,11 @@ on:
         description: 'A comma-separated list of repos containing the invitations to delete (use the wildcard * for all)'
         required: true
         default: '*'
+      only_expired:
+        type: boolean
+        description: 'Delete expired invitations only'
+        required: true
+        default: true
 
 concurrency:
   group: outside_collaborators_delete_invitations
@@ -26,6 +31,7 @@ jobs:
           echo "OUTSIDE_COLLABORATORS_GITHUB_ORG=${{ github.repository_owner }}" >> ${GITHUB_ENV}
           echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN }}" >> ${GITHUB_ENV}
           echo "OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS=${{ github.event.inputs.repositories }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_ONLY_EXPIRED_INVITATIONS=${{ github.event.inputs.only_expired }}" >> ${GITHUB_ENV}
       - uses: actions/checkout@main
       - name: Run Handler
         run: |
