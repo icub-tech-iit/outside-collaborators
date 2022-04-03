@@ -44,7 +44,7 @@ puts "- pr_number    = \"#{$pr_number}\""
 puts "- comment_id   = \"#{$comment_id}\""
 
 # retrieve information from files
-groups = get_entries("../groups")
+groups = get_entries("../groups").compact!
 repos = get_entries("../repos")
 
 # retrieve metadata

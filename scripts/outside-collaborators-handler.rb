@@ -138,7 +138,7 @@ end
 # main
 
 # retrieve information from files
-groups = get_entries("../groups")
+groups = get_entries("../groups").compact!
 repos = get_entries("../repos")
 
 has_errors = false
