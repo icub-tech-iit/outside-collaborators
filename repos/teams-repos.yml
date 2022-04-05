@@ -15,12 +15,12 @@ proto: *template_teams_repos
 
 dev:
   <<: *template_teams_repos
-  AugustoFrancisco:
+  augustofranciscoiit:
     type: "user"
     permissions: "read"
   
 five:
   <<: *template_teams_repos
-  AugustoFrancisco:
+  augustofranciscoiit:
     type: "user"
     permissions: "read"
