@@ -6,3 +6,8 @@ ergocub-design-lowerarm:
   hsp-iit/ergocub:
     type: "group"
     permissions: "read"
+
+  augustofranciscoiit:
+    type: "user"
+    permissions: "read"
+

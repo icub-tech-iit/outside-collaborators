@@ -14,3 +14,7 @@ electronics-boards:
   andreamerello:
     type: "user"
     permissions: "read"
+
+  augustofranciscoiit:
+    type: "user"
+    permissions: "read"

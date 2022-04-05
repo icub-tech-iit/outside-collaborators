@@ -32,8 +32,11 @@ Signal.trap("TERM") {
 # main
 
 # retrieve information from files
-groups = get_entries("../groups").compact!
+groups = get_entries("../groups")
 repos = get_entries("../repos")
+
+# remove empty groups
+groups.compact!
 
 # retrieve input repos 
 repos_input = ENV['OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS'].split(/\s*,\s*/)

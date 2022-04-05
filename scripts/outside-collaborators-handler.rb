@@ -138,8 +138,11 @@ end
 # main
 
 # retrieve information from files
-groups = get_entries("../groups").compact!
+groups = get_entries("../groups")
 repos = get_entries("../repos")
+
+# remove empty groups
+groups.compact!
 
 has_errors = false
 
