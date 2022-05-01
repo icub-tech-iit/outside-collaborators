@@ -13,14 +13,6 @@ code: *template_teams_repos
 
 proto: *template_teams_repos
 
-dev:
-  <<: *template_teams_repos
-  augustofranciscoiit:
-    type: "user"
-    permissions: "read"
+dev: *template_teams_repos
   
-five:
-  <<: *template_teams_repos
-  augustofranciscoiit:
-    type: "user"
-    permissions: "read"
+five: *template_teams_repos

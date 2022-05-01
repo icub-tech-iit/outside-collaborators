@@ -7,7 +7,3 @@ ergocub-design-joint:
     type: "group"
     permissions: "read"
 
-  augustofranciscoiit:
-    type: "user"
-    permissions: "read"
-

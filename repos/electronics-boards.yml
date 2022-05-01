@@ -15,6 +15,3 @@ electronics-boards:
     type: "user"
     permissions: "read"
 
-  augustofranciscoiit:
-    type: "user"
-    permissions: "read"
