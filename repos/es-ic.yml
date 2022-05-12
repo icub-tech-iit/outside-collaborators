@@ -1,0 +1,9 @@
+uno-image-analysis:
+  project_uno/kpmg:
+    type: "group"
+    permissions: "write"
+
+uno-data-processing:
+  project_uno/kpmg:
+    type: "group"
+    permissions: "write"
