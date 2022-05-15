@@ -1,0 +1,4 @@
+study-icub-head:
+  ami-iit/sw-dev:
+    type: "group"
+    permissions: "read"
