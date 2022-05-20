@@ -85,12 +85,10 @@ author = info.user.login
 collaborators = ""
 repo_metadata.each { |user, props|
     if (props["type"].casecmp?("group")) then
-        tag_1 = "$" + user
-        tag_2 = "${" + user + "}"
-        if (body.include? tag_1) || (body.include? tag_2) then
+        tag = "!" + user
+        if body.include? tag then
             # avoid self-notifying
-            body = body.gsub(tag_1, user)
-            body = body.gsub(tag_2, user)
+            body = body.gsub(tag, user)
             if groups.key?(user) then
                 puts "- Handling of notified group \"#{user}\" 👥"
                 groups[user].each { |subuser|

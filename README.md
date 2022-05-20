@@ -118,13 +118,11 @@ Pay attention to the following points:
 
 ### Mentioning a group
 Anyone posting a message in an issue or a PR of a org repository where the outside collaborators automation is
-established can mention a group using the following _bash-like_ convention:
-- `$group-name`
-- `${group-name}`
+established can mention a group using the convention `!group-name`.
 
 For example, if `user01` posts:
 ```markdown
-Hey ${lab_xyz/group01} 👋🏻
+Hey !lab_xyz/group01 👋🏻
 I've got an exciting news to share with you!
 ```
 
