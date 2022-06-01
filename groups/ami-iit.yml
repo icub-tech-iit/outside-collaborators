@@ -8,7 +8,6 @@ ami-iit/everyone:
   - "nunoguedelha"
   - "evalli-iit"
   - "CarlottaSartore"
-  - "kouroshD"
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
@@ -58,7 +57,6 @@ ami-iit/seniors:
   - "evalli-iit"
   - "CarlottaSartore"
   - "lrapetti"
-  - "kouroshD"
   - "GiulioRomualdi"
   
 ami-iit/mech:
@@ -83,7 +81,6 @@ ami-iit/sw-dev:
   - "VenusPasandi"
   - "RiccardoGrieco"
   - "mebbaid"
-  - "kouroshD"
   - "Andrea8Testa"
   - "MarcoCaianiello"
   - "rob-mau"
@@ -150,7 +147,6 @@ ami-iit/ergocub:
   - "isorrentino"
   - "fabiodinatale"
   - "GiulioRomualdi"
-  - "kouroshD"
   - "paolo-viceconte"
   - "prashanthr05"
   - "RiccardoGrieco"
