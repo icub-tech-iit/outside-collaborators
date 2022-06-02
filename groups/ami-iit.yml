@@ -35,6 +35,7 @@ ami-iit/everyone:
   - "evelyd"
   - "EhsanRanjbari"
   - "SanderRuijters"
+  - "dariosortino"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -102,6 +103,7 @@ ami-iit/sw-dev:
   - "antonellopaolino"
   - "valentino-razza"
   - "fabiodinatale"
+  - "dariosortino"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -110,6 +112,7 @@ ami-iit/electronics:
   - "GiulioRomualdi"
   - "isorrentino"
   - "MarcoCaianiello"
+  - "dariosortino"
   
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -155,3 +158,4 @@ ami-iit/ergocub:
   - "MarcoCaianiello"
   - "Zweisteine96"
   - "evelyd"
+  - "dariosortino"
