@@ -30,8 +30,8 @@ jobs:
         run: |
           echo "OUTSIDE_COLLABORATORS_GITHUB_ORG=${{ github.repository_owner }}" >> ${GITHUB_ENV}
           echo "OUTSIDE_COLLABORATORS_GITHUB_TOKEN=${{ secrets.OUTSIDE_COLLABORATORS_TOKEN }}" >> ${GITHUB_ENV}
-          echo "OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS=${{ github.inputs.repositories }}" >> ${GITHUB_ENV}
-          echo "OUTSIDE_COLLABORATORS_ONLY_EXPIRED_INVITATIONS=${{ github.inputs.only_expired }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_REPOS_DELETE_INVITATIONS=${{ inputs.repositories }}" >> ${GITHUB_ENV}
+          echo "OUTSIDE_COLLABORATORS_ONLY_EXPIRED_INVITATIONS=${{ inputs.only_expired }}" >> ${GITHUB_ENV}
       - uses: actions/checkout@main
       - name: Run Handler
         run: |
