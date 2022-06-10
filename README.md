@@ -201,7 +201,7 @@ This repository is maintained by:
 |:---:|:---:|
 | [<img src="https://github.com/pattacini.png" width="40">](https://github.com/pattacini) | [@pattacini](https://github.com/pattacini) |
 
-[feature-request]: https://github.community/t/add-outside-collaborators-to-a-team-without-giving-them-acess-to-other-repos-in-an-organization/2396 
+[feature-request]: https://github.com/github-community/community/discussions/6404
 [base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [forks-prs]: https://guides.github.com/activities/forking
 [manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
