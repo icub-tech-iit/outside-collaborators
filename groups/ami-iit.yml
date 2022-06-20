@@ -36,6 +36,7 @@ ami-iit/everyone:
   - "EhsanRanjbari"
   - "SanderRuijters"
   - "dariosortino"
+  - "conconman"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -104,6 +105,7 @@ ami-iit/sw-dev:
   - "valentino-razza"
   - "fabiodinatale"
   - "dariosortino"
+  - "conconman"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -159,3 +161,4 @@ ami-iit/ergocub:
   - "Zweisteine96"
   - "evelyd"
   - "dariosortino"
+  - "conconman"
