@@ -37,6 +37,7 @@ ami-iit/everyone:
   - "SanderRuijters"
   - "dariosortino"
   - "conconman"
+  - "LoreMoretti"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -106,6 +107,7 @@ ami-iit/sw-dev:
   - "fabiodinatale"
   - "dariosortino"
   - "conconman"
+  - "LoreMoretti"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -131,6 +133,7 @@ ami-iit/model-based-design:
   - "rob-mau"
   - "evelyd"  
   - "EhsanRanjbari"
+  - "LoreMoretti"
   
 ami-iit/ergocub:
   - "DanielePucci"
