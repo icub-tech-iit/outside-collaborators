@@ -34,6 +34,7 @@ ami-iit/everyone:
   - "dariosortino"
   - "conconman"
   - "LoreMoretti"
+  - "FrancescaBruzzone"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -98,6 +99,7 @@ ami-iit/sw-dev:
   - "dariosortino"
   - "conconman"
   - "LoreMoretti"
+  - "FrancescaBruzzone"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -153,3 +155,4 @@ ami-iit/ergocub:
   - "evelyd"
   - "dariosortino"
   - "conconman"
+  - "FrancescaBruzzone"
