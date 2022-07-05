@@ -35,6 +35,7 @@ ami-iit/everyone:
   - "conconman"
   - "LoreMoretti"
   - "FrancescaBruzzone"
+  - "G-Cervettini"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -100,6 +101,7 @@ ami-iit/sw-dev:
   - "conconman"
   - "LoreMoretti"
   - "FrancescaBruzzone"
+  - "G-Cervettini"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -126,6 +128,7 @@ ami-iit/model-based-design:
   - "evelyd"  
   - "EhsanRanjbari"
   - "LoreMoretti"
+  - "G-Cervettini"
   
 ami-iit/ergocub:
   - "DanielePucci"
