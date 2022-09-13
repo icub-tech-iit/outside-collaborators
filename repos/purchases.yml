@@ -10,6 +10,10 @@ purchases:
   edpr-iit/purchases:
     type: "group"
     permissions: "write"
+    
+  ict-iit/purchases:
+    type: "group"
+    permissions: "triage"
 
   LaMelis:
     type: "user"
