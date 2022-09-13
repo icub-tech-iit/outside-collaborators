@@ -11,7 +11,7 @@ purchases:
     type: "group"
     permissions: "write"
     
-  ict-iit/purchases:
+  ict-iit/everyone:
     type: "group"
     permissions: "triage"
 
