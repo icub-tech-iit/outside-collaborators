@@ -34,6 +34,7 @@ ami-iit/everyone:
   - "LoreMoretti"
   - "FrancescaBruzzone"
   - "G-Cervettini"
+  - "giotherobot"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -69,6 +70,7 @@ ami-iit/mech:
   - "claudia-lat"
   - "antonellopaolino"
   - "singhbal-baljinder"
+  - "giotherobot"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -100,6 +102,7 @@ ami-iit/sw-dev:
   - "LoreMoretti"
   - "FrancescaBruzzone"
   - "G-Cervettini"
+  - "giotherobot"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -153,3 +156,4 @@ ami-iit/ergocub:
   - "evelyd"
   - "dariosortino"
   - "FrancescaBruzzone"
+  - "giotherobot"
