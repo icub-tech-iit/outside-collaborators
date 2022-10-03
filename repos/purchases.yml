@@ -15,7 +15,4 @@ purchases:
     type: "group"
     permissions: "triage"
 
-  LaMelis:
-    type: "user"
-    permissions: "write"
   

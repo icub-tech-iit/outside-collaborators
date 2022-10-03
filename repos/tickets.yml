@@ -35,7 +35,4 @@ tickets:
     type: "group"
     permissions: "write"
 
-  LaMelis:
-    type: "user"
-    permissions: "write"
   
