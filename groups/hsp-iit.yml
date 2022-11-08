@@ -1,7 +1,6 @@
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
-  - "fbottarel"
   - "xEnVrE"
   - "Arya07"
   - "GiuliaP"
@@ -34,7 +33,6 @@ hsp-iit/purchases:
   - "lornat75"
   - "randaz81"
   - "GiuliaP"
-  - "fbottarel"
   - "Arya07"
   - "elandini84"
   - "xEnVrE"
@@ -43,7 +41,6 @@ hsp-iit/purchases:
 hsp-iit/modeling:
   - "lornat75"
   - "randaz81"
-  - "fbottarel"
   - "xEnVrE"
   
 hsp-iit/sw-dev:
@@ -55,7 +52,6 @@ hsp-iit/sw-dev:
 hsp-iit/electronics:
   - "lornat75"
   - "randaz81"
-  - "fbottarel"
   - "xEnVrE"
 
 hsp-iit/ergocub:
@@ -63,7 +59,6 @@ hsp-iit/ergocub:
   - "xEnVrE"
   - "Ale909"
   - "gabrielecaddeo"
-  - "fbottarel"
   - "miccol"
   - "randaz81"
   - "morpheus1820"
@@ -88,5 +83,4 @@ hsp-iit/hpc:
   - "gabrielecaddeo"
   - "andrearosasco"
   - "yuriyOn"
-  - "fbottarel"
   - "EnricoGhiorzi"
