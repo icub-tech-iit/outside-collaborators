@@ -34,6 +34,8 @@ ami-iit/everyone:
   - "FrancescaBruzzone"
   - "G-Cervettini"
   - "giotherobot"
+  - "AntonellaTatarelli"
+  - "LorenzoFiori"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -101,6 +103,8 @@ ami-iit/sw-dev:
   - "FrancescaBruzzone"
   - "G-Cervettini"
   - "giotherobot"
+  - "AntonellaTatarelli"
+  - "LorenzoFiori"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -125,6 +129,8 @@ ami-iit/model-based-design:
   - "EhsanRanjbari"
   - "LoreMoretti"
   - "G-Cervettini"
+  - "AntonellaTatarelli"
+  - "LorenzoFiori"
   
 ami-iit/ergocub:
   - "DanielePucci"
@@ -154,3 +160,5 @@ ami-iit/ergocub:
   - "dariosortino"
   - "FrancescaBruzzone"
   - "giotherobot"
+  - "AntonellaTatarelli"
+  - "LorenzoFiori"
