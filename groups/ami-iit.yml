@@ -19,13 +19,11 @@ ami-iit/everyone:
   - "affafjunaidMOMIN"
   - "antonellopaolino"
   - "fabiodinatale"
-  - "VenusPasandi"
   - "RiccardoGrieco"
   - "Gianmarcogatti93"
   - "mebbaid"
   - "Zweisteine96"
   - "rob-mau"
-  - "RiccardoZuppetti"
   - "evelyd"
   - "EhsanRanjbari"
   - "dariosortino"
@@ -47,6 +45,7 @@ ami-iit/purchases:
   - "lrapetti"
   - "GiulioRomualdi"
   - "mebbaid"
+  - "dariosortino"
 
 ami-iit/seniors:
   - "DanielePucci"
@@ -57,6 +56,7 @@ ami-iit/seniors:
   - "CarlottaSartore"
   - "lrapetti"
   - "GiulioRomualdi"
+  - "mebbaid"
   
 ami-iit/mech:
   - "DanielePucci"
