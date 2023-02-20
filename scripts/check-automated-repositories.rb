@@ -75,35 +75,40 @@ repos.each { |repo_name, repo_metadata|
 
     check_and_wait_until_reset
     if $client.repository?(repo_full_name) then
-        # check collaborators
-        if repo_metadata then
-            repo_metadata.each { |user, props|
-                type = props["type"]
-                permissions = props["permissions"]
-                if (type.casecmp?("user")) then
-                    check_user(user, permissions)
-                elsif (type.casecmp?("group")) then
-                    if groups.key?(user) then
-                        puts "- Listing collaborators in group \"#{user}\" 👥"
-                        groups[user].each { |subuser|
-                            if repo_metadata.key?(subuser) then
-                                puts "- Detected group user \"#{subuser}\" handled individually"
-                            else
-                                check_user(subuser, permissions)
-                            end
-                        }
+        # check if archived
+        if !$client.repository(repo_full_name).archived then
+            # check collaborators
+            if repo_metadata then
+                repo_metadata.each { |user, props|
+                    type = props["type"]
+                    permissions = props["permissions"]
+                    if (type.casecmp?("user")) then
+                        check_user(user, permissions)
+                    elsif (type.casecmp?("group")) then
+                        if groups.key?(user) then
+                            puts "- Listing collaborators in group \"#{user}\" 👥"
+                            groups[user].each { |subuser|
+                                if repo_metadata.key?(subuser) then
+                                    puts "- Detected group user \"#{subuser}\" handled individually"
+                                else
+                                    check_user(subuser, permissions)
+                                end
+                            }
+                        else
+                            puts "- Unrecognized group \"#{user}\" ❌"
+                            exit 1
+                        end
                     else
-                        puts "- Unrecognized group \"#{user}\" ❌"
+                        puts "- Unrecognized type \"#{type}\" ❌"
                         exit 1
                     end
-                else
-                    puts "- Unrecognized type \"#{type}\" ❌"
-                    exit 1
-                end
-            }
-        end
+                }
+            end
 
-        puts "...done with \"#{repo_full_name}\" ✔"
+            puts "...done with \"#{repo_full_name}\" ✔"
+        else
+            puts "Skipping archived repository \"#{repo_full_name}\" ⚠️"
+        end
     else
         puts "Repository \"#{repo_full_name}\" does not exist ❌"
         exit 1

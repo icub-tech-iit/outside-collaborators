@@ -54,24 +54,29 @@ repos.each { |repo_name, repo_metadata|
     if $client.repository?(repo_full_name) then
         # check if we're required to deal with this repo
         if repos_input.include?('*') || repos_input.include?(repo_name) then
-            # delete invitations
-            get_repo_invitations(repo_full_name).each { |invitation|
-                invitee = invitation["invitee"]
-                expired = invitation["expired"]
-                check_and_wait_until_reset
-                if !$client.org_member?($org, invitee) then
-                    if only_expired.casecmp?('true') && !expired then
-                        puts "- Skipping invitee \"#{invitee}\" whose invitation has not expired yet"
-                        next
-                    else
-                        puts "- Removing invitee \"#{invitee}\""
-                        check_and_wait_until_reset
-                        $client.delete_repository_invitation(repo_full_name, invitation["id"])
+             # check if archived
+            if !$client.repository(repo_full_name).archived then
+                # delete invitations
+                get_repo_invitations(repo_full_name).each { |invitation|
+                    invitee = invitation["invitee"]
+                    expired = invitation["expired"]
+                    check_and_wait_until_reset
+                    if !$client.org_member?($org, invitee) then
+                        if only_expired.casecmp?('true') && !expired then
+                            puts "- Skipping invitee \"#{invitee}\" whose invitation has not expired yet"
+                            next
+                        else
+                            puts "- Removing invitee \"#{invitee}\""
+                            check_and_wait_until_reset
+                            $client.delete_repository_invitation(repo_full_name, invitation["id"])
+                        end
                     end
-                end
-            }
-
-            puts "...done with \"#{repo_full_name}\" ✔"
+                }
+                
+                puts "...done with \"#{repo_full_name}\" ✔"
+            else
+                puts "Skipping archived repository \"#{repo_full_name}\" ⚠️"
+            end
         else
             puts "Repository \"#{repo_full_name}\" is not in the list ➖"
         end
