@@ -153,60 +153,65 @@ repos.each { |repo_name, repo_metadata|
 
     check_and_wait_until_reset
     if $client.repository?(repo_full_name) then
-        # add collaborators
-        if repo_metadata then
-            repo_metadata.each { |user, props|
-                type = props["type"]
-                permissions = props["permissions"]
-                if (type.casecmp?("user")) then
-                    if !add_repo_collaborator(repo_full_name, user, permissions) then
-                        has_errors = true
-                    end
-                elsif (type.casecmp?("group")) then
-                    if groups.key?(user) then
-                        puts "- Handling group \"#{user}\" 👥"
-                        groups[user].each { |subuser|
-                            if repo_metadata.key?(subuser) then
-                                puts "- Detected group user \"#{subuser}\" handled individually"
-                            elsif !add_repo_collaborator(repo_full_name, subuser, permissions) then
-                                has_errors = true
-                            end
-                        }
+        # check if archived
+        if !$client.repository(repo_full_name).archived then
+            # add collaborators
+            if repo_metadata then
+                repo_metadata.each { |user, props|
+                    type = props["type"]
+                    permissions = props["permissions"]
+                    if (type.casecmp?("user")) then
+                        if !add_repo_collaborator(repo_full_name, user, permissions) then
+                            has_errors = true
+                        end
+                    elsif (type.casecmp?("group")) then
+                        if groups.key?(user) then
+                            puts "- Handling group \"#{user}\" 👥"
+                            groups[user].each { |subuser|
+                                if repo_metadata.key?(subuser) then
+                                    puts "- Detected group user \"#{subuser}\" handled individually"
+                                elsif !add_repo_collaborator(repo_full_name, subuser, permissions) then
+                                    has_errors = true
+                                end
+                            }
+                        else
+                            puts "- Unrecognized group \"#{user}\" ❌"
+                            has_errors = true
+                        end
                     else
-                        puts "- Unrecognized group \"#{user}\" ❌"
+                        puts "- Unrecognized type \"#{type}\" ❌"
                         has_errors = true
                     end
-                else
-                    puts "- Unrecognized type \"#{type}\" ❌"
-                    has_errors = true
+                }
+            end
+
+            # remove collaborators no longer requested
+            get_repo_collaborators(repo_full_name).each { |user|
+                check_and_wait_until_reset
+                if !$client.org_member?($org, user) &&
+                !repo_member(repo_metadata, groups, user) then
+                    puts "- Removing collaborator \"#{user}\""
+                    check_and_wait_until_reset
+                    $client.remove_collaborator(repo_full_name, user)
                 end
             }
+
+            # remove pending invitations of collaborators no longer requested
+            get_repo_invitations(repo_full_name).each { |invitation|
+                invitee = invitation["invitee"]
+                check_and_wait_until_reset
+                if !$client.org_member?($org, invitee) &&
+                !repo_member(repo_metadata, groups, invitee) then
+                    puts "- Removing invitee \"#{invitee}\""
+                    check_and_wait_until_reset
+                    $client.delete_repository_invitation(repo_full_name, invitation["id"])
+                end
+            }
+
+            puts "...done with \"#{repo_full_name}\" ✔"
+        else
+            puts "Skipping archived repository \"#{repo_full_name}\" ⚠️"
         end
-
-        # remove collaborators no longer requested
-        get_repo_collaborators(repo_full_name).each { |user|
-            check_and_wait_until_reset
-            if !$client.org_member?($org, user) &&
-               !repo_member(repo_metadata, groups, user) then
-                puts "- Removing collaborator \"#{user}\""
-                check_and_wait_until_reset
-                $client.remove_collaborator(repo_full_name, user)
-            end
-        }
-
-        # remove pending invitations of collaborators no longer requested
-        get_repo_invitations(repo_full_name).each { |invitation|
-            invitee = invitation["invitee"]
-            check_and_wait_until_reset
-            if !$client.org_member?($org, invitee) &&
-               !repo_member(repo_metadata, groups, invitee) then
-                puts "- Removing invitee \"#{invitee}\""
-                check_and_wait_until_reset
-                $client.delete_repository_invitation(repo_full_name, invitation["id"])
-            end
-        }
-
-        puts "...done with \"#{repo_full_name}\" ✔"
     else
         puts "Repository \"#{repo_full_name}\" does not exist ❌"
         has_errors = true
