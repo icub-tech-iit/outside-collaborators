@@ -70,6 +70,7 @@ ami-iit/mech:
   - "antonellopaolino"
   - "singhbal-baljinder"
   - "giotherobot"
+  - "G-Cervettini"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -109,6 +110,7 @@ ami-iit/electronics:
   - "GiulioRomualdi"
   - "isorrentino"
   - "dariosortino"
+  - "G-Cervettini"
   
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -126,6 +128,7 @@ ami-iit/model-based-design:
   - "G-Cervettini"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
+  - "G-Cervettini"
   
 ami-iit/ergocub:
   - "DanielePucci"
@@ -155,3 +158,4 @@ ami-iit/ergocub:
   - "giotherobot"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
+  - "G-Cervettini"
