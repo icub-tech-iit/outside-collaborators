@@ -15,4 +15,7 @@ purchases:
     type: "group"
     permissions: "triage"
 
+  Enricabv:
+    type: "user"
+    permissions: "write"
   
