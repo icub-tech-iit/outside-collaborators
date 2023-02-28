@@ -34,5 +34,9 @@ tickets:
   ict-iit/everyone:
     type: "group"
     permissions: "write"
+    
+  Enricabv:
+    type: "user"
+    permissions: "write"
 
   
