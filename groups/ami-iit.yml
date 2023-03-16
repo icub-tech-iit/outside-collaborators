@@ -33,6 +33,9 @@ ami-iit/everyone:
   - "giotherobot"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
+  - "Gio-DS"
+  - "davidegorbani"
+  - "STaliani"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -102,7 +105,10 @@ ami-iit/sw-dev:
   - "giotherobot"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
-  
+  - "Gio-DS"
+  - "davidegorbani"
+  - "STaliani"
+
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
