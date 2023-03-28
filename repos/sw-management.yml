@@ -1,4 +1,4 @@
-sw-distro-management:
+sw-management:
   ami-iit/sw-dev:
     type: "group"
     permissions: "read"
