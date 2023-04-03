@@ -36,6 +36,7 @@ ami-iit/everyone:
   - "Gio-DS"
   - "davidegorbani"
   - "STaliani"
+  - "fl-ferr"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -75,6 +76,7 @@ ami-iit/mech:
   - "singhbal-baljinder"
   - "giotherobot"
   - "G-Cervettini"
+  - "fl-ferr"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -109,6 +111,7 @@ ami-iit/sw-dev:
   - "Gio-DS"
   - "davidegorbani"
   - "STaliani"
+  - "fl-ferr"
 
 ami-iit/electronics:
   - "DanielePucci"
@@ -134,6 +137,7 @@ ami-iit/model-based-design:
   - "G-Cervettini"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
+  - "fl-ferr"
   
 ami-iit/ergocub:
   - "DanielePucci"
@@ -163,3 +167,4 @@ ami-iit/ergocub:
   - "giotherobot"
   - "AntonellaTatarelli"
   - "LorenzoFiori"
+  - "fl-ferr"
