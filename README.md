@@ -204,7 +204,7 @@ This repository is maintained by:
 [feature-request]: https://github.com/github-community/community/discussions/6404
 [base-permissions]: https://docs.github.com/en/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
 [forks-prs]: https://guides.github.com/activities/forking
-[manual-trigger]: ../../actions?query=workflow%3A%22Update+Outside+Collaborators%22
+[manual-trigger]: https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow
 [gh-environment]: ./.github/workflows/check-automated-repositories.yml#L22
 [rate-limit]: https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#rate-limiting
 [gh-app-suggestion]: ../../issues/22#issuecomment-772079850
