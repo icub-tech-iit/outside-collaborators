@@ -1,0 +1,6 @@
+project-ipit:   
+  fbecchi:
+    type: "user"
+    permissions: "read"
+
+  
