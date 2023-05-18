@@ -189,7 +189,7 @@ repos.each { |repo_name, repo_metadata|
             get_repo_collaborators(repo_full_name).each { |user|
                 check_and_wait_until_reset
                 if !$client.org_member?($org, user) &&
-                !repo_member(repo_metadata, groups, user) then
+                   !repo_member(repo_metadata, groups, user) then
                     puts "- Removing collaborator \"#{user}\""
                     check_and_wait_until_reset
                     $client.remove_collaborator(repo_full_name, user)
@@ -201,7 +201,7 @@ repos.each { |repo_name, repo_metadata|
                 invitee = invitation["invitee"]
                 check_and_wait_until_reset
                 if !$client.org_member?($org, invitee) &&
-                !repo_member(repo_metadata, groups, invitee) then
+                   !repo_member(repo_metadata, groups, invitee) then
                     puts "- Removing invitee \"#{invitee}\""
                     check_and_wait_until_reset
                     $client.delete_repository_invitation(repo_full_name, invitation["id"])
