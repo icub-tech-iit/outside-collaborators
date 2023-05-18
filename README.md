@@ -166,6 +166,12 @@ Follow the quick guide below if you want to install this automation in your orga
    To use the [mentioning mechanism](#mentioning-a-group) (optional), it is required to keep this repo **public**.
 1. Make sure that **only org admins can manage the dashboard** repository.
 1. One org admin is required to create a (classic) **personal access token** (PAT) with full repo scope.
+   If you want to go for a fine-grained PAT, make sure to enable the permissions below:
+   - Repository permissions
+     - Read access to metadata
+     - Read and Write access to administration
+   - Organization permissions
+     - Read access to members
 1. Ceate in the dashboard a **secret** called `OUTSIDE_COLLABORATORS_TOKEN` where to store the admin PAT.
    This PAT will allow the automation to modify the organization repositories.
 1. Enforce the use of a [GitHub environment][gh-environment] to guarantee security when checking PRs from external forks.
