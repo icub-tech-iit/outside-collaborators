@@ -1,4 +1,0 @@
-study-mbd-amc-bldc:
-  ami-iit/model-based-design:
-    type: "group"
-    permissions: "read"
