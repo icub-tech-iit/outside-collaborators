@@ -38,6 +38,7 @@ ami-iit/everyone:
   - "fl-ferr"
   - "YuchuanLu"
   - "xela-95"
+  - "carloscp3009" 
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -113,6 +114,7 @@ ami-iit/sw-dev:
   - "STaliani"
   - "fl-ferr"
   - "xela-95"
+  - "carloscp3009"
 
 ami-iit/electronics:
   - "DanielePucci"
@@ -138,6 +140,7 @@ ami-iit/model-based-design:
   - "AntonellaTatarelli"
   - "LorenzoFiori"
   - "fl-ferr"
+  - "carloscp3009"
   
 ami-iit/ergocub:
   - "DanielePucci"
@@ -167,3 +170,4 @@ ami-iit/ergocub:
   - "AntonellaTatarelli"
   - "LorenzoFiori"
   - "fl-ferr"
+  - "carloscp3009"
