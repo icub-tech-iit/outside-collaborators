@@ -38,6 +38,7 @@ ami-iit/everyone:
   - "YuchuanLu"
   - "xela-95"
   - "carloscp3009" 
+  - "fils99"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -78,6 +79,7 @@ ami-iit/mech:
   - "giotherobot"
   - "G-Cervettini"
   - "fl-ferr"
+  - "fils99"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -113,6 +115,7 @@ ami-iit/sw-dev:
   - "fl-ferr"
   - "xela-95"
   - "carloscp3009"
+  - "fils99"
 
 ami-iit/electronics:
   - "DanielePucci"
@@ -121,6 +124,7 @@ ami-iit/electronics:
   - "GiulioRomualdi"
   - "isorrentino"
   - "dariosortino"
+  - "fils99"
   
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -139,6 +143,7 @@ ami-iit/model-based-design:
   - "LorenzoFiori"
   - "fl-ferr"
   - "carloscp3009"
+  - "fils99"
   
 ami-iit/ergocub:
   - "DanielePucci"
