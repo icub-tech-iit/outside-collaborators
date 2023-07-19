@@ -39,6 +39,7 @@ ami-iit/everyone:
   - "xela-95"
   - "carloscp3009" 
   - "fils99"
+  - "pillai-s"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -80,6 +81,7 @@ ami-iit/mech:
   - "G-Cervettini"
   - "fl-ferr"
   - "fils99"
+  - "pillai-s"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -116,7 +118,8 @@ ami-iit/sw-dev:
   - "xela-95"
   - "carloscp3009"
   - "fils99"
-
+  - "pillai-s"
+  
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
@@ -144,6 +147,7 @@ ami-iit/model-based-design:
   - "fl-ferr"
   - "carloscp3009"
   - "fils99"
+  - "pillai-s"
   
 ami-iit/ergocub:
   - "DanielePucci"
