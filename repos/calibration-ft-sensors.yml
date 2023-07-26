@@ -2,11 +2,7 @@ calibration-ft-sensors:
   ami-iit/seniors:
     type: "group"
     permissions: "read"
-    
-  HosameldinMohamed:
-    type: "user"
-    permissions: "read"
 
-  isorrentino:
-    type: "user"
-    permissions: "read"
+  ami-iit/model-based-design:
+    type: "group"
+    permissions: "read"  
