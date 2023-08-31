@@ -1,40 +1,40 @@
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
-  - "xEnVrE"
-  - "Arya07"
+  - "xEnVrE" #Nicola Piga
+  - "Arya07" #Elisa Maiettini
   - "GiuliaP"
   - "MariaLombardi"
-  - "morpheus1820"
+  - "morpheus1820" #Stefano Rosa
   - "elandini84"
-  - "damianomal"
-  - "fedeceola"
-  - "ste93"
+  - "damianomal" #Damiano Malafronte
+  - "fedeceola" 
+  - "ste93" #Stefano Bernagozzi
   - "gabrielecaddeo"
   - "andreamaracani"
   - "FedericoVasile1"
-  - "LZC-68"
+  - "LZC-68" #Zhichao Li
   - "Woolfrey"
-  - "steb6"
-  - "andrearosasco"
+  - "steb6" #Stefano Berti
+  - "andrearosasco" 
   - "SimoneMic" 
   - "EnricoGhiorzi"
-  - "fenixkz"
-  - "vigisushrutha23"
-  - "rozzong"
+  - "fenixkz" #Ayan Mazhitov
+  - "vigisushrutha23" #Vignesh Sushrutha Raghavan
+  - "rozzong" #Rozzonelli Gabriel
   - "CarmelaCalabrese" 
-  - "fbrand-new" 
-  - "colombraf"
-  - "pestrstr"
-  - "PasMarra"
+  - "fbrand-new" #Francesco Brand
+  - "colombraf" #Raffaele Colombo
+  - "pestrstr" #Giuseppe Stracquadanio 
+  - "PasMarra" #Pasquale Marra
 
 hsp-iit/purchases:
   - "lornat75"
   - "randaz81"
   - "GiuliaP"
-  - "Arya07"
+  - "Arya07" #Elisa Maiettini
   - "elandini84"
-  - "xEnVrE"
+  - "xEnVrE" #Nicola Piga
 
 hsp-iit/modeling:
   - "lornat75"
@@ -45,38 +45,38 @@ hsp-iit/sw-dev:
   - "lornat75"
   - "randaz81"
   - "elandini84"
-  - "ste93"
+  - "ste93" #Stefano Bernagozzi
 
 hsp-iit/electronics:
   - "lornat75"
   - "randaz81"
-  - "xEnVrE"
+  - "xEnVrE" #Nicola Piga
 
 hsp-iit/ergocub:
   - "lornat75"
-  - "xEnVrE"
+  - "xEnVrE" #Nicola Piga
   - "gabrielecaddeo"
   - "randaz81"
-  - "morpheus1820"
+  - "morpheus1820" #Stefano Rosa
   - "Woolfrey"
-  - "steb6"
+  - "steb6" #Stefano Bernagozzi
   - "andrearosasco"
   - "SimoneMic"
-  - "vigisushrutha23"
+  - "vigisushrutha23" #Vignesh Sushrutha Raghavan
   - "PasMarra" #Pasquale Marra
 
 hsp-iit/hpc:
   - "lornat75"
   - "GiuliaP"
-  - "xEnVrE"
+  - "xEnVrE" #Nicola Piga
   - "damianomal"
-  - "Arya07"
+  - "Arya07" #Elisa Maiettini
   - "fedeceola"
   - "andreamaracani"
   - "FedericoVasile1"
-  - "steb6"
+  - "steb6" #Stefano Berti
   - "gabrielecaddeo"
   - "andrearosasco"
   - "EnricoGhiorzi"
-  - "WackoToe"
-  - "pestrstr"
+  - "WackoToe" #Paolo Alfano
+  - "pestrstr" #Giuseppe Stracquadanio
