@@ -40,6 +40,8 @@ ami-iit/everyone:
   - "carloscp3009" 
   - "fils99"
   - "pillai-s"
+  - "marcoforleo"
+  - "akhilsathuluri"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -121,7 +123,9 @@ ami-iit/sw-dev:
   - "carloscp3009"
   - "fils99"
   - "pillai-s"
-  
+  - "marcoforleo"
+  - "akhilsathuluri"
+
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
@@ -130,7 +134,8 @@ ami-iit/electronics:
   - "isorrentino"
   - "dariosortino"
   - "fils99"
-  
+  - "marcoforleo"
+
 ami-iit/model-based-design:
   - "DanielePucci"
   - "S-Dafarra"  
@@ -150,7 +155,9 @@ ami-iit/model-based-design:
   - "carloscp3009"
   - "fils99"
   - "pillai-s"
-  
+  - "marcoforleo"
+  - "akhilsathuluri"
+
 ami-iit/ergocub:
   - "DanielePucci"
   - "lrapetti"
@@ -180,3 +187,5 @@ ami-iit/ergocub:
   - "LorenzoFiori"
   - "fl-ferr"
   - "carloscp3009"
+  - "marcoforleo"
+  - "akhilsathuluri"
