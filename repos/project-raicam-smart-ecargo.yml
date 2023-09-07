@@ -1,0 +1,4 @@
+project-raicam-smart-ecargo:
+  ami-iit/raicam:
+    type: "group"
+    permissions: "write"
