@@ -81,6 +81,11 @@ end
 body = info.body
 author = info.user.login
 
+if body.nil? then
+    puts "Empty message detected 🤷🏻"
+    exit 0
+end
+
 # cycle over repo's users
 collaborators = ""
 repo_metadata.each { |user, props|
