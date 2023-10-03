@@ -43,6 +43,7 @@ ami-iit/everyone:
   - "marcoforleo"
   - "akhilsathuluri"
   - "affafj"
+  - "DavideBarbone"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -86,6 +87,7 @@ ami-iit/mech:
   - "G-Cervettini"
   - "flferretti"
   - "fils99"
+  - "DavideBarbone"
   - "pillai-s"
   
 ami-iit/sw-dev:
@@ -119,6 +121,7 @@ ami-iit/sw-dev:
   - "Gio-DS"
   - "davidegorbani"
   - "STaliani"
+  - "DavideBarbone"
   - "flferretti"
   - "xela-95"
   - "carloscp3009"
@@ -159,6 +162,7 @@ ami-iit/model-based-design:
   - "pillai-s"
   - "marcoforleo"
   - "akhilsathuluri"
+  - "DavideBarbone"
 
 ami-iit/ergocub:
   - "DanielePucci"
