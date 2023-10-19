@@ -1,0 +1,5 @@
+study-r1-ergomorphing:
+  hsp-iit/sw-dev:
+    type: "group"
+    permissions: "read"
+    
