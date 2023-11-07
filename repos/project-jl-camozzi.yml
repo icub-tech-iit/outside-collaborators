@@ -1,4 +1,0 @@
-project-jl-camozzi:
-  marc-camozzi/everyone:
-    type: "group"
-    permissions: "write"

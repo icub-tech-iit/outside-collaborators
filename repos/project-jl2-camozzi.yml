@@ -2,3 +2,7 @@ project-jl2-camozzi:
   ami-iit/camozzi:
     type: "group"
     permissions: "write"
+
+  marc-camozzi/everyone:
+    type: "group"
+    permissions: "write"
