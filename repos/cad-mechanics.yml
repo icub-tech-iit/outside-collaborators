@@ -14,7 +14,3 @@ cad-mechanics:
   torazza:
     type: "user"
     permissions: "read"
-    
-  irenepippo:
-    type: "user"
-    permissions: "read"
