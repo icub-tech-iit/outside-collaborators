@@ -6,4 +6,8 @@ study-r1-ergomorphing:
   xEnVrE:
     type: "user"
     permissions: "write"
+
+  colombraf:
+    type: "user"
+    permissions: "write"
   
