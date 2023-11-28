@@ -1,0 +1,45 @@
+camozzi/everyone:
+  - "marcoreds81"
+  - "falberticc"
+  - "FrancescaTedeschi"
+  - "michele-mgatti"
+  - "GiuliaFinanzon"
+  - "mpiacentini"
+  - "azanacchi"
+  - "SimoneDArco"
+  - "levifabio"
+  - "lucafestacamozzi"
+  - "LucaMaurelliC"
+  - "maurobignotti"
+  - "vitalifabio"
+
+camozzi/simulation:
+  - "FrancescaTedeschi"
+  - "GiuliaFinanzon"
+  - "michele-mgatti"
+
+camozzi/mechatronics:
+  - "falberticc"
+  - "azanacchi"
+  - "vitalifabio"
+  - "maurobignotti"
+
+camozzi/mechatronics/sw:
+  - "falberticc"
+  - "azanacchi"
+
+camozzi/mechatronics/hw:
+  - "vitalifabio"
+  - "maurobignotti"
+
+camozzi/mechanics/handling:
+  - "levifabio"
+  - "mpiacentini"
+
+camozzi/digital:
+  - "LucaMaurelliC"
+  - "lucafestacamozzi"
+  - "SimoneDArco"
+
+camozzi/crc:
+

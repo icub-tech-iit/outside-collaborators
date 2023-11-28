@@ -3,6 +3,6 @@ project-jl2-camozzi:
     type: "group"
     permissions: "write"
 
-  marc-camozzi/everyone:
+  camozzi/everyone:
     type: "group"
     permissions: "write"
