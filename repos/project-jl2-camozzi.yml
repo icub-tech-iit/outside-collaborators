@@ -11,11 +11,11 @@ project-jl2-camozzi:
     type: "group"
     permissions: "write"
 
-  camozzi/mechatronics_sw:
+  camozzi/mechatronics/sw:
     type: "group"
     permissions: "write"
 
-  camozzi/mechatronics_hw:
+  camozzi/mechatronics/hw:
     type: "group"
     permissions: "write"
 

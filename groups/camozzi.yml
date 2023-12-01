@@ -20,11 +20,11 @@ camozzi/simulation:
   - "GiuliaFinanzon"
   - "michele-mgatti"
 
-camozzi/mechatronics_sw:
+camozzi/mechatronics/sw:
   - "falberticc"
   - "azanacchi"
 
-camozzi/mechatronics_hw:
+camozzi/mechatronics/hw:
   - "vitalifabio"
   - "maurobignotti"
 
