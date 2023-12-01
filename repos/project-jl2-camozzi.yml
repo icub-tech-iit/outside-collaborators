@@ -6,3 +6,31 @@ project-jl2-camozzi:
   camozzi/everyone:
     type: "group"
     permissions: "write"
+
+  camozzi/simulation:
+    type: "group"
+    permissions: "write"
+
+  camozzi/mechatronics:
+    type: "group"
+    permissions: "write"
+
+  camozzi/mechatronics/sw:
+    type: "group"
+    permissions: "write"
+
+  camozzi/mechatronics/hw:
+    type: "group"
+    permissions: "write"
+
+  camozzi/mechanics/handling:
+    type: "group"
+    permissions: "write"
+
+  camozzi/mechanics/digital:
+    type: "group"
+    permissions: "write"
+
+  camozzi/crc:
+    type: "group"
+    permissions: "write"
