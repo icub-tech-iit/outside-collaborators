@@ -20,21 +20,15 @@ camozzi/simulation:
   - "GiuliaFinanzon"
   - "michele-mgatti"
 
-camozzi/mechatronics:
-  - "falberticc"
-  - "azanacchi"
-  - "vitalifabio"
-  - "maurobignotti"
-
-camozzi/mechatronics/sw:
+camozzi/mechatronics_sw:
   - "falberticc"
   - "azanacchi"
 
-camozzi/mechatronics/hw:
+camozzi/mechatronics_hw:
   - "vitalifabio"
   - "maurobignotti"
 
-camozzi/mechanics/handling:
+camozzi/mechanics:
   - "levifabio"
   - "mpiacentini"
 
@@ -47,4 +41,3 @@ camozzi/crc:
   - "MarcoMaiocchiCCC"
   - "arusso8"
   
-

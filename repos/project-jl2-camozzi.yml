@@ -11,23 +11,19 @@ project-jl2-camozzi:
     type: "group"
     permissions: "write"
 
-  camozzi/mechatronics:
+  camozzi/mechatronics_sw:
     type: "group"
     permissions: "write"
 
-  camozzi/mechatronics/sw:
+  camozzi/mechatronics_hw:
     type: "group"
     permissions: "write"
 
-  camozzi/mechatronics/hw:
+  camozzi/mechanics:
     type: "group"
     permissions: "write"
 
-  camozzi/mechanics/handling:
-    type: "group"
-    permissions: "write"
-
-  camozzi/mechanics/digital:
+  camozzi/digital:
     type: "group"
     permissions: "write"
 
