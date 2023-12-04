@@ -44,6 +44,7 @@ ami-iit/everyone:
   - "akhilsathuluri"
   - "affafj"
   - "DavideBarbone"
+  - "nicktrem"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -89,6 +90,7 @@ ami-iit/mech:
   - "fils99"
   - "DavideBarbone"
   - "pillai-s"
+  - "nicktrem"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -130,6 +132,7 @@ ami-iit/sw-dev:
   - "marcoforleo"
   - "akhilsathuluri"
   - "affafj"
+  - "nicktrem"
 
 ami-iit/electronics:
   - "DanielePucci"
@@ -140,6 +143,7 @@ ami-iit/electronics:
   - "dariosortino"
   - "fils99"
   - "marcoforleo"
+  - "nicktrem"
 
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -163,6 +167,7 @@ ami-iit/model-based-design:
   - "marcoforleo"
   - "akhilsathuluri"
   - "DavideBarbone"
+  - "nicktrem"
 
 ami-iit/ergocub:
   - "DanielePucci"
