@@ -15,12 +15,14 @@ camozzi/everyone:
   - "MarcoMaiocchiCCC"
   - "arusso8"
   - "ggagni"
+  - "davidecalta"
 
 camozzi/simulation:
   - "FrancescaTedeschi"
   - "GiuliaFinanzon"
   - "michele-mgatti"
   - "ggagni"
+  - "davidecalta"
 
 camozzi/mechatronics/sw:
   - "falberticc"
