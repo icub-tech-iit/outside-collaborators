@@ -10,4 +10,16 @@ sw-management:
   edpr-iit/sw-dev:
     type: "group"
     permissions: "read"
+
+  xEnVrE:
+    type: "user"
+    permissions: "read"
+
+  PasMarra:
+    type: "user"
+    permissions: "read"
+  
+  gabrielecaddeo:
+    type: "user"
+    permissions: "read" 
     
