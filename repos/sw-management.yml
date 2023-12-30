@@ -11,10 +11,6 @@ sw-management:
     type: "group"
     permissions: "read"
 
-  xEnVrE:
-    type: "user"
-    permissions: "read"
-
   PasMarra:
     type: "user"
     permissions: "read"

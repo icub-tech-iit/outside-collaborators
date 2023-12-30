@@ -1,7 +1,6 @@
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
-  - "xEnVrE" #Nicola Piga
   - "Arya07" #Elisa Maiettini
   - "GiuliaP"
   - "MariaLombardi"
@@ -37,12 +36,10 @@ hsp-iit/purchases:
   - "GiuliaP"
   - "Arya07" #Elisa Maiettini
   - "elandini84"
-  - "xEnVrE" #Nicola Piga
 
 hsp-iit/modeling:
   - "lornat75"
   - "randaz81"
-  - "xEnVrE"
   
 hsp-iit/sw-dev:
   - "lornat75"
@@ -53,11 +50,9 @@ hsp-iit/sw-dev:
 hsp-iit/electronics:
   - "lornat75"
   - "randaz81"
-  - "xEnVrE" #Nicola Piga
 
 hsp-iit/ergocub:
   - "lornat75"
-  - "xEnVrE" #Nicola Piga
   - "gabrielecaddeo"
   - "randaz81"
   - "morpheus1820" #Stefano Rosa
@@ -71,7 +66,6 @@ hsp-iit/ergocub:
 hsp-iit/hpc:
   - "lornat75"
   - "GiuliaP"
-  - "xEnVrE" #Nicola Piga
   - "damianomal"
   - "Arya07" #Elisa Maiettini
   - "fedeceola"

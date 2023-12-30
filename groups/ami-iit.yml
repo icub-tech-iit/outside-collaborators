@@ -9,7 +9,6 @@ ami-iit/everyone:
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
-  - "lrapetti"
   - "FabioBergonti"
   - "Giulero"
   - "HosameldinMohamed"
@@ -53,7 +52,6 @@ ami-iit/purchases:
   - "evalli-iit"
   - "CarlottaSartore"
   - "Gianlucamilani"
-  - "lrapetti"
   - "GiulioRomualdi"
   - "mebbaid"
   - "dariosortino"
@@ -68,7 +66,6 @@ ami-iit/seniors:
   - "claudia-lat"
   - "evalli-iit"
   - "CarlottaSartore"
-  - "lrapetti"
   - "GiulioRomualdi"
   - "mebbaid"
   
@@ -104,7 +101,6 @@ ami-iit/sw-dev:
   - "claudia-lat"
   - "CarlottaSartore"
   - "isorrentino"
-  - "lrapetti"
   - "FabioBergonti"
   - "Giulero"
   - "HosameldinMohamed"
@@ -169,7 +165,6 @@ ami-iit/model-based-design:
 
 ami-iit/ergocub:
   - "DanielePucci"
-  - "lrapetti"
   - "S-Dafarra"
   - "claudia-lat"
   - "gabrielenava" 
