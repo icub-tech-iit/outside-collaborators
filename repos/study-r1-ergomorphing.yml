@@ -3,10 +3,6 @@ study-r1-ergomorphing:
     type: "group"
     permissions: "write"
     
-  xEnVrE:
-    type: "user"
-    permissions: "write"
-
   colombraf:
     type: "user"
     permissions: "write"
