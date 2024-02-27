@@ -2,25 +2,22 @@ hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
   - "Arya07" #Elisa Maiettini
-  - "GiuliaP"
+  - "GiuliaP" #Giulia Pasquale
   - "MariaLombardi"
   - "morpheus1820" #Stefano Rosa
   - "elandini84"
-  - "damianomal" #Damiano Malafronte
   - "fedeceola" 
   - "ste93" #Stefano Bernagozzi
   - "gabrielecaddeo"
   - "andreamaracani"
   - "FedericoVasile1"
   - "LZC-68" #Zhichao Li
-  - "Woolfrey"
   - "steb6" #Stefano Berti
   - "andrearosasco" 
   - "SimoneMic" 
   - "EnricoGhiorzi"
   - "fenixkz" #Ayan Mazhitov
   - "vigisushrutha23" #Vignesh Sushrutha Raghavan
-  - "rozzong" #Rozzonelli Gabriel
   - "CarmelaCalabrese" 
   - "fbrand-new" #Francesco Brand
   - "colombraf" #Raffaele Colombo
@@ -29,6 +26,7 @@ hsp-iit/everyone:
   - "mga-97" #Misael Gonzalez Almeida 
   - "enyen" #Enyen Puang
   - "Anatr1" #Federico Mustich
+  - "TommyBsk" #Tommaso Galliena
 
 hsp-iit/purchases:
   - "lornat75"
@@ -56,7 +54,6 @@ hsp-iit/ergocub:
   - "gabrielecaddeo"
   - "randaz81"
   - "morpheus1820" #Stefano Rosa
-  - "Woolfrey"
   - "steb6" #Stefano Bernagozzi
   - "andrearosasco"
   - "SimoneMic"
@@ -66,7 +63,6 @@ hsp-iit/ergocub:
 hsp-iit/hpc:
   - "lornat75"
   - "GiuliaP"
-  - "damianomal"
   - "Arya07" #Elisa Maiettini
   - "fedeceola"
   - "andreamaracani"
