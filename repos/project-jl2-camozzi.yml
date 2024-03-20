@@ -3,6 +3,10 @@ project-jl2-camozzi:
     type: "group"
     permissions: "write"
 
+  ami-iit/everyone:
+    type: "group"
+    permissions: "write"
+
   camozzi/everyone:
     type: "group"
     permissions: "write"
