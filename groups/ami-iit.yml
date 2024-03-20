@@ -42,6 +42,7 @@ ami-iit/everyone:
   - "akhilsathuluri"
   - "DavideBarbone"
   - "nicktrem"
+  - "lorycontixd"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -86,6 +87,7 @@ ami-iit/mech:
   - "DavideBarbone"
   - "pillai-s"
   - "nicktrem"
+  - "lorycontixd"
   
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -125,7 +127,8 @@ ami-iit/sw-dev:
   - "marcoforleo"
   - "akhilsathuluri"
   - "nicktrem"
-
+  - "lorycontixd"
+  
 ami-iit/electronics:
   - "DanielePucci"
   - "evalli-iit"
@@ -160,6 +163,7 @@ ami-iit/model-based-design:
   - "akhilsathuluri"
   - "DavideBarbone"
   - "nicktrem"
+  - "lorycontixd"
 
 ami-iit/ergocub:
   - "DanielePucci"
