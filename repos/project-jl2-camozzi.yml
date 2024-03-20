@@ -1,9 +1,9 @@
 project-jl2-camozzi:
-  ami-iit/camozzi:
-    type: "group"
-    permissions: "write"
-
   ami-iit/everyone:
+    type: "group"
+    permissions: "read"
+
+  ami-iit/camozzi:
     type: "group"
     permissions: "write"
 
