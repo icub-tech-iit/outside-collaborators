@@ -89,7 +89,10 @@ ami-iit/mech:
   - "nicktrem"
   - "lorycontixd"
   - "xela-95"
-  
+  - "S-Dafarra"
+  - "GiulioRomualdi"
+  - "mebbaid"
+
 ami-iit/sw-dev:
   - "DanielePucci"
   - "diegoferigo"
