@@ -1,0 +1,16 @@
+creo2urdf-private:
+  ami-iit/mech:
+    type: "group"
+    permissions: "read"
+
+  ami-iit/sw-dev:
+    type: "group"
+    permissions: "read"
+
+  hsp-iit/sw-dev:
+    type: "group"
+    permissions: "read"
+
+  edpr-iit/sw-dev:
+    type: "group"
+    permissions: "read"
