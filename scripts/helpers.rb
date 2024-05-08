@@ -21,7 +21,7 @@ end
 #########################################################################################
 def get_entries(dirname)
     files = Dir[dirname + "/*.yml"]
-    files << Dir[dirname + "/*.yaml"]
+    files = files + Dir[dirname + "/*.yaml"]
 
     entries = {}
     if files then
