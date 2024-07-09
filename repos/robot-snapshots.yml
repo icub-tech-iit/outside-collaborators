@@ -7,6 +7,6 @@ robot-snapshots:
     type: "group"
     permissions: "read"
 
-  edpt-iit/electronics:
+  edpr-iit/electronics:
     type: "group"
     permissions: "read"
