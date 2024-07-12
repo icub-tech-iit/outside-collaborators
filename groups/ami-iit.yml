@@ -9,8 +9,8 @@ ami-iit/everyone:
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
-  - "FabioBergonti"
   - "Giulero"
+  - "FabioBergonti"
   - "HosameldinMohamed"
   - "vpunithreddy"
   - "singhbal-baljinder"
@@ -57,6 +57,8 @@ ami-iit/purchases:
   - "AntonellaTatarelli"
   - "LorenzoFiori"
   - "STaliani"
+  - "Giulero"
+  - "FabioBergonti"
 
 ami-iit/seniors:
   - "DanielePucci"
@@ -67,6 +69,8 @@ ami-iit/seniors:
   - "CarlottaSartore"
   - "GiulioRomualdi"
   - "mebbaid"
+  - "Giulero"
+  - "FabioBergonti"
   
 ami-iit/mech:
   - "DanielePucci"
