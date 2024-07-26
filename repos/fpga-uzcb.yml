@@ -2,3 +2,15 @@ fpga-uzcb:
   francescodiotalevi:
     type: "user"
     permissions: "write"
+
+  AlessioCarpegna:
+    type: "user"
+    permissions: "read"  
+
+  Zhe-Su:
+    type: "user"
+    permissions: "read"  
+
+  amwhatley:
+    type: "user"
+    permissions: "read"  
