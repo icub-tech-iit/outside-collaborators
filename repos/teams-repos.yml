@@ -24,4 +24,10 @@ five:
   Supermonkey-design:
     type: "user"
     permissions: "triage"
+  rob-mau:
+    type: "user"
+    permissions: "triage"
+  CarlottaSartore:
+    type: "user"
+    permissions: "triage"
     
