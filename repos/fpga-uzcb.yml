@@ -3,6 +3,10 @@ fpga-uzcb:
     type: "user"
     permissions: "write"
 
+  arrenglover:  
+    type: "user"
+    permissions: "write"
+    
   AlessioCarpegna:
     type: "user"
     permissions: "read"  
