@@ -13,7 +13,6 @@ ami-iit/everyone:
   - "FabioBergonti"
   - "HosameldinMohamed"
   - "vpunithreddy"
-  - "singhbal-baljinder"
   - "antonellopaolino"
   - "mebbaid"
   - "Zweisteine96"
@@ -168,6 +167,7 @@ ami-iit/model-based-design:
   - "DavideBarbone"
   - "nicktrem"
   - "lorycontixd"
+  - "pillai-s"
 
 ami-iit/ergocub:
   - "DanielePucci"
@@ -199,6 +199,7 @@ ami-iit/ergocub:
   - "rob-mau"
   - "Supermonkey-design"
   - "G-Cervettini"
+  - "pillai-s"
 
 ami-iit/ifeel:
   - "DanielePucci"
