@@ -13,7 +13,6 @@ ami-iit/everyone:
   - "FabioBergonti"
   - "HosameldinMohamed"
   - "vpunithreddy"
-  - "singhbal-baljinder"
   - "antonellopaolino"
   - "mebbaid"
   - "Zweisteine96"
@@ -81,7 +80,6 @@ ami-iit/mech:
   - "gabrielenava" 
   - "claudia-lat"
   - "antonellopaolino"
-  - "singhbal-baljinder"
   - "giotherobot"
   - "G-Cervettini"
   - "flferretti"
@@ -111,7 +109,6 @@ ami-iit/sw-dev:
   - "FabioBergonti"
   - "Giulero"
   - "HosameldinMohamed"
-  - "singhbal-baljinder"
   - "antonellopaolino"
   - "dariosortino"
   - "LoreMoretti"
@@ -168,6 +165,7 @@ ami-iit/model-based-design:
   - "DavideBarbone"
   - "nicktrem"
   - "lorycontixd"
+  - "pillai-s"
 
 ami-iit/ergocub:
   - "DanielePucci"
@@ -181,7 +179,6 @@ ami-iit/ergocub:
   - "Giulero"
   - "Gianlucamilani"
   - "FabioBergonti"
-  - "singhbal-baljinder"
   - "isorrentino"
   - "GiulioRomualdi"
   - "mebbaid"
@@ -199,6 +196,7 @@ ami-iit/ergocub:
   - "rob-mau"
   - "Supermonkey-design"
   - "G-Cervettini"
+  - "pillai-s"
 
 ami-iit/ifeel:
   - "DanielePucci"
