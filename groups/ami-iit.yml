@@ -35,10 +35,10 @@ ami-iit/everyone:
   - "pillai-s"
   - "marcoforleo"
   - "akhilsathuluri"
-  - "DavideBarbone"
   - "nicktrem"
   - "lorycontixd"
   - "Supermonkey-design"
+  - "LudovicaDanovaro"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -128,6 +128,7 @@ ami-iit/sw-dev:
   - "akhilsathuluri"
   - "nicktrem"
   - "lorycontixd"
+  - "LudovicaDanovaro"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -164,6 +165,7 @@ ami-iit/model-based-design:
   - "nicktrem"
   - "lorycontixd"
   - "pillai-s"
+  - "LudovicaDanovaro"
 
 ami-iit/ergocub:
   - "DanielePucci"
@@ -194,6 +196,7 @@ ami-iit/ergocub:
   - "Supermonkey-design"
   - "G-Cervettini"
   - "pillai-s"
+  - "LudovicaDanovaro"
 
 ami-iit/ifeel:
   - "DanielePucci"
@@ -201,12 +204,12 @@ ami-iit/ifeel:
   - "Gianlucamilani"
   - "dariosortino"
   - "marcoforleo"
+  - "LudovicaDanovaro"
 
 ami-iit/raicam:
-  - "DanielePucci"
-  - "DavideBarbone"
-  - "S-Dafarra"
   - "Gio-DS"
+  - "DanielePucci"
+  - "S-Dafarra"
 
 ami-iit/camozzi:
   - "DanielePucci"
