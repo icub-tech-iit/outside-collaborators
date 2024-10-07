@@ -35,8 +35,3 @@ tickets:
     type: "group"
     permissions: "write"
     
-  Enricabv:
-    type: "user"
-    permissions: "write"
-
-  
