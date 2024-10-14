@@ -27,7 +27,7 @@ def get_entries(dirname)
     if files then
         files.each { |file|
             if !file.empty? then
-                entries.merge!(YAML.load_file(file))
+                entries.merge!(YAML.load_file(file, aliases: true))
             end
         }
     end
