@@ -27,6 +27,7 @@ def get_entries(dirname)
     if files then
         files.each { |file|
             if !file.empty? then
+                # see https://stackoverflow.com/a/71192990/3956237
                 begin
                   doc = YAML.load_file(file, aliases: true)
                 rescue ArgumentError
