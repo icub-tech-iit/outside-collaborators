@@ -40,6 +40,7 @@ ami-iit/everyone:
   - "Supermonkey-design"
   - "LudovicaDanovaro"
   - "Btrombetta90"
+  - "AriannaPietrasanta"
   
 ami-iit/purchases:
   - "DanielePucci"
@@ -129,6 +130,7 @@ ami-iit/sw-dev:
   - "nicktrem"
   - "lorycontixd"
   - "LudovicaDanovaro"
+  - "AriannaPietrasanta"
   
 ami-iit/electronics:
   - "DanielePucci"
@@ -165,6 +167,7 @@ ami-iit/model-based-design:
   - "lorycontixd"
   - "pillai-s"
   - "LudovicaDanovaro"
+  - "AriannaPietrasanta"
 
 ami-iit/ergocub:
   - "DanielePucci"
