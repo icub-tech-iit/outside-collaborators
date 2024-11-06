@@ -15,10 +15,6 @@ hpc-cluster:
     type: "group"
     permissions: "triage"
     
-  diegoferigo:
-    type: "user"
-    permissions: "write"
-    
   GiuliaP:
     type: "user"
     permissions: "write"

@@ -1,6 +1,5 @@
 ami-iit/everyone:
   - "DanielePucci"
-  - "diegoferigo"
   - "S-Dafarra"
   - "gabrielenava" 
   - "claudia-lat"
@@ -58,7 +57,6 @@ ami-iit/purchases:
   - "STaliani"
   - "Giulero"
   - "FabioBergonti"
-  - "diegoferigo"
   - "marcoforleo"
 
 ami-iit/seniors:
@@ -72,7 +70,6 @@ ami-iit/seniors:
   - "mebbaid"
   - "Giulero"
   - "FabioBergonti"
-  - "diegoferigo"
   
 ami-iit/mech:
   - "DanielePucci"
@@ -97,7 +94,6 @@ ami-iit/mech:
 
 ami-iit/sw-dev:
   - "DanielePucci"
-  - "diegoferigo"
   - "S-Dafarra"
   - "gabrielenava"
   - "GiulioRomualdi"
