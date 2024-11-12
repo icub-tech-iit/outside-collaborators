@@ -1,0 +1,8 @@
+ergocub2-mobile-base:
+  ami-iit/ergocub:
+    type: "group"
+    permissions: "write"
+
+  hsp-iit/ergocub:
+    type: "group"
+    permissions: "read"
