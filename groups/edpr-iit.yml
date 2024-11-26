@@ -6,9 +6,12 @@ edpr-iit/everyone:
   - "simbamford"
   - "lunagava"
   - "gaurvigoyal"
-  - "ejanotte"
+  - "mbarborinii"
   - "wngfra"
+  - "alfadi01"
   - "MohammadrezaKoolani"
+  - "LZC-68"
+  - "BernardMaacaron"
 
 edpr-iit/purchases:
   - "ChiaraBartolozzi"
@@ -16,7 +19,6 @@ edpr-iit/purchases:
   - "Iaxama"
   - "simbamford"
   - "arrenglover"
-  - "ejanotte"
   - "wngfra"
   - "gaurvigoyal"
 
@@ -24,7 +26,7 @@ edpr-iit/electronics:
   - "ChiaraBartolozzi"
   - "francescodiotalevi"
   - "simbamford"
-  - "ejanotte"
+
   
 edpr-iit/sw-dev:
   - "ChiaraBartolozzi"
