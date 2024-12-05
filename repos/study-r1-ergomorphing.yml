@@ -6,4 +6,8 @@ study-r1-ergomorphing:
   colombraf:
     type: "user"
     permissions: "write"
+
+  LeoGori:
+    type: "user"
+    permissions: "write"
   
