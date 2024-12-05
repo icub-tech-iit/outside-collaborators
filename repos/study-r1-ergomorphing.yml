@@ -2,10 +2,6 @@ study-r1-ergomorphing:
   hsp-iit/sw-dev:
     type: "group"
     permissions: "write"
-    
-  colombraf:
-    type: "user"
-    permissions: "write"
 
   LeoGori:
     type: "user"
