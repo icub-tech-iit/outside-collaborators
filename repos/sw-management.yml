@@ -7,15 +7,10 @@ sw-management:
     type: "group"
     permissions: "read"
 
-  edpr-iit/sw-dev:
+  hsp-iit/ergocub:
     type: "group"
     permissions: "read"
 
-  PasMarra:
-    type: "user"
-    permissions: "read"
-  
-  gabrielecaddeo:
-    type: "user"
-    permissions: "read" 
-    
+  edpr-iit/sw-dev:
+    type: "group"
+    permissions: "read"   
