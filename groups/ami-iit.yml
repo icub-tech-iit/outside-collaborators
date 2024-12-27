@@ -1,7 +1,6 @@
 ami-iit/everyone:
   - "DanielePucci"
   - "S-Dafarra"
-  - "gabrielenava" 
   - "claudia-lat"
   - "evalli-iit"
   - "CarlottaSartore"
@@ -45,7 +44,6 @@ ami-iit/everyone:
 ami-iit/purchases:
   - "DanielePucci"
   - "S-Dafarra"
-  - "gabrielenava" 
   - "claudia-lat"
   - "evalli-iit"
   - "CarlottaSartore"
@@ -63,7 +61,6 @@ ami-iit/purchases:
 ami-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
-  - "gabrielenava"
   - "claudia-lat"
   - "evalli-iit"
   - "CarlottaSartore"
@@ -76,8 +73,7 @@ ami-iit/mech:
   - "DanielePucci"
   - "S-Dafarra"
   - "vpunithreddy" 
-  - "FabioBergonti"
-  - "gabrielenava" 
+  - "FabioBergonti" 
   - "claudia-lat"
   - "antonellopaolino"
   - "giotherobot"
@@ -96,7 +92,6 @@ ami-iit/mech:
 ami-iit/sw-dev:
   - "DanielePucci"
   - "S-Dafarra"
-  - "gabrielenava"
   - "GiulioRomualdi"
   - "mebbaid"
   - "rob-mau"
@@ -170,7 +165,6 @@ ami-iit/ergocub:
   - "DanielePucci"
   - "S-Dafarra"
   - "claudia-lat"
-  - "gabrielenava" 
   - "HosameldinMohamed"
   - "evalli-iit"
   - "vpunithreddy"
