@@ -1,0 +1,11 @@
+{
+	"name": "CDE for Outside Collaborators",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"forwardPorts": [ ],
+	"remoteUser": "codespace",
+	"remoteEnv": {
+		"OUTSIDE_COLLABORATORS_GITHUB_ORG": "icub-tech-iit"
+	}
+}

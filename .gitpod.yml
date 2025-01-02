@@ -1,7 +1,0 @@
-image:
-  file: .gitpod.Dockerfile
-tasks:
-- before: |
-    echo "export OUTSIDE_COLLABORATORS_GITHUB_ORG=icub-tech-iit" >> ~/.bashrc-custom
-    echo "source ~/.bashrc-custom" >> ~/.bashrc
-    source ~/.bashrc-custom

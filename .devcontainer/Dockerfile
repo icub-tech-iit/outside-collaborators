@@ -17,8 +17,8 @@ RUN apt install -y apt-utils software-properties-common apt-transport-https sudo
 # Install gems
 RUN gem install octokit yaml
 
-# Create user gitpod
-RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod && \
+# Create user codespace
+RUN useradd -l -u 33333 -G sudo -md /home/codespace -s /bin/bash -p codespace codespace && \
     # passwordless sudo for users in the 'sudo' group
     sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
 
