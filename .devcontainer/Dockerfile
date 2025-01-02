@@ -25,6 +25,6 @@ RUN useradd -l -u 33333 -G sudo -md /home/codespace -s /bin/bash -p codespace co
 # Clean up unnecessary installation products
 RUN rm -Rf /var/lib/apt/lists/*
 
-# Launch bash from /workspace
-WORKDIR /workspace
+# Launch bash from /workspaces
+WORKDIR /workspaces
 CMD ["bash"]
