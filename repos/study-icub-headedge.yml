@@ -1,0 +1,5 @@
+study-icub-headedge:
+  FabioBergonti:
+    type: "user"
+    permissions: "read"
+    
