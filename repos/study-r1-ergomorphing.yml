@@ -7,3 +7,6 @@ study-r1-ergomorphing:
     type: "user"
     permissions: "write"
   
+  fbrand-new:
+    type: "user"
+    permissions: "write"
