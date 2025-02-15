@@ -22,7 +22,7 @@ edpr-iit/purchases/read:
   - "gaurvigoyal"
 
 # these users will have write access
-# plus,they will possibly play as rda-makers
+# plus, they will possibly play as rda-makers
 edpr-iit/purchases/rda-makers:
   - "ChiaraBartolozzi"
   - "arrenglover"

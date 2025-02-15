@@ -48,7 +48,7 @@ ami-iit/purchases/read:
   - "marcoforleo"
 
 # these users will have write access
-# plus,they will possibly play as rda-makers
+# plus, they will possibly play as rda-makers
 ami-iit/purchases/rda-makers:
   - "DanielePucci"
   - "S-Dafarra"

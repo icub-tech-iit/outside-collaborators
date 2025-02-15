@@ -43,7 +43,7 @@ hsp-iit/purchases/read:
   - "CarmelaCalabrese"
 
 # these users will have write access
-# plus,they will possibly play as rda-makers
+# plus, they will possibly play as rda-makers
 hsp-iit/purchases/rda-makers:
   - "lornat75"
   - "randaz81"
