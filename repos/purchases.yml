@@ -1,16 +1,28 @@
 purchases:
-  ami-iit/purchases:
+  ami-iit/purchases/read:
     type: "group"
-    permissions: "write"
+    permissions: "triage"
 
-  hsp-iit/purchases:
+  hsp-iit/purchases/read:
     type: "group"
-    permissions: "write"
+    permissions: "triage"
 
-  edpr-iit/purchases:
+  edpr-iit/purchases/read:
     type: "group"
-    permissions: "write"
+    permissions: "triage"
     
   ict-iit/everyone:
     type: "group"
     permissions: "triage"
+
+  ami-iit/purchases/rda-makers:
+    type: "group"
+    permissions: "write"
+
+  hsp-iit/purchases/rda-makers:
+    type: "group"
+    permissions: "write"
+
+  edpr-iit/purchases/rda-makers:
+    type: "group"
+    permissions: "write"

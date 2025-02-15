@@ -38,23 +38,28 @@ ami-iit/everyone:
   - "AriannaPietrasanta"
   - "illkid3"
   - "younik"
-  
-ami-iit/purchases:
+
+# these users will have read access only
+ami-iit/purchases/read:
+  - "Gianlucamilani"
+  - "dariosortino"
+  - "AntonellaTatarelli"
+  - "STaliani"
+  - "marcoforleo"
+
+# these users will have write access
+# plus,they will possibly play as rda-makers
+ami-iit/purchases/rda-makers:
   - "DanielePucci"
   - "S-Dafarra"
   - "claudia-lat"
   - "evalli-iit"
-  - "CarlottaSartore"
-  - "Gianlucamilani"
   - "GiulioRomualdi"
   - "mebbaid"
-  - "dariosortino"
-  - "AntonellaTatarelli"
-  - "STaliani"
   - "Giulero"
   - "FabioBergonti"
-  - "marcoforleo"
   - "HosameldinMohamed"
+  - "CarlottaSartore"
 
 ami-iit/seniors:
   - "DanielePucci"

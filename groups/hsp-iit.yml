@@ -33,16 +33,22 @@ hsp-iit/everyone:
   - "FrancescoGervino13" #Francesco Gervino
   - "MarcoNasato" #Marco Nasato
 
-hsp-iit/purchases:
-  - "lornat75"
-  - "randaz81"
-  - "GiuliaP"
+# these users will have read access only
+hsp-iit/purchases/read:
   - "Arya07" #Elisa Maiettini
   - "elandini84"
   - "SimoneMic" #Simone Micheletti
   - "fedeceola"
   - "MariaLombardi"
   - "CarmelaCalabrese"
+
+# these users will have write access
+# plus,they will possibly play as rda-makers
+hsp-iit/purchases/rda-makers:
+  - "lornat75"
+  - "randaz81"
+  - "GiuliaP"
+  - "elandini84"
 
 hsp-iit/modeling:
   - "lornat75"
