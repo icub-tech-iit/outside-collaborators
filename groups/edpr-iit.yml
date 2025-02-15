@@ -13,14 +13,19 @@ edpr-iit/everyone:
   - "LZC-68"
   - "BernardMaacaron"
 
-edpr-iit/purchases:
-  - "ChiaraBartolozzi"
+# these users will have read access only
+edpr-iit/purchases/read:
   - "2103simon"
   - "Iaxama"
   - "simbamford"
-  - "arrenglover"
   - "wngfra"
   - "gaurvigoyal"
+
+# these users will have write access
+# plus,they will possibly play as rda-makers
+edpr-iit/purchases/rda-makers:
+  - "ChiaraBartolozzi"
+  - "arrenglover"
 
 edpr-iit/electronics:
   - "ChiaraBartolozzi"
