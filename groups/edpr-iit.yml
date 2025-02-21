@@ -16,7 +16,6 @@ edpr-iit/everyone:
 # these users will have read access only
 edpr-iit/purchases/read:
   - "2103simon"
-  - "Iaxama"
   - "simbamford"
   - "wngfra"
   - "gaurvigoyal"
@@ -26,6 +25,7 @@ edpr-iit/purchases/read:
 edpr-iit/purchases/rda-makers:
   - "ChiaraBartolozzi"
   - "arrenglover"
+  - "Iaxama"
 
 edpr-iit/electronics:
   - "ChiaraBartolozzi"
