@@ -16,7 +16,6 @@ edpr-iit/everyone:
 # these users will have read access only
 edpr-iit/purchases/read:
   - "2103simon"
-  - "Iaxama"
   - "simbamford"
   - "wngfra"
   - "gaurvigoyal"
