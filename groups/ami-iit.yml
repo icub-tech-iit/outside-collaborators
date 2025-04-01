@@ -36,7 +36,6 @@ ami-iit/everyone:
   - "LudovicaDanovaro"
   - "Btrombetta90"
   - "AriannaPietrasanta"
-  - "illkid3"
   - "younik"
 
 # these users will have read access only
@@ -189,7 +188,6 @@ ami-iit/ergocub:
   - "pillai-s"
   - "LudovicaDanovaro"
   - "Btrombetta90"
-  - "illkid3"
 
 ami-iit/ifeel:
   - "DanielePucci"
