@@ -34,3 +34,7 @@ project-jl2-camozzi:
   camozzi/crc:
     type: "group"
     permissions: "write"
+
+  aandser:
+    type: "user"
+    permissions: "read"
