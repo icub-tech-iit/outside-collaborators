@@ -30,4 +30,6 @@ five:
   CarlottaSartore:
     type: "user"
     permissions: "triage"
-    
+  GiulioRomualdi:
+    type: "user"
+    permissions: "triage"
