@@ -30,7 +30,6 @@ ami-iit/everyone:
   - "fils99"
   - "pillai-s"
   - "marcoforleo"
-  - "nicktrem"
   - "Supermonkey-design"
   - "LudovicaDanovaro"
   - "Btrombetta90"
@@ -85,7 +84,6 @@ ami-iit/mech:
   - "flferretti"
   - "fils99"
   - "pillai-s"
-  - "nicktrem"
   - "xela-95"
   - "S-Dafarra"
   - "GiulioRomualdi"
@@ -122,7 +120,6 @@ ami-iit/sw-dev:
   - "fils99"
   - "pillai-s"
   - "marcoforleo"
-  - "nicktrem"
   - "LudovicaDanovaro"
   - "AriannaPietrasanta"
   
@@ -135,7 +132,6 @@ ami-iit/electronics:
   - "dariosortino"
   - "fils99"
   - "marcoforleo"
-  - "nicktrem"
 
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -155,7 +151,6 @@ ami-iit/model-based-design:
   - "fils99"
   - "pillai-s"
   - "marcoforleo"
-  - "nicktrem"
   - "pillai-s"
   - "LudovicaDanovaro"
   - "AriannaPietrasanta"
