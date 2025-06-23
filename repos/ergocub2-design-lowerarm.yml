@@ -1,14 +1,8 @@
 ergocub2-design-lowerarm:
-  hsp-iit/sw-dev:
-    type: "group"
-    permissions: "read"
-  
-  ami-iit/mech:
+  ami-iit/ergocub:
     type: "group"
     permissions: "read"
 
-  PasMarra:
-    type: "user"
+  hsp-iit/ergocub:
+    type: "group"
     permissions: "read"
-
-  
