@@ -35,6 +35,7 @@ ami-iit/everyone:
   - "Btrombetta90"
   - "AriannaPietrasanta"
   - "lucaslibshutz"
+  - "camillagallina2000"
 
 # these users will have read access only
 ami-iit/purchases/read:
@@ -125,6 +126,7 @@ ami-iit/sw-dev:
   - "LudovicaDanovaro"
   - "AriannaPietrasanta"
   - "lucaslibshutz"
+  - "camillagallina2000"
   
 ami-iit/electronics:
   - "DanielePucci"
