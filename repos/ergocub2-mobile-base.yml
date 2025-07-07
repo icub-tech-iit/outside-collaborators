@@ -6,7 +6,3 @@ ergocub2-mobile-base:
   hsp-iit/ergocub:
     type: "group"
     permissions: "read"
-
-  italdesign/mobile-base:
-    type: "group"
-    permissions: "write"
