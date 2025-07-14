@@ -6,3 +6,7 @@ ergocub2-design-lowerarm:
   hsp-iit/ergocub:
     type: "group"
     permissions: "read"
+
+  hsp-iit/sw-dev:
+    type: "group"
+    permissions: "read"
