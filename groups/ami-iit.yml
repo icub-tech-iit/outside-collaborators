@@ -16,7 +16,6 @@ ami-iit/everyone:
   - "Zweisteine96"
   - "rob-mau"
   - "evelyd"
-  - "dariosortino"
   - "LoreMoretti"
   - "G-Cervettini"
   - "giotherobot"
@@ -34,13 +33,12 @@ ami-iit/everyone:
   - "LudovicaDanovaro"
   - "Btrombetta90"
   - "AriannaPietrasanta"
-  - "lucaslibshutz"
   - "camillagallina2000"
+  - "abhi01-max"
 
 # these users will have read access only
 ami-iit/purchases/read:
   - "Gianlucamilani"
-  - "dariosortino"
   - "AntonellaTatarelli"
   - "STaliani"
   - "marcoforleo"
@@ -92,8 +90,8 @@ ami-iit/mech:
   - "mebbaid"
   - "Supermonkey-design"
   - "Giulero"
-  - "lucaslibshutz"
   - "HosameldinMohamed"
+  - "abhi01-max"
 
 ami-iit/sw-dev:
   - "DanielePucci"
@@ -134,9 +132,9 @@ ami-iit/electronics:
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
-  - "dariosortino"
   - "fils99"
   - "marcoforleo"
+  - "abhi01-max"
 
 ami-iit/model-based-design:
   - "DanielePucci"
@@ -159,7 +157,6 @@ ami-iit/model-based-design:
   - "pillai-s"
   - "LudovicaDanovaro"
   - "AriannaPietrasanta"
-  - "lucaslibshutz"
 
 ami-iit/ergocub:
   - "DanielePucci"
@@ -189,12 +186,12 @@ ami-iit/ergocub:
   - "pillai-s"
   - "LudovicaDanovaro"
   - "Btrombetta90"
+  - "abhi01-max"
 
 ami-iit/ifeel:
   - "DanielePucci"
   - "evalli-iit"
   - "Gianlucamilani"
-  - "dariosortino"
   - "marcoforleo"
   - "LudovicaDanovaro"
 
