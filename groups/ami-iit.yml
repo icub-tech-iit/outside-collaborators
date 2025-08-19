@@ -38,7 +38,6 @@ ami-iit/everyone:
 
 # these users will have read access only
 ami-iit/purchases/read:
-  - "Gianlucamilani"
   - "AntonellaTatarelli"
   - "STaliani"
   - "marcoforleo"
@@ -58,6 +57,7 @@ ami-iit/purchases/rda-makers:
   - "HosameldinMohamed"
   - "CarlottaSartore"
   - "isorrentino"
+  - "Gianlucamilani"
 
 ami-iit/seniors:
   - "DanielePucci"
@@ -71,6 +71,7 @@ ami-iit/seniors:
   - "FabioBergonti"
   - "HosameldinMohamed"
   - "isorrentino"
+  - "Gianlucamilani"
   
 ami-iit/mech:
   - "DanielePucci"
