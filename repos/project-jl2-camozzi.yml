@@ -38,3 +38,7 @@ project-jl2-camozzi:
   aandser:
     type: "user"
     permissions: "read"
+
+  AleTarsi:
+    type: "user"
+    permissions: "write"
