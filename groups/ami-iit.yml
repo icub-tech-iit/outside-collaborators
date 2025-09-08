@@ -34,6 +34,7 @@ ami-iit/everyone:
   - "AriannaPietrasanta"
   - "camillagallina2000"
   - "abhi01-max"
+  - "matteo-tafuro"
 
 # these users will have read access only
 ami-iit/purchases/read:
@@ -101,6 +102,7 @@ ami-iit/sw-dev:
   - "isorrentino"
   - "FabioBergonti"
   - "Giulero"
+  - "matteo-tafuro"
   - "HosameldinMohamed"
   - "antonellopaolino"
   - "LoreMoretti"
