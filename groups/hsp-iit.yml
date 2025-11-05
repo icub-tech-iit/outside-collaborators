@@ -23,7 +23,6 @@ hsp-iit/everyone:
   - "GelsominaDiPalma" #Gelsomina di Palma
   - "Luca0101" #Gianluca Correnti
   - "fdonat7" #Francesco Donato
-  - "ChiaraFalagario" 
   - "LeoGori" #Leonardo Gori
   - "carlo-alessi" #Carlo Alessi
   - "malcol123" #Martina Columbaro
@@ -32,6 +31,7 @@ hsp-iit/everyone:
   - "mxhrnxz" #Mehrnaz Amirkalali
   - "BeniaminoSquitieri" #BeniaminoSquitieri
   - "fincatomarta" #fincato marta
+  - "davide-enr" #Davide Enrico
 
 # these users will have read access only
 hsp-iit/purchases/read:
@@ -92,3 +92,6 @@ hsp-iit/hpc:
   - "fdonat7" #Francesco Donato
   - "carlo-alessi" #Carlo Alessi
   - "FrancescoGervino13" #Francesco Gervino
+  - "davide-enr" #Davide Enrico 
+
+  
