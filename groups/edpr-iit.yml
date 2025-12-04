@@ -11,6 +11,7 @@ edpr-iit/everyone:
   - "MohammadrezaKoolani"
   - "LZC-68"
   - "BernardMaacaron"
+  - "Ali-Hajiebrahim-Zargar"
 
 # these users will have read access only
 edpr-iit/purchases/read:
@@ -29,6 +30,7 @@ edpr-iit/electronics:
   - "ChiaraBartolozzi"
   - "francescodiotalevi"
   - "simbamford"
+  - "Ali-Hajiebrahim-Zargar"
 
 edpr-iit/sw-dev:
   - "ChiaraBartolozzi"
