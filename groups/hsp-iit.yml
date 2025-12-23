@@ -36,11 +36,11 @@ hsp-iit/everyone:
 # these users will have read access only
 hsp-iit/purchases/read:
   - "Arya07" #Elisa Maiettini
-  - "elandini84"
   - "SimoneMic" #Simone Micheletti
   - "fedeceola"
   - "MariaLombardi"
   - "CarmelaCalabrese"
+  - "gabrielecaddeo"
 
 # these users will have write access
 # plus, they will possibly play as rda-makers
