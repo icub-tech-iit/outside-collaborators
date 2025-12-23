@@ -2,7 +2,6 @@ ami-iit/everyone:
   - "DanielePucci"
   - "S-Dafarra"
   - "claudia-lat"
-  - "evalli-iit"
   - "CarlottaSartore"
   - "Gianlucamilani"
   - "GiulioRomualdi"
@@ -48,7 +47,6 @@ ami-iit/purchases/rda-makers:
   - "DanielePucci"
   - "S-Dafarra"
   - "claudia-lat"
-  - "evalli-iit"
   - "GiulioRomualdi"
   - "Giulero"
   - "FabioBergonti"
@@ -61,7 +59,6 @@ ami-iit/seniors:
   - "DanielePucci"
   - "S-Dafarra"
   - "claudia-lat"
-  - "evalli-iit"
   - "CarlottaSartore"
   - "GiulioRomualdi"
   - "Giulero"
@@ -121,7 +118,6 @@ ami-iit/sw-dev:
   
 ami-iit/electronics:
   - "DanielePucci"
-  - "evalli-iit"
   - "Gianlucamilani"
   - "GiulioRomualdi"
   - "isorrentino"
@@ -153,7 +149,6 @@ ami-iit/ergocub:
   - "S-Dafarra"
   - "claudia-lat"
   - "HosameldinMohamed"
-  - "evalli-iit"
   - "vpunithreddy"
   - "CarlottaSartore"
   - "Giulero"
@@ -178,7 +173,6 @@ ami-iit/ergocub:
 
 ami-iit/ifeel:
   - "DanielePucci"
-  - "evalli-iit"
   - "Gianlucamilani"
   - "marcoforleo"
   - "LudovicaDanovaro"

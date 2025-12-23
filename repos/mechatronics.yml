@@ -7,7 +7,3 @@ mechatronics:
     type: "user"
     permissions: "read"
   
-  evalli-iit:
-    type: "user"
-    permissions: "read"
-
