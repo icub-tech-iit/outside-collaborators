@@ -1,4 +1,4 @@
-ergocub2-mobile-base:
+mobile-base:
   ami-iit/ergocub:
     type: "group"
     permissions: "write"
