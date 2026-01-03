@@ -1,8 +1,4 @@
 hpc-cluster:
-  ami-iit/sw-dev:
-    type: "group"
-    permissions: "triage"
-    
   hsp-iit/sw-dev:
     type: "group"
     permissions: "triage"

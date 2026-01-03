@@ -1,9 +1,2 @@
 mechatronics:
-  ami-iit/mech:
-    type: "group"
-    permissions: "read"
-    
-  Gianlucamilani:
-    type: "user"
-    permissions: "read"
   

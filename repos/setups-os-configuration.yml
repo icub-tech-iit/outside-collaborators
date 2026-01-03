@@ -1,5 +1,2 @@
 setups-os-configuration:
-  ami-iit/seniors:
-    type: "group"
-    permissions: "read"
   

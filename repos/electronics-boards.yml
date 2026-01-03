@@ -1,8 +1,4 @@
 electronics-boards:
-  ami-iit/electronics:
-    type: "group"
-    permissions: "write"
-
   edpr-iit/electronics:
     type: "group"
     permissions: "read"

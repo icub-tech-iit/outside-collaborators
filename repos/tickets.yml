@@ -1,8 +1,4 @@
 tickets:
-  ami-iit/everyone:
-    type: "group"
-    permissions: "triage"
-    
   hsp-iit/everyone:
     type: "group"
     permissions: "triage"
@@ -18,10 +14,6 @@ tickets:
   reafrancesco:
     type: "user"
     permissions: "triage"
-
-  DanielePucci:
-    type: "user"
-    permissions: "write"
 
   lornat75:
     type: "user"

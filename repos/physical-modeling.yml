@@ -1,12 +1,4 @@
 physical-modeling:
-  ami-iit/seniors:
-    type: "group"
-    permissions: "read"
-
-  ami-iit/model-based-design:
-    type: "group"
-    permissions: "read"  
-
   hsp-iit/modeling:
     type: "group"
     permissions: "read"

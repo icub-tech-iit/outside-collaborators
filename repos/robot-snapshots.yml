@@ -1,8 +1,4 @@
 robot-snapshots:
-  ami-iit/mech:
-    type: "group"
-    permissions: "read"
-    
   hsp-iit/ergocub:
     type: "group"
     permissions: "read"
