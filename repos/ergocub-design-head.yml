@@ -1,4 +1,2 @@
 ergocub-design-head:
-  hsp-iit/ergocub:
-    type: "group"
-    permissions: "read"
+

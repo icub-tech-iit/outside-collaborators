@@ -1,4 +1,1 @@
 ergocub-design-lowerbody:
-  hsp-iit/ergocub:
-    type: "group"
-    permissions: "read"

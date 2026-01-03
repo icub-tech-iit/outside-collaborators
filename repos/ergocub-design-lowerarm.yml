@@ -1,5 +1,1 @@
 ergocub-design-lowerarm:
-  hsp-iit/ergocub:
-    type: "group"
-    permissions: "read"
-

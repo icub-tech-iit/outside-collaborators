@@ -1,5 +1,1 @@
 ergocub-design-joint:
-  hsp-iit/ergocub:
-    type: "group"
-    permissions: "read"
-
