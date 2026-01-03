@@ -35,6 +35,14 @@ project-jl2-camozzi:
     type: "user"
     permissions: "read"
 
+  matteomastrogiuseppe:
+    type: "user"
+    permissions: "read"
+
+  SimoneCortinovis97:
+    type: "user"
+    permissions: "read"
+
   STaliani:
     type: "user"
     permissions: "read"
