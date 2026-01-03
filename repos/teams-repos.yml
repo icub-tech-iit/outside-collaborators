@@ -2,9 +2,6 @@ fix: &template_teams_repos
   lornat75:
     type: "user"
     permissions: "triage"
-  DanielePucci:
-    type: "user"
-    permissions: "triage"
   ChiaraBartolozzi:
     type: "user"
     permissions: "triage"
@@ -12,24 +9,7 @@ fix: &template_teams_repos
 proto: *template_teams_repos
 
 dev: *template_teams_repos
-  
-five:
-  <<: *template_teams_repos
-  FabioBergonti:
-    type: "user"
-    permissions: "triage"
-  G-Cervettini:
-    type: "user"
-    permissions: "triage"
-  Supermonkey-design:
-    type: "user"
-    permissions: "triage"
-  rob-mau:
-    type: "user"
-    permissions: "triage"
-  CarlottaSartore:
-    type: "user"
-    permissions: "triage"
-  GiulioRomualdi:
-    type: "user"
-    permissions: "triage"
+
+four: *template_teams_repos
+
+five: *template_teams_repos

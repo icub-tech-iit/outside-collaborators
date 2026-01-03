@@ -1,8 +1,4 @@
 purchases:
-  ami-iit/purchases/read:
-    type: "group"
-    permissions: "triage"
-
   hsp-iit/purchases/read:
     type: "group"
     permissions: "triage"
@@ -14,10 +10,6 @@ purchases:
   ict-iit/everyone:
     type: "group"
     permissions: "triage"
-
-  ami-iit/purchases/rda-makers:
-    type: "group"
-    permissions: "write"
 
   hsp-iit/purchases/rda-makers:
     type: "group"

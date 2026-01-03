@@ -1,16 +1,5 @@
 cad-mechanics:
-  ami-iit/mech:
-    type: "group"
-    permissions: "read"
- 
-  FabioBergonti:
-    type: "user"
-    permissions: "write"
-
   mws-iit/mech:
     type: "group"
     permissions: "read"
 
-  torazza:
-    type: "user"
-    permissions: "read"

@@ -1,8 +1,4 @@
 training:
-  ami-iit/everyone:
-    type: "group"
-    permissions: "read"
-    
   hsp-iit/everyone:
     type: "group"
     permissions: "read"
