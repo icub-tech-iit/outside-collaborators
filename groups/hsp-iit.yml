@@ -1,7 +1,6 @@
 hsp-iit/everyone:
   - "lornat75"
   - "randaz81"
-  - "Arya07" #Elisa Maiettini
   - "GiuliaP" #Giulia Pasquale
   - "MariaLombardi"
   - "morpheus1820" #Stefano Rosa
@@ -35,7 +34,6 @@ hsp-iit/everyone:
 
 # these users will have read access only
 hsp-iit/purchases/read:
-  - "Arya07" #Elisa Maiettini
   - "SimoneMic" #Simone Micheletti
   - "fedeceola"
   - "MariaLombardi"
@@ -80,7 +78,6 @@ hsp-iit/ergocub:
 hsp-iit/hpc:
   - "lornat75"
   - "GiuliaP"
-  - "Arya07" #Elisa Maiettini
   - "fedeceola"
   - "FedericoVasile1"
   - "steb6" #Stefano Berti
