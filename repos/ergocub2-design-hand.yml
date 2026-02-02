@@ -3,3 +3,7 @@ ergocub2-design-hand:
     type: "group"
     permissions: "read"
 
+  PasMarra:
+    type: "user"
+    permissions: "write"
+    
