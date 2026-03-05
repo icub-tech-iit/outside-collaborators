@@ -1,8 +1,8 @@
 icubstanford01:  
-  ddetommaso:
-    type: "user"
+  stanford-robotics-center/everyone:
+    type: "group"
     permissions: "write"
 
-  chongwilliam:
+  ddetommaso:
     type: "user"
     permissions: "write"
