@@ -1,0 +1,8 @@
+icubstanford01:  
+  ddetommaso:
+    type: "user"
+    permissions: "write"
+
+  chongwilliam:
+    type: "user"
+    permissions: "write"
