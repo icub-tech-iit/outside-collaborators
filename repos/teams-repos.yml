@@ -1,4 +1,4 @@
-fix: &template_teams_repos
+team-vega: &template_teams_repos
   lornat75:
     type: "user"
     permissions: "triage"
@@ -6,10 +6,8 @@ fix: &template_teams_repos
     type: "user"
     permissions: "triage"
 
-proto: *template_teams_repos
+team-helios: *template_teams_repos
 
-dev: *template_teams_repos
+team-altair: *template_teams_repos
 
-four: *template_teams_repos
-
-five: *template_teams_repos
+team-deneb: *template_teams_repos
