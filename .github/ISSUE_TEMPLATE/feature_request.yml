@@ -9,7 +9,7 @@ body:
       ⚠
       Verify first that your request is not [already reported on GitHub][issue search].
 
-      [issue search]: https://github.com/icub-tech-iit/outside-collaborators/search?q=is%3Aissue&type=issues
+      [issue search]: https://github.com/mesh-iit/outside-collaborators/search?q=is%3Aissue&type=issues
 - type: textarea
   attributes:
     label: Is your feature request related to a problem?
